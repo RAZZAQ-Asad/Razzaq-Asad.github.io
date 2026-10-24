@@ -1,1 +1,2 @@
-Put photo.jpg, CV, thesis.pdf and slide PDFs here.
+Site files. To change photos, links, logos or PDFs, edit assets/config.js.
+Gallery photos go in assets/gallery/.
