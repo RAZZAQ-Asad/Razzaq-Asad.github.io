@@ -35,12 +35,14 @@ window.SITE = {
     jst: "assets/logo-jst.png",
     spring: "assets/logo-spring.png",
     gcuf: "assets/logo-gcuf.png",
-    approsoft: { src: "assets/logo-approsoft.webp", dark: true }
+    approsoft: { src: "assets/logo-approsoft.webp", dark: true },
+    souya: { src: "assets/logo-souya.png", dark: true },
+    iqra: "assets/logo-iqra.png"
   },
 
   papers: {           // pdf = your own manuscript, slides = talk PDF
     J1: { pdf: "", slides: "" }, J2: { slides: "" }, J3: { pdf: "" },
-    C1: { pdf: "assets/ANTS2026-Razzaq-Yasuda.pdf", slides: "" },
+    C1: { pdf: "", slides: "" },
     C2: { pdf: "", slides: "" }, C3: { pdf: "", slides: "" }, C4: { pdf: "", slides: "" },
     C5: { pdf: "", slides: "" }, C6: { pdf: "", slides: "" }, C7: { pdf: "", slides: "" },
     C8: { pdf: "" }, P1: { pdf: "" }
@@ -49,6 +51,10 @@ window.SITE = {
   /* Gallery. category: "japan" = Life in Japan, "events" = Events & Conferences,
      "moments" = Life Moments. Add as many as you like; newest first looks best. */
   gallery: [
+    { src: "assets/gallery/wpi-kuas-2025-presentations.jpg", caption: "WPI at KUAS 2025: final project presentations", category: "events" },
+    { src: "assets/gallery/lab-group-photo.jpg", caption: "Group photo with lab members and students", category: "moments" },
+    { src: "assets/gallery/lab-get-together.jpg", caption: "Lab get-together", category: "moments" },
+    { src: "assets/gallery/lab-farewell-dinner-2024.jpg", caption: "Lab fall farewell and welcome dinner, 2024", category: "moments" },
     { src: "assets/gallery/sakura-japan.jpg", caption: "Cherry blossom season in Japan", category: "japan" }
     // { src: "assets/gallery/toyama-mountains.jpg", caption: "Tateyama mountains from Toyama", category: "japan" },
     // { src: "assets/gallery/iridia-dorigo.jpg", caption: "With Prof. Marco Dorigo at IRIDIA, Brussels, 2025", category: "events" },
