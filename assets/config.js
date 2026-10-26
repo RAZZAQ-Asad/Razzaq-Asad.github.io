@@ -18,6 +18,7 @@ window.SITE = {
     linkedin: "https://www.linkedin.com/in/asadrazzaqphd/",
     semanticscholar: "https://www.semanticscholar.org/author/2238456971",
     github: "https://github.com/RAZZAQ-Asad",
+    spring: "https://promotion-research.ctg.u-toyama.ac.jp/spring-student/razzaq_r5",
     facebook: "https://www.facebook.com/asu605",
     instagram: ""     // "https://www.instagram.com/your-username/"
   },
@@ -27,9 +28,12 @@ window.SITE = {
      Empty "" = a clean text card is shown instead. */
   logos: {
     kuas: "assets/logo-kuas.svg",
+    nisarlab: "assets/logo-nisarlab.png",
+    sice: "",
     toyama: "assets/logo-toyama.png",
     iridia: "assets/logo-ulb.svg",
-    jst: "",
+    jst: "assets/logo-jst.png",
+    spring: "assets/logo-spring.png",
     gcuf: "assets/logo-gcuf.png",
     approsoft: { src: "assets/logo-approsoft.webp", dark: true }
   },

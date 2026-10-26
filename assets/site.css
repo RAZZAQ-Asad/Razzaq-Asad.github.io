@@ -402,3 +402,36 @@ dialog::backdrop { background: rgb(0 0 0 / .6); }
 .tl-logo.has-logo { display: inline-flex; align-items: center; height: 34px; padding: 4px 8px; margin-bottom: 8px; background: #fff; border: 1px solid var(--line); border-radius: 6px; }
 .tl-logo.has-logo.dark { background: #14263A; border-color: #14263A; }
 .tl-logo img { height: 24px; width: auto; max-width: 220px; display: block; }
+
+/* ---------- floating logo ribbon (home) ---------- */
+.affil-sec .eyebrow { margin-bottom: 14px; }
+.marquee { overflow: hidden; padding-block: 10px 14px;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); }
+.marquee-track { display: flex; width: max-content; animation: mq-scroll 55s linear infinite; }
+.marquee:hover .marquee-track, .marquee:focus-within .marquee-track { animation-play-state: paused; }
+.marquee-list { display: flex; gap: 18px; margin: 0; padding: 6px 9px; list-style: none; }
+.marquee-list li { animation: mq-float 5s ease-in-out infinite; }
+.marquee-list li:nth-child(2n) { animation-delay: -2.5s; }
+.marquee-list li:nth-child(3n) { animation-duration: 6s; }
+@keyframes mq-scroll { to { transform: translateX(-50%); } }
+@keyframes mq-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+.mq-item { display: flex; align-items: center; gap: 12px; padding: 9px 16px 9px 9px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); color: var(--ink); text-decoration: none; transition: transform .2s, box-shadow .2s, border-color .2s; }
+a.mq-item:hover, a.mq-item:focus-visible { transform: translateY(-3px) scale(1.04); box-shadow: var(--shadow); border-color: var(--accent); }
+.mq-logo { height: 52px; min-width: 52px; padding: 4px 10px; border-radius: 9px; display: flex; align-items: center; justify-content: center; background: color-mix(in srgb, var(--accent) 12%, var(--surface)); }
+.mq-logo.has-logo { background: #fff; border: 1px solid var(--line); }
+.mq-logo.has-logo.dark { background: #14263A; border-color: #14263A; }
+.mq-logo img { height: 38px; width: auto; max-width: 170px; object-fit: contain; display: block; }
+.mq-text { font-family: var(--f-display); font-weight: 700; font-size: 1rem; color: var(--accent); white-space: nowrap; }
+.mq-cap { display: flex; flex-direction: column; line-height: 1.25; }
+.mq-cap b { font-family: var(--f-display); font-weight: 500; font-size: .95rem; white-space: nowrap; }
+.mq-cap span { font-family: var(--f-mono); font-size: .7rem; color: var(--muted); white-space: nowrap; }
+a.tl-logo.has-logo { transition: border-color .15s, transform .15s; }
+a.tl-logo.has-logo:hover { border-color: var(--accent); transform: translateY(-1px); }
+@media (prefers-reduced-motion: reduce) {
+  .marquee { -webkit-mask-image: none; mask-image: none; }
+  .marquee-track { animation: none; width: auto; }
+  .marquee-list { flex-wrap: wrap; justify-content: center; }
+  .marquee-list[aria-hidden="true"] { display: none; }
+  .marquee-list li { animation: none; }
+}
+@media (max-width: 620px) { .marquee-track { animation-duration: 40s; } .mq-logo { height: 44px; } .mq-logo img { height: 32px; } }
