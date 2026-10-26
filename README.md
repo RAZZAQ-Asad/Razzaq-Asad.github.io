@@ -8,7 +8,7 @@ A static, multi-page academic website with an interactive swarm robotics simulat
 
 | File | Page |
 |---|---|
-| `index.html` | Home: portrait, affiliations, key numbers, news, research overview, awards, gallery preview, contact |
+| `index.html` | Home: portrait, floating logo ribbon (each logo links to the institution), news, research overview, awards, gallery preview, contact |
 | `research.html` | Research themes, figures from the published studies, the Swarm Lab simulator, PhD thesis |
 | `publications.html` | Journal articles, conference papers, poster and theses, with filters and "copy citation" |
 | `gallery.html` | Photo albums: Life in Japan, Events & Conferences, Life Moments |
@@ -70,9 +70,9 @@ The model is simplified (2-D, rule-based controllers). The published studies use
 ## Status (last updated 27 Oct 2026)
 
 Still to add:
-- Gallery photos (Toyama mountains, IRIDIA with Prof. Dorigo, conferences, lab): put them in `assets/gallery/` and list them in `config.js`.
+- More gallery photos (Toyama mountains, IRIDIA with Prof. Dorigo, conferences): put them in `assets/gallery/` and list them in `config.js`. Four lab and event photos from Google Drive are already in.
 - An Instagram link, if wanted (`links.instagram` in `config.js`).
-- A website link for Approsoft (its logo is shown without a link).
+- Website links for Approsoft, Souya and Iqra College (their logos are shown without a link). In `index.html`, change `<span class="mq-item">` for that entry to `<a class="mq-item" href="URL" target="_blank" rel="noopener">` (and `</span>` to `</a>`) in both copies of the ribbon list.
 
 ## Photo tips
 
