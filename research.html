@@ -77,12 +77,29 @@
     <div class="now indent">
       <div class="note-box reveal">
         <p class="eyebrow">Now · KUAS, since Dec 2025</p>
-        <p>At the NISAR Lab I work on AI for multi-robot and human-machine systems, including medical robotics and a social robot that navigates through crowds.</p>
+        <p>At the <a href="https://lab.kuas.ac.jp/~nisarlab/" target="_blank" rel="noopener">NISAR Lab</a> I work on AI for multi-robot and human-machine systems, including medical robotics and a social robot that navigates through crowds.</p>
       </div>
       <div class="note-box reveal">
         <p class="eyebrow">IRIDIA, Brussels · 2025</p>
-        <p>Visiting PhD student with Prof. Marco Dorigo, studying blockchain for decentralized coordination, trust and data integrity in robot swarms.</p>
+        <p>Visiting PhD student at <a href="https://iridia.ulb.ac.be/" target="_blank" rel="noopener">IRIDIA</a> with Prof. Marco Dorigo, studying blockchain for decentralized coordination, trust and data integrity in robot swarms.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="figures" aria-labelledby="h-figs">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">From my simulations</p>
+      <div><h2 id="h-figs">What the robots actually did</h2>
+        <p class="lead">Figures from my published studies. Each line is the path of one robot or one transported object.</p></div>
+    </div>
+    <div class="figs indent">
+      <figure class="reveal"><img src="assets/fig-jrm2023-transport.jpg" alt="Robot trajectories in a cooperative transport experiment with two goal zones" loading="lazy" width="708" height="712"><figcaption><b>Cooperative transport</b> by robots with different abilities. Paths of robots and objects heading to the goal zones. <a href="publications.html#J2">J2 · JRM 2023</a></figcaption></figure>
+      <figure class="reveal"><img src="assets/fig-jrm2023-exploration.jpg" alt="Robot trajectories in an exploration experiment" loading="lazy" width="415" height="444"><figcaption><b>Search and approach.</b> Evolved controllers find objects with only local sensing. <a href="publications.html#J2">J2</a></figcaption></figure>
+      <figure class="reveal"><img src="assets/fig-alr2026-composition.jpg" alt="Trajectories of a heterogeneous swarm moving an object to the goal" loading="lazy" width="800" height="801"><figcaption><b>Team composition and perception</b>, evolved together with the controller. <a href="publications.html#J1">J1 · ALR 2026</a></figcaption></figure>
+      <figure class="reveal wide"><img src="assets/fig-ants2026-distillation.jpg" alt="Diagram: several teacher networks, one per task, distilled into one student network" loading="lazy" width="1045" height="651"><figcaption><b>Knowledge distillation</b>: one teacher network per task trains a single compact student network. <a href="publications.html#C1">C1 · ANTS 2026</a></figcaption></figure>
+      <figure class="reveal"><img src="assets/fig-ants2026-simulation.jpg" alt="Simulation snapshot with robots, objects, an obstacle and the goal zone" loading="lazy" width="800" height="802"><figcaption><b>Composite tasks</b>: transport, obstacle avoidance and aggregation with one student controller. <a href="publications.html#C1">C1</a></figcaption></figure>
     </div>
   </div>
 </section>
@@ -92,17 +109,23 @@
     <div class="sec-head">
       <p class="eyebrow">Interactive</p>
       <div>
-        <h2 id="h-lab">Swarm Lab: move the box together</h2>
-        <p class="lead">Eighteen robots, two kinds. Scouts see far but cannot push. Workers push hard but only notice the box when they are almost touching it. A scout that finds the box waits behind it and signals; workers who hear the signal come to help. The box moves only when at least five workers push at once. Choose the mix, run a trial, then let evolution try.</p>
+        <h2 id="h-lab">Swarm Lab: map, find and deliver</h2>
+        <p class="lead">A team of robots enters a building it has never seen. Three heavy packages are somewhere inside and must reach the dock. Scouts carry a 360° LiDAR and a camera: they build a shared map and spot packages, but cannot push. Workers are cheap and strong, yet have only a short-range IR ring, so they creep through unmapped space. Map data and task messages travel over a radio mesh back to the base station, and every robot must return to the charging bay before its battery runs flat. You have 120 credits: a scout costs 12, a worker 5. Design the team, run the mission, then let evolution design its own.</p>
       </div>
+    </div>
+    <div class="chips" id="scen" role="group" aria-label="Scenario" style="margin-bottom:16px">
+      <button class="chip" type="button" aria-pressed="true" data-key="warehouse">Warehouse</button>
+      <button class="chip" type="button" aria-pressed="false" data-key="rubble">Disaster site</button>
+      <button class="chip" type="button" aria-pressed="false" data-key="hall">Open hall</button>
     </div>
     <div class="lab-grid">
       <div class="arena-col">
         <div class="canvas-frame">
-          <canvas id="arena" width="600" height="380" aria-label="Swarm Lab arena"></canvas>
-          <div class="hud" id="hud">t 0.0 s · box 0%</div>
+          <canvas id="arena" width="900" height="540" aria-label="Swarm Lab arena. Click a robot to inspect it."></canvas>
+          <div class="hud" id="hud">t 0:00 · delivered 0/3</div>
         </div>
-        <p class="caption"><span class="key"><span class="dot s"></span>scout</span><span class="key"><span class="dot w"></span>worker</span><span>thin lines: a worker following a scout's signal</span><span>same starting arena for you and for evolution</span></p>
+        <p class="hud2 mono" id="hud2" aria-live="off"></p>
+        <p class="caption"><span class="key"><span class="dot s"></span>scout: LiDAR + camera</span><span class="key"><span class="dot w"></span>worker: IR + pushes</span><span class="key"><span class="dot" style="background:#C99A60;border-radius:2px"></span>package (? = not yet found)</span><span>grey haze: not yet mapped</span><span>thin lines: radio mesh to base</span><span>red ring: out of radio range</span><span>bar: battery</span></p>
       </div>
       <div class="panel">
         <div class="tabs" role="tablist">
@@ -111,40 +134,50 @@
         </div>
         <div class="tabpanel" id="p-you" role="tabpanel" aria-labelledby="tab-you">
           <div class="ctl">
-            <div class="ctl-top"><label for="s-scouts">Scouts in the team of 18</label><output id="o-scouts">2</output></div>
-            <input type="range" id="s-scouts" min="0" max="18" step="1" value="2">
+            <div class="ctl-top"><span>Team budget</span><output id="bud-txt">120 / 120 credits</output></div>
+            <div class="budget" aria-hidden="true"><span id="bud-s"></span><span id="bud-w"></span></div>
+          </div>
+          <div class="ctl">
+            <div class="ctl-top"><label for="s-scouts">Scouts</label><output id="o-scouts">4 scouts · 14 workers</output></div>
+            <input type="range" id="s-scouts" min="0" max="9" step="1" value="4">
             <div class="mix" id="mix" aria-hidden="true"></div>
           </div>
           <div class="ctl">
-            <div class="ctl-top"><label for="s-beacon">Follow the signal</label><output id="o-beacon">40%</output></div>
-            <input type="range" id="s-beacon" min="0" max="100" step="1" value="40">
-            <small>How strongly workers head toward a signalling scout.</small>
+            <div class="ctl-top"><label for="s-radio">Radio range</label><output id="o-radio">2.5 m</output></div>
+            <input type="range" id="s-radio" min="100" max="400" step="10" value="250">
+            <small>Longer range keeps more robots connected but costs battery (transmit power).</small>
           </div>
           <div class="ctl">
-            <div class="ctl-top"><label for="s-noise">Wandering</label><output id="o-noise">50%</output></div>
-            <input type="range" id="s-noise" min="0" max="100" step="1" value="50">
-            <small>Low: straight lines and wall bounces. High: random, local search.</small>
+            <div class="ctl-top"><label for="s-crew">Crew per package</label><output id="o-crew">4 workers</output></div>
+            <input type="range" id="s-crew" min="3" max="6" step="1" value="4">
+            <small>3 can just move a package; 4 move it at full speed; more work as spares.</small>
+          </div>
+          <div class="ctl">
+            <div class="ctl-top"><label for="s-explore">Scout exploration</label><output id="o-explore">85% frontier</output></div>
+            <input type="range" id="s-explore" min="0" max="100" step="1" value="85">
+            <small>Low: random walk. High: drive to the nearest edge of the known map (frontier exploration).</small>
           </div>
           <div class="row">
-            <button class="btn primary" id="run">Run trial</button>
+            <button class="btn primary" id="run">Run mission</button>
             <button class="btn" id="reset">Reset</button>
             <button class="btn" id="speed" aria-pressed="false">Speed 1×</button>
+            <button class="btn" id="sensors" aria-pressed="true">Sensors</button>
           </div>
-          <p class="result" id="result" aria-live="polite">Set a mix and press Run trial.</p>
+          <p class="result" id="result" aria-live="polite">Design a team and press Run mission.</p>
         </div>
         <div class="tabpanel" id="p-evo" role="tabpanel" aria-labelledby="tab-evo" hidden>
-          <p class="mono" style="font-size:.78rem;color:var(--muted)">Population 12 · each design tested in 2 arenas · 20 generations · genes: scouts, follow, wander</p>
+          <p class="mono" style="font-size:.76rem;color:var(--muted)">Genetic algorithm · population 8 · each design tested in 2 layouts · 10 generations · genes: scouts (workers fill the budget), radio range, crew size, exploration</p>
           <div class="row">
             <button class="btn primary" id="evo-start">Start evolution</button>
             <button class="btn" id="evo-stop" disabled>Stop</button>
           </div>
           <div class="stats">
-            <div><span class="muted">Generation</span><b id="e-gen">0</b></div>
-            <div><span class="muted">Avg, 2 arenas</span><b id="e-best">–</b></div>
-            <div><span class="muted">Best design</span><b id="e-geno" style="font-size:.85rem">–</b></div>
+            <div><span class="muted">Generation</span><b id="e-gen">0 / 10</b></div>
+            <div><span class="muted">Avg, 2 layouts</span><b id="e-best">–</b></div>
+            <div><span class="muted">Best design</span><b id="e-geno" style="font-size:.78rem">–</b></div>
           </div>
           <canvas id="chart" width="400" height="120" aria-label="Best and mean score per generation"></canvas>
-          <p class="caption"><span class="key"><span class="dot s"></span>best</span><span class="key"><span class="dot w"></span>population mean</span><span>arena shows the current best design</span></p>
+          <p class="caption"><span class="key"><span class="dot s"></span>best</span><span class="key"><span class="dot w"></span>population mean</span><span>arena replays the best design so far</span></p>
           <button class="btn" id="evo-load" disabled>Copy best design to my sliders</button>
         </div>
         <div class="board">
@@ -153,7 +186,41 @@
         </div>
       </div>
     </div>
-    <p class="lab-note">Scores out of 100: delivering the box sooner scores higher; an unfinished trial scores by how far the box moved. This is a simplified, rule-based model for illustration. In the published work the controllers are evolved neural networks and the robots are simulated with full physics (<a href="publications.html#J2">J2</a>, <a href="publications.html#C4">C4</a>).</p>
+
+    <div class="inspector" style="margin-top:20px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap">
+        <h3 style="font-size:1.1rem">Robot inspector</h3>
+        <button class="btn small" id="pick" type="button">Inspect a random robot</button>
+      </div>
+      <p class="muted" id="insp-empty" style="font-size:.95rem">Click any robot in the arena to see what its sensors read, what it decides to do, and how fast each wheel turns, live.</p>
+      <div id="insp-body" hidden>
+        <p class="mono" id="insp-title" style="font-size:.8rem;margin-bottom:10px"></p>
+        <div class="insp-grid">
+          <div>
+            <p class="eyebrow" style="margin-bottom:6px">Sensors and radio</p>
+            <div id="insp-rows"></div>
+            <p class="eyebrow" style="margin:12px 0 6px">Wheels (differential drive)</p>
+            <div id="insp-wheels"></div>
+          </div>
+          <div>
+            <p class="eyebrow" style="margin-bottom:8px">Behaviour</p>
+            <div class="fsm" id="insp-fsm"></div>
+            <p id="insp-note" style="font-size:.95rem;margin-top:12px"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ul class="specs" style="margin-top:28px">
+      <li><b>Robots</b>16 cm differential-drive robots, 10 Hz control loop; scouts 26 cm/s, workers 18 cm/s on mapped floor and 9 cm/s in unknown space</li>
+      <li><b>Sensors</b>scout: 360° LiDAR (24 beams, 2.5 m) and a camera (±60°, line of sight); worker: 8-beam IR ring, 25 cm</li>
+      <li><b>Mapping</b>shared 10 cm occupancy grid built from LiDAR and IR returns; nobody starts with a map</li>
+      <li><b>Communication</b>multi-hop radio mesh to the base station; walls halve the range; robots out of range keep their data and upload it when they reconnect</li>
+      <li><b>Planning</b>Dijkstra routes on the shared map, re-planned as it grows; frontier-based exploration; nearest-first task allocation; one package yields to another in narrow aisles</li>
+      <li><b>Physics</b>static and sliding friction: a 52 cm package needs 3 pushers to start moving; off-centre pushes turn it; packages collide</li>
+      <li><b>Energy</b>driving, sensing, radio power and pushing drain the battery; robots head home when the charge left only just covers the route back</li>
+    </ul>
+    <p class="lab-note">Scores out of 100: half for the packages delivered (partial credit for distance covered), half for finishing early. The model is a simplified 2-D, rule-based simulation for illustration. In my published work the controllers are evolved neural networks and the robots are simulated with full physics (<a href="publications.html#J2">J2</a>, <a href="publications.html#J1">J1</a>, <a href="publications.html#C4">C4</a>).</p>
   </div>
 </section>
 
@@ -175,10 +242,10 @@
       </div>
       <dl>
         <dt>Degree</dt><dd>Ph.D. in Engineering</dd>
-        <dt>University</dt><dd>University of Toyama, Japan · Dept. of Mechanical and Intellectual Engineering</dd>
-        <dt>Advisor</dt><dd>Prof. Toshiyuki Yasuda</dd>
+        <dt>University</dt><dd><a href="https://www.u-toyama.ac.jp/en/" target="_blank" rel="noopener">University of Toyama</a>, Japan · Dept. of Mechanical and Intellectual Engineering</dd>
+        <dt>Advisor</dt><dd><a href="https://researchmap.jp/yasudats" target="_blank" rel="noopener">Prof. Toshiyuki Yasuda</a></dd>
         <dt>Completed</dt><dd>September 2025 · Vice Valedictorian</dd>
-        <dt>Funding</dt><dd>JST SPRING, Grant JPMJSP2145</dd>
+        <dt>Funding</dt><dd><a href="https://www.jst.go.jp/jisedai/spring/en/index.html" target="_blank" rel="noopener">JST SPRING</a>, Grant JPMJSP2145</dd>
         <dt>Related</dt><dd><span class="tags"><a class="tag" href="publications.html#J1">J1</a><a class="tag" href="publications.html#J2">J2</a><a class="tag" href="publications.html#C2">C2</a><a class="tag" href="publications.html#C3">C3</a><a class="tag" href="publications.html#C4">C4</a><a class="tag" href="publications.html#C5">C5</a><a class="tag" href="publications.html#C6">C6</a><a class="tag" href="publications.html#C7">C7</a></span></dd>
       </dl>
     </div>

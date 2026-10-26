@@ -63,8 +63,8 @@
         <figcaption><b>Kyoto, Japan</b>since 2025</figcaption>
       </figure>
       <figure class="mini-arena">
-        <canvas id="hero-arena" width="600" height="380" aria-label="Live simulation: scouts find a box and call workers to push it to the goal"></canvas>
-        <figcaption><span class="key"><span class="dot s"></span>scouts</span><span class="key"><span class="dot w"></span>workers</span><span>live swarm</span></figcaption>
+        <canvas id="hero-arena" width="900" height="540" aria-label="Live simulation: scouts map an unknown warehouse with LiDAR while workers push packages to the loading dock"></canvas>
+        <figcaption><span class="key"><span class="dot s"></span>scouts</span><span class="key"><span class="dot w"></span>workers</span><span>live: mapping + delivery</span></figcaption>
       </figure>
     </div>
   </div>
@@ -79,6 +79,7 @@
       <li><a class="affil" href="https://iridia.ulb.ac.be/" target="_blank" rel="noopener"><span class="logo" data-logo="iridia"><span class="mark"></span></span><b>IRIDIA, Université libre de Bruxelles</b><span>Visiting Ph.D. student · 2025</span></a></li>
       <li><a class="affil" href="https://www.jst.go.jp/jisedai/spring/en/index.html" target="_blank" rel="noopener"><span class="logo" data-logo="jst"><span class="mark"></span></span><b>JST SPRING</b><span>Doctoral fellowship · 2023–2025</span></a></li>
       <li><a class="affil" href="https://gcuf.edu.pk/" target="_blank" rel="noopener"><span class="logo" data-logo="gcuf"><span class="mark"></span></span><b>GC University Faisalabad</b><span>B.S. & M.S. Computer Science</span></a></li>
+      <li><div class="affil"><span class="logo" data-logo="approsoft"><span class="mark"></span></span><b>Approsoft, Faisalabad</b><span>IT Executive · 2020–2022</span></div></li>
     </ul>
   </div>
 </section>
@@ -102,13 +103,13 @@
       <div><h2 id="h-news">News</h2></div>
     </div>
     <ol class="news indent">
-      <li class="reveal"><time datetime="2026-06">Jun 2026</time><p><span class="new">New</span>Presented my work on knowledge distillation for versatile swarm controllers at <b>ANTS 2026</b> in Darmstadt, Germany. Published in Springer LNCS vol. 16515. <a href="publications.html#C1">Paper</a></p></li>
-      <li class="reveal"><time datetime="2026">2026</time><p>Journal article on evolving group organization and controllers in heterogeneous swarms published in <i>Artificial Life and Robotics</i>. <a href="publications.html#J1">Paper</a></p></li>
-      <li class="reveal"><time datetime="2025-12">Dec 2025</time><p>Joined the <b>NISAR Lab</b> at Kyoto University of Advanced Science as a Specially-Appointed Researcher.</p></li>
-      <li class="reveal"><time datetime="2025-09">Sept 2025</time><p>Received my <b>PhD in Engineering</b> from the University of Toyama and was named <b>Vice Valedictorian</b>.</p></li>
+      <li class="reveal"><time datetime="2026-06">Jun 2026</time><p><span class="new">New</span>Presented my work on knowledge distillation for versatile swarm controllers at <b><a href="https://ants2026.org" target="_blank" rel="noopener">ANTS 2026</a></b> in Darmstadt, Germany. Published in <a href="https://link.springer.com/book/10.1007/978-3-032-26123-6" target="_blank" rel="noopener">Springer LNCS vol. 16515</a>. <a href="publications.html#C1">Paper</a></p></li>
+      <li class="reveal"><time datetime="2026">2026</time><p>Journal article on evolving group organization and controllers in heterogeneous swarms published in <a href="https://link.springer.com/journal/10015" target="_blank" rel="noopener"><i>Artificial Life and Robotics</i></a>. <a href="publications.html#J1">Paper</a></p></li>
+      <li class="reveal"><time datetime="2025-12">Dec 2025</time><p>Joined the <b><a href="https://lab.kuas.ac.jp/~nisarlab/" target="_blank" rel="noopener">NISAR Lab</a></b> at <a href="https://www.kuas.ac.jp/en/" target="_blank" rel="noopener">Kyoto University of Advanced Science</a> as a Specially-Appointed Researcher.</p></li>
+      <li class="reveal"><time datetime="2025-09">Sept 2025</time><p>Received my <b>PhD in Engineering</b> from the <a href="https://www.u-toyama.ac.jp/en/" target="_blank" rel="noopener">University of Toyama</a> and was named <b>Vice Valedictorian</b>.</p></li>
       <li class="reveal"><time datetime="2025-09">Sept 2025</time><p>Presented at <b>SWARM 2025</b> in Germany with a travel grant, and at <b>SICE FES 2025</b> in Thailand.</p></li>
-      <li class="reveal"><time datetime="2025-03">Mar 2025</time><p>Visiting PhD student at <b>IRIDIA</b>, Université libre de Bruxelles, with Prof. Marco Dorigo.</p></li>
-      <li class="reveal"><time datetime="2024">2024</time><p>Outstanding Student Award from the SICE Hokuriku Branch.</p></li>
+      <li class="reveal"><time datetime="2025-03">Mar 2025</time><p>Visiting PhD student at <b><a href="https://iridia.ulb.ac.be/" target="_blank" rel="noopener">IRIDIA</a></b>, <a href="https://www.ulb.be/en" target="_blank" rel="noopener">Université libre de Bruxelles</a>, with Prof. Marco Dorigo.</p></li>
+      <li class="reveal"><time datetime="2024">2024</time><p>Outstanding Student Award from the <a href="https://www.sice.or.jp/" target="_blank" rel="noopener">SICE</a> Hokuriku Branch.</p></li>
     </ol>
   </div>
 </section>
@@ -135,11 +136,11 @@
     <div class="txt reveal">
       <p class="eyebrow">Interactive</p>
       <h2 id="h-play">Can you beat evolution?</h2>
-      <p>Eighteen robots, two kinds. Scouts see far but cannot push; workers push hard but are almost blind. Pick the team, run a trial, then let a genetic algorithm design its own team in your browser. It is a small version of my PhD problem.</p>
+      <p>A robot team enters a building it has never seen. Scouts map it with LiDAR and find three heavy packages; workers push them to the dock in crews; everything travels over a radio mesh and every robot has a battery. With a fixed budget, design the team, click any robot to see its sensors, then let a genetic algorithm design its own team. It is the question behind my PhD, in a practical setting.</p>
       <div class="actions"><a class="btn primary" href="research.html#lab">Open the Swarm Lab</a></div>
     </div>
     <div class="reveal">
-      <div class="canvas-frame"><canvas id="teaser" width="600" height="380" aria-label="Swarm moving a box to a goal"></canvas></div>
+      <div class="canvas-frame"><canvas id="teaser" width="900" height="540" aria-label="Robot team mapping a warehouse and moving three packages to the loading dock"></canvas></div>
     </div>
   </div>
 </section>
@@ -151,10 +152,10 @@
       <div class="head-row"><h2 id="h-awards">Awards and funding</h2><a class="arrow" href="cv.html#awards">Full CV</a></div>
     </div>
     <ul class="awards">
-      <li class="award reveal top"><span class="yr">2025</span><h3>PhD Vice Valedictorian</h3><p>University of Toyama. Awarded to the second-highest-ranking doctoral graduate of the year.</p></li>
-      <li class="award reveal top"><span class="yr">2023–2025</span><h3>JST SPRING Doctoral Fellowship</h3><p>Toyama University Next Generation Researchers Challenging Research Program, funded by JST SPRING (Grant JPMJSP2145).</p></li>
+      <li class="award reveal top"><span class="yr">2025</span><h3>PhD Vice Valedictorian</h3><p><a href="https://www.u-toyama.ac.jp/en/" target="_blank" rel="noopener">University of Toyama</a>. Awarded to the second-highest-ranking doctoral graduate of the year.</p></li>
+      <li class="award reveal top"><span class="yr">2023–2025</span><h3>JST SPRING Doctoral Fellowship</h3><p><a href="https://promotion-research.ctg.u-toyama.ac.jp/ss/spring/" target="_blank" rel="noopener">Toyama University Next Generation Researchers Challenging Research Program</a>, funded by <a href="https://www.jst.go.jp/jisedai/spring/en/index.html" target="_blank" rel="noopener">JST SPRING</a> (Grant JPMJSP2145).</p></li>
       <li class="award reveal"><span class="yr">2025</span><h3>SWARM 2025 Travel Grant</h3><p>Selected for a travel grant to present at SWARM 2025 in Germany.</p></li>
-      <li class="award reveal"><span class="yr">2024</span><h3>Outstanding Student Award</h3><p>Society of Instrument and Control Engineers (SICE), Hokuriku Branch, Japan, for academic and research achievement.</p></li>
+      <li class="award reveal"><span class="yr">2024</span><h3>Outstanding Student Award</h3><p><a href="https://www.sice.or.jp/" target="_blank" rel="noopener">Society of Instrument and Control Engineers (SICE)</a>, Hokuriku Branch, Japan, for academic and research achievement.</p></li>
       <li class="award reveal"><span class="yr">2019</span><h3>Prime Minister's Laptop Scheme</h3><p>Merit-based award, Government of Pakistan, for high-achieving university students.</p></li>
     </ul>
   </div>
