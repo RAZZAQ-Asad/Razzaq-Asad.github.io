@@ -34,10 +34,12 @@
 
   /* ---- institution logos ---- */
   $$("[data-logo]").forEach((box) => {
-    const p = (S.logos || {})[box.dataset.logo];
-    if (!p) return;
+    const v = (S.logos || {})[box.dataset.logo];
+    const p = v && (v.src || v);
+    if (!p || typeof p !== "string") return;
     const img = new Image(); img.src = p; img.alt = ""; img.loading = "lazy";
     box.innerHTML = ""; box.appendChild(img);
+    box.classList.add("has-logo"); if (v.dark) box.classList.add("dark");
   });
 
   /* ---- PDFs open in a viewer ---- */

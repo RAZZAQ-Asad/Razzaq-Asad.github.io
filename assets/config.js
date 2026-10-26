@@ -7,7 +7,7 @@ window.SITE = {
   email: "asad.razzaq@kuas.ac.jp",
   photo: "assets/asad-portrait.jpg",     // home page portrait
   photoFormal: "assets/asad-formal.jpg", // CV page photo
-  cvPdf: "",          // "assets/Asad_Razzaq_CV.pdf"  (public version: no date of birth, no referee emails)
+  cvPdf: "assets/Asad_Razzaq_CV.pdf",
   thesisPdf: "",      // "assets/thesis.pdf"
   defenseSlides: "",  // "assets/defense-slides.pdf"  (PowerPoint -> Save as PDF)
 
@@ -22,10 +22,17 @@ window.SITE = {
     instagram: ""     // "https://www.instagram.com/your-username/"
   },
 
-  /* Institution logos (optional). Save the official logo file in assets/
-     and write its path, e.g. toyama: "assets/logo-toyama.png".
-     Until then a clean text card is shown. */
-  logos: { kuas: "", toyama: "", iridia: "", jst: "", gcuf: "" },
+  /* Institution logos. Save the logo file in assets/ and write its path.
+     Use { src: "...", dark: true } for a white logo that needs a dark plate.
+     Empty "" = a clean text card is shown instead. */
+  logos: {
+    kuas: "assets/logo-kuas.svg",
+    toyama: "assets/logo-toyama.png",
+    iridia: "assets/logo-ulb.svg",
+    jst: "",
+    gcuf: "assets/logo-gcuf.png",
+    approsoft: { src: "assets/logo-approsoft.webp", dark: true }
+  },
 
   papers: {           // pdf = your own manuscript, slides = talk PDF
     J1: { pdf: "", slides: "" }, J2: { slides: "" }, J3: { pdf: "" },
