@@ -67,11 +67,12 @@ A practical version of the question behind my PhD: how should a team of differen
 
 The model is simplified (2-D, rule-based controllers). The published studies use evolved neural-network controllers and full physics simulation.
 
-## Status (last updated 26 Oct 2026)
+## Status (last updated 27 Oct 2026)
 
 Still to add:
 - Gallery photos (Toyama mountains, IRIDIA with Prof. Dorigo, conferences, lab): put them in `assets/gallery/` and list them in `config.js`.
-- JST logo (`logos.jst` in `config.js`) and an Instagram link, if wanted.
+- An Instagram link, if wanted (`links.instagram` in `config.js`).
+- A website link for Approsoft (its logo is shown without a link).
 
 ## Photo tips
 

@@ -56,22 +56,22 @@
       <article class="theme reveal" id="composition">
         <h2 style="font-size:1.4rem;font-weight:500">Evolving team composition</h2>
         <p>How many robots of each type does a task need? I evolve the group's makeup and perceptual abilities alongside its controllers, so the mix and the behavior are designed as one.</p>
-        <div class="tags"><a class="tag" href="publications.html#J1">J1</a><a class="tag" href="publications.html#C2">C2</a><a class="tag" href="publications.html#C3">C3</a><a class="tag" href="publications.html#C6">C6</a></div>
+        <div class="tags"><a class="tag" href="publications.html#J1">ALR 2026</a><a class="tag" href="publications.html#C2">SWARM 2025</a><a class="tag" href="publications.html#C3">SICE FES 2025</a><a class="tag" href="publications.html#C6">AROB 2024</a></div>
       </article>
       <article class="theme reveal" id="transport">
         <h2 style="font-size:1.4rem;font-weight:500">Cooperative transport</h2>
         <p>Robots with different sensing ranges move an object none of them can move alone. The Swarm Lab below is a simplified version of this task.</p>
-        <div class="tags"><a class="tag" href="publications.html#J2">J2</a><a class="tag" href="publications.html#C4">C4</a></div>
+        <div class="tags"><a class="tag" href="publications.html#J2">JRM 2023</a><a class="tag" href="publications.html#C4">SWARM 2024</a></div>
       </article>
       <article class="theme reveal" id="exploration">
         <h2 style="font-size:1.4rem;font-weight:500">Collective exploration</h2>
         <p>How the configuration of each robot's neural controller shapes what the whole swarm can explore and discover.</p>
-        <div class="tags"><a class="tag" href="publications.html#C5">C5</a><a class="tag" href="publications.html#C7">C7</a></div>
+        <div class="tags"><a class="tag" href="publications.html#C5">SICE FES 2024</a><a class="tag" href="publications.html#C7">AROB 2023</a></div>
       </article>
       <article class="theme reveal" id="versatile">
         <h2 style="font-size:1.4rem;font-weight:500">Versatile controllers</h2>
         <p>Evolution tends to produce specialists. Using knowledge distillation, I merge several task-specific teacher controllers (transport, obstacle avoidance, aggregation) into one compact student controller that handles composite tasks.</p>
-        <div class="tags"><a class="tag" href="publications.html#C1">C1 · ANTS 2026</a></div>
+        <div class="tags"><a class="tag" href="publications.html#C1">ANTS 2026</a></div>
       </article>
     </div>
     <div class="now indent">
@@ -95,11 +95,10 @@
         <p class="lead">Figures from my published studies. Each line is the path of one robot or one transported object.</p></div>
     </div>
     <div class="figs indent">
-      <figure class="reveal"><img src="assets/fig-jrm2023-transport.jpg" alt="Robot trajectories in a cooperative transport experiment with two goal zones" loading="lazy" width="708" height="712"><figcaption><b>Cooperative transport</b> by robots with different abilities. Paths of robots and objects heading to the goal zones. <a href="publications.html#J2">J2 · JRM 2023</a></figcaption></figure>
-      <figure class="reveal"><img src="assets/fig-jrm2023-exploration.jpg" alt="Robot trajectories in an exploration experiment" loading="lazy" width="415" height="444"><figcaption><b>Search and approach.</b> Evolved controllers find objects with only local sensing. <a href="publications.html#J2">J2</a></figcaption></figure>
-      <figure class="reveal"><img src="assets/fig-alr2026-composition.jpg" alt="Trajectories of a heterogeneous swarm moving an object to the goal" loading="lazy" width="800" height="801"><figcaption><b>Team composition and perception</b>, evolved together with the controller. <a href="publications.html#J1">J1 · ALR 2026</a></figcaption></figure>
-      <figure class="reveal wide"><img src="assets/fig-ants2026-distillation.jpg" alt="Diagram: several teacher networks, one per task, distilled into one student network" loading="lazy" width="1045" height="651"><figcaption><b>Knowledge distillation</b>: one teacher network per task trains a single compact student network. <a href="publications.html#C1">C1 · ANTS 2026</a></figcaption></figure>
-      <figure class="reveal"><img src="assets/fig-ants2026-simulation.jpg" alt="Simulation snapshot with robots, objects, an obstacle and the goal zone" loading="lazy" width="800" height="802"><figcaption><b>Composite tasks</b>: transport, obstacle avoidance and aggregation with one student controller. <a href="publications.html#C1">C1</a></figcaption></figure>
+      <figure class="reveal"><img src="assets/fig-jrm2023-transport.jpg" alt="Robot trajectories in a cooperative transport experiment with two goal zones" loading="lazy" width="708" height="712"><figcaption><b>Cooperative transport</b> by robots with different abilities. Paths of robots and objects heading to the goal zones. <a href="publications.html#J2">JRM 2023</a></figcaption></figure>
+      <figure class="reveal"><img src="assets/fig-alr2026-composition.jpg" alt="Trajectories of a heterogeneous swarm moving an object to the goal" loading="lazy" width="800" height="801"><figcaption><b>Team composition and perception</b>, evolved together with the controller. <a href="publications.html#J1">ALR 2026</a></figcaption></figure>
+      <figure class="reveal"><img src="assets/fig-ants2026-simulation.jpg" alt="Simulation snapshot with robots, objects, an obstacle and the goal zone" loading="lazy" width="800" height="802"><figcaption><b>Composite tasks</b>: transport, obstacle avoidance and aggregation with one student controller. <a href="publications.html#C1">ANTS 2026</a></figcaption></figure>
+      <figure class="reveal wide"><img src="assets/fig-ants2026-distillation.jpg" alt="Diagram: several teacher networks, one per task, distilled into one student network" loading="lazy" width="1045" height="651"><figcaption><b>Knowledge distillation</b>: one teacher network per task trains a single compact student network. <a href="publications.html#C1">ANTS 2026</a></figcaption></figure>
     </div>
   </div>
 </section>
@@ -220,7 +219,7 @@
       <li><b>Physics</b>static and sliding friction: a 52 cm package needs 3 pushers to start moving; off-centre pushes turn it; packages collide</li>
       <li><b>Energy</b>driving, sensing, radio power and pushing drain the battery; robots head home when the charge left only just covers the route back</li>
     </ul>
-    <p class="lab-note">Scores out of 100: half for the packages delivered (partial credit for distance covered), half for finishing early. The model is a simplified 2-D, rule-based simulation for illustration. In my published work the controllers are evolved neural networks and the robots are simulated with full physics (<a href="publications.html#J2">J2</a>, <a href="publications.html#J1">J1</a>, <a href="publications.html#C4">C4</a>).</p>
+    <p class="lab-note">Scores out of 100: half for the packages delivered (partial credit for distance covered), half for finishing early. The model is a simplified 2-D, rule-based simulation for illustration. In my published work the controllers are evolved neural networks and the robots are simulated with full physics (<a href="publications.html#J2">JRM 2023</a>, <a href="publications.html#J1">ALR 2026</a>, <a href="publications.html#C4">SWARM 2024</a>).</p>
   </div>
 </section>
 
@@ -246,7 +245,7 @@
         <dt>Advisor</dt><dd><a href="https://researchmap.jp/yasudats" target="_blank" rel="noopener">Prof. Toshiyuki Yasuda</a></dd>
         <dt>Completed</dt><dd>September 2025 · Vice Valedictorian</dd>
         <dt>Funding</dt><dd><a href="https://www.jst.go.jp/jisedai/spring/en/index.html" target="_blank" rel="noopener">JST SPRING</a>, Grant JPMJSP2145</dd>
-        <dt>Related</dt><dd><span class="tags"><a class="tag" href="publications.html#J1">J1</a><a class="tag" href="publications.html#J2">J2</a><a class="tag" href="publications.html#C2">C2</a><a class="tag" href="publications.html#C3">C3</a><a class="tag" href="publications.html#C4">C4</a><a class="tag" href="publications.html#C5">C5</a><a class="tag" href="publications.html#C6">C6</a><a class="tag" href="publications.html#C7">C7</a></span></dd>
+        <dt>Related</dt><dd><span class="tags"><a class="tag" href="publications.html#J1">ALR 2026</a><a class="tag" href="publications.html#J2">JRM 2023</a><a class="tag" href="publications.html#C2">SWARM 2025</a><a class="tag" href="publications.html#C3">SICE FES 2025</a><a class="tag" href="publications.html#C4">SWARM 2024</a><a class="tag" href="publications.html#C5">SICE FES 2024</a><a class="tag" href="publications.html#C6">AROB 2024</a><a class="tag" href="publications.html#C7">AROB 2023</a></span></dd>
       </dl>
     </div>
   </div>
@@ -265,6 +264,7 @@
         <a class="btn small" data-link="linkedin" href="https://www.linkedin.com/in/asadrazzaqphd/" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn small" data-link="semanticscholar" href="https://www.semanticscholar.org/author/2238456971" target="_blank" rel="noopener">Semantic Scholar</a>
         <a class="btn small" data-link="github" href="https://github.com/RAZZAQ-Asad" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn small" data-link="spring" href="https://promotion-research.ctg.u-toyama.ac.jp/spring-student/razzaq_r5" target="_blank" rel="noopener">SPRING profile</a>
         <a class="btn small" data-link="facebook" href="https://www.facebook.com/asu605" target="_blank" rel="noopener">Facebook</a>
         <a class="btn small" data-link="instagram" target="_blank" rel="noopener" hidden>Instagram</a>
       </div>
