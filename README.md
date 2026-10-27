@@ -43,6 +43,7 @@ To edit a file on GitHub: open it, click the pencil icon, make the change, then 
 | `site.js` | Shared behaviour: theme toggle, links, logos, PDF viewer, gallery, filters |
 | `engine.js` | The Swarm Lab simulator, path planner and genetic algorithm (also runs as a Web Worker) |
 | `swarm.js` | Drawing, the live swarms on the home page, the Swarm Lab controls and the robot inspector |
+| `asad-studio.jpg`, `asad-cv.jpg`, `asad-avatar.jpg` | Portraits: home page, CV page, small menu icon |
 | `logo-*.svg/png/webp` | Institution logos |
 | `fig-*.jpg` | Figures from the published studies |
 | `gallery/` | Gallery photos |
