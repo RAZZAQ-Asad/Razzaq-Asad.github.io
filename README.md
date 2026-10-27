@@ -70,7 +70,7 @@ The model is simplified (2-D, rule-based controllers). The published studies use
 ## Status (last updated 27 Oct 2026)
 
 Still to add:
-- More gallery photos (Toyama mountains, IRIDIA with Prof. Dorigo, conferences): put them in `assets/gallery/` and list them in `config.js`. Seven lab and event photos from Google Drive are already in.
+- Gallery photos (Toyama mountains, IRIDIA with Prof. Dorigo, conferences): put them in `assets/gallery/` and list them in `config.js`.
 - An Instagram link, if wanted (`links.instagram` in `config.js`).
 - Website links for Approsoft, Souya and Iqra College (their logos are shown without a link). In `index.html`, change `<span class="mq-item">` for that entry to `<a class="mq-item" href="URL" target="_blank" rel="noopener">` (and `</span>` to `</a>`) in both copies of the ribbon list.
 
