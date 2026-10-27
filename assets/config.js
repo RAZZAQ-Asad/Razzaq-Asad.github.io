@@ -5,8 +5,8 @@
    ================================================================ */
 window.SITE = {
   email: "asad.razzaq@kuas.ac.jp",
-  photo: "assets/asad-portrait.jpg",     // home page portrait
-  photoFormal: "assets/asad-formal.jpg", // CV page photo
+  photo: "assets/asad-studio.jpg",       // home page portrait
+  photoFormal: "assets/asad-cv.jpg",     // CV page photo
   cvPdf: "assets/Asad_Razzaq_CV.pdf",
   thesisPdf: "",      // "assets/thesis.pdf"
   defenseSlides: "",  // "assets/defense-slides.pdf"  (PowerPoint -> Save as PDF)
