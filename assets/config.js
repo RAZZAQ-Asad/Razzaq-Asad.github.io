@@ -51,13 +51,6 @@ window.SITE = {
   /* Gallery. category: "japan" = Life in Japan, "events" = Events & Conferences,
      "moments" = Life Moments. Add as many as you like; newest first looks best. */
   gallery: [
-    { src: "assets/gallery/wpi-kuas-2025-presentations.jpg", caption: "WPI at KUAS 2025: final project presentations", category: "events" },
-    { src: "assets/gallery/kuas-ceremony.jpg", caption: "Ceremony at Kyoto University of Advanced Science", category: "events" },
-    { src: "assets/gallery/lab-group-photo.jpg", caption: "Group photo with lab members and students", category: "moments" },
-    { src: "assets/gallery/lab-group-photo-2.jpg", caption: "With lab members and students", category: "moments" },
-    { src: "assets/gallery/lab-group-photo-3.jpg", caption: "Lab members and students together", category: "moments" },
-    { src: "assets/gallery/lab-get-together.jpg", caption: "Lab get-together", category: "moments" },
-    { src: "assets/gallery/lab-farewell-dinner-2024.jpg", caption: "Lab fall farewell and welcome dinner, 2024", category: "moments" },
     { src: "assets/gallery/sakura-japan.jpg", caption: "Cherry blossom season in Japan", category: "japan" }
     // { src: "assets/gallery/toyama-mountains.jpg", caption: "Tateyama mountains from Toyama", category: "japan" },
     // { src: "assets/gallery/iridia-dorigo.jpg", caption: "With Prof. Marco Dorigo at IRIDIA, Brussels, 2025", category: "events" },
