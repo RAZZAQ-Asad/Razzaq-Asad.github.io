@@ -81,7 +81,7 @@
   const CATS = {
     japan: { title: "Life in Japan", text: "Toyama's mountains, Kyoto's seasons and everyday life in Japan since 2022." },
     events: { title: "Events & Conferences", text: "Talks, posters and research visits: SWARM, SICE FES, AROB, ANTS, and IRIDIA in Brussels." },
-    moments: { title: "Life Moments", text: "Lab days, graduation, and the people who made the journey." }
+    moments: { title: "Life Moments", text: "Travel, milestones and moments along the way." }
   };
   const items = (S.gallery || []).filter((g) => g && g.src);
   const lb = $("#lightbox");

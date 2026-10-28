@@ -191,10 +191,10 @@ a.card:hover { border-color: var(--accent); transform: translateY(-2px); }
 .gal-cat:first-of-type { margin-top: 0; }
 .gal-cat-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; margin-bottom: 18px; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
 .gal-cat-head p { color: var(--muted); font-size: 1rem; max-width: 60ch; }
-.gal-grid { columns: 3 260px; column-gap: 16px; }
-.gal-grid figure { margin: 0 0 16px; break-inside: avoid; display: flex; flex-direction: column; gap: 6px; }
+.gal-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; align-items: start; }
+.gal-grid figure { margin: 0; display: flex; flex-direction: column; gap: 6px; }
 .gal-grid button { padding: 0; border: 0; background: none; cursor: zoom-in; display: block; width: 100%; border-radius: 10px; overflow: hidden; }
-.gal-grid img { width: 100%; display: block; border-radius: 10px; border: 1px solid var(--line); transition: transform .3s; }
+.gal-grid img { width: 100%; display: block; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 10px; border: 1px solid var(--line); transition: transform .3s; }
 .gal-grid button:hover img { transform: scale(1.02); }
 .gal-grid figcaption { font-size: .88rem; color: var(--muted); }
 .gal-empty { border: 1px dashed var(--line); border-radius: 10px; padding: 22px; color: var(--muted); font-size: .98rem; }

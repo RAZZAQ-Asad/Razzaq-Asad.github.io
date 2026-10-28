@@ -51,6 +51,10 @@ window.SITE = {
   /* Gallery. category: "japan" = Life in Japan, "events" = Events & Conferences,
      "moments" = Life Moments. Add as many as you like; newest first looks best. */
   gallery: [
+    { src: "assets/gallery/bangkok-rooftop-1.jpg", caption: "Bangkok at night, November 2025", category: "moments" },
+    { src: "assets/gallery/bangkok-rooftop-2.jpg", caption: "Rooftop above Bangkok, November 2025", category: "moments" },
+    { src: "assets/gallery/bangkok-rooftop-3.jpg", caption: "Bangkok skyline, November 2025", category: "moments" },
+    { src: "assets/gallery/bangkok-rooftop-4.jpg", caption: "City lights of Bangkok, November 2025", category: "moments" },
     { src: "assets/gallery/sakura-japan.jpg", caption: "Cherry blossom season in Japan", category: "japan" }
     // { src: "assets/gallery/toyama-mountains.jpg", caption: "Tateyama mountains from Toyama", category: "japan" },
     // { src: "assets/gallery/iridia-dorigo.jpg", caption: "With Prof. Marco Dorigo at IRIDIA, Brussels, 2025", category: "events" },
