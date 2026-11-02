@@ -215,6 +215,35 @@
   }), { rootMargin: "0px 0px -8% 0px" }) : null;
   $$(".reveal, [data-count]").forEach((el) => { if (io) io.observe(el); else el.classList.add("in"); });
 
+  /* ---- jump to #section reliably (e.g. research.html#lab), even when content above loads late ---- */
+  const jumpToHash = () => {
+    const id = decodeURIComponent((location.hash || "").slice(1));
+    const el = id && document.getElementById(id);
+    if (!el || $("#gallery-root")) return;
+    const top = el.getBoundingClientRect().top + scrollY - (parseFloat(getComputedStyle(el).scrollMarginTop) || 0);
+    if (Math.abs(scrollY - top) > 40) scrollTo({ top, behavior: "auto" });
+  };
+  if (location.hash) {
+    jumpToHash();
+    addEventListener("load", () => { jumpToHash(); setTimeout(jumpToHash, 350); });
+  }
+
+  /* ---- menu highlight follows the section on screen (Research vs Swarm Lab) ---- */
+  const navLinks = $$("#nav-links a");
+  const here = location.pathname.split("/").pop() || "index.html";
+  const pageLink = navLinks.find((a) => a.getAttribute("href") === here);
+  const secLinks = navLinks.filter((a) => { const [f, h] = a.getAttribute("href").split("#"); return h && f === here && document.getElementById(h); });
+  if (pageLink && secLinks.length && "IntersectionObserver" in window) {
+    const mark = (a) => navLinks.forEach((l) => (l === a ? l.setAttribute("aria-current", "page") : l.removeAttribute("aria-current")));
+    const vis = new Map();
+    const spy = new IntersectionObserver((es) => {
+      es.forEach((e) => vis.set(e.target.id, e.isIntersecting));
+      const on = secLinks.find((a) => vis.get(a.getAttribute("href").split("#")[1]));
+      mark(on || pageLink);
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    secLinks.forEach((a) => spy.observe(document.getElementById(a.getAttribute("href").split("#")[1])));
+  }
+
   /* ---- footer year ---- */
   $$("[data-year]").forEach((el) => (el.textContent = new Date().getFullYear()));
   $$("[data-print]").forEach((b) => b.addEventListener("click", () => window.print()));
