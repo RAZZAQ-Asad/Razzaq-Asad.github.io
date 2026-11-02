@@ -27,8 +27,8 @@
 <a class="skip" href="#main">Skip to content</a>
 <nav class="nav" aria-label="Main">
   <div class="wrap">
-    <a class="brand" href="index.html"><img src="assets/asad-avatar.jpg?v=2" alt="" width="30" height="30"><span>Asad Razzaq</span></a>
-    <ul>
+    <a class="brand" href="index.html" aria-label="Asad Razzaq, home"><img src="assets/asad-avatar.jpg?v=2" alt="" width="30" height="30"><span>Asad Razzaq</span></a>
+    <ul id="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="research.html">Research</a></li>
       <li><a href="research.html#lab">Swarm Lab</a></li>
@@ -36,6 +36,7 @@
       <li><a href="gallery.html">Gallery</a></li>
       <li><a href="cv.html" aria-current="page">CV & Awards</a></li>
     </ul>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     <button class="theme-btn" type="button" aria-label="Switch theme"></button>
   </div>
 </nav>
@@ -108,7 +109,7 @@
 
 <section class="sec" aria-labelledby="h-sk">
   <div class="wrap">
-    <div class="sec-head"><p class="eyebrow">Skills</p><div><h2 id="h-sk">Tools, languages and teaching</h2></div></div>
+    <div class="sec-head"><p class="eyebrow">Skills</p><div><h2 id="h-sk">Tools and languages</h2></div></div>
     <div class="cols indent">
       <div class="skills">
         <p><span class="k">Robotics and simulation</span>ROS / ROS 2, Gazebo, Isaac Sim, Isaac Lab, MuJoCo, Genesis, Drake, V-Rep, Unity</p>
@@ -118,9 +119,24 @@
       </div>
       <div class="skills">
         <p><span class="k">Languages</span>English (proficient, C1) · Japanese (basic, N5) · Urdu (native)</p>
-        <p><span class="k">Teaching and mentoring</span>B.Ed. (teaching degree). Guided undergraduate students in research and experimental methods at the University of Toyama.</p>
-        <p><span class="k">Service</span>Talks on careers, graduate study and scholarships for Pakistani student communities, 2022 – present.</p>
         <p><span class="k">References</span>Available on request.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint" id="teaching" aria-labelledby="h-teach">
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Teaching</p><div><h2 id="h-teach">Teaching and mentoring</h2><p class="lead">I teach the way I do research: every idea comes with something that runs. Early in a course students write code that moves a robot, simulated or real, and the theory follows from what they see it do.</p></div></div>
+    <div class="cols indent">
+      <div class="skills">
+        <p><span class="k">Undergraduate courses I can teach</span>Programming Fundamentals (C/C++, Python) · Object-Oriented Programming · Data Structures and Algorithms · Artificial Intelligence · Machine Learning · Introduction to Robotics</p>
+        <p><span class="k">Graduate courses I can teach</span>Evolutionary Computation · Swarm Intelligence and Multi-Robot Systems · Deep Learning · Robot Learning</p>
+      </div>
+      <div class="skills">
+        <p><span class="k">Teaching qualification</span>B.Ed. (Bachelor of Education)</p>
+        <p><span class="k">Mentoring</span>Guided undergraduate students in research and experimental methods at the University of Toyama, 2022 – 2025.</p>
+        <p><span class="k">Outreach</span>Talks on careers, graduate study and scholarships for Pakistani student communities, 2022 – present.</p>
       </div>
     </div>
   </div>

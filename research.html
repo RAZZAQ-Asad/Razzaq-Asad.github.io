@@ -27,8 +27,8 @@
 <a class="skip" href="#main">Skip to content</a>
 <nav class="nav" aria-label="Main">
   <div class="wrap">
-    <a class="brand" href="index.html"><img src="assets/asad-avatar.jpg?v=2" alt="" width="30" height="30"><span>Asad Razzaq</span></a>
-    <ul>
+    <a class="brand" href="index.html" aria-label="Asad Razzaq, home"><img src="assets/asad-avatar.jpg?v=2" alt="" width="30" height="30"><span>Asad Razzaq</span></a>
+    <ul id="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="research.html" aria-current="page">Research</a></li>
       <li><a href="research.html#lab">Swarm Lab</a></li>
@@ -36,6 +36,7 @@
       <li><a href="gallery.html">Gallery</a></li>
       <li><a href="cv.html">CV & Awards</a></li>
     </ul>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     <button class="theme-btn" type="button" aria-label="Switch theme"></button>
   </div>
 </nav>
@@ -220,6 +221,30 @@
       <li><b>Energy</b>driving, sensing, radio power and pushing drain the battery; robots head home when the charge left only just covers the route back</li>
     </ul>
     <p class="lab-note">Scores out of 100: half for the packages delivered (partial credit for distance covered), half for finishing early. The model is a simplified 2-D, rule-based simulation for illustration. In my published work the controllers are evolved neural networks and the robots are simulated with full physics (<a href="publications.html#J2">JRM 2023</a>, <a href="publications.html#J1">ALR 2026</a>, <a href="publications.html#C4">SWARM 2024</a>).</p>
+  </div>
+</section>
+
+<section class="sec" id="vision" aria-labelledby="h-vision">
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Research vision</p><div><h2 id="h-vision">The next five years</h2><p class="lead">My goal is robot teams that are designed rather than hand-tuned, leave the simulator, and work in places that matter: hazardous sites, hospitals and crowded public spaces.</p></div></div>
+    <div class="themes indent">
+      <article class="theme reveal">
+        <h3 style="font-size:1.25rem;font-weight:500">From simulation to real robot teams</h3>
+        <p>Carry evolved team designs and controllers onto physical robots, and make them robust to sensor noise, failures and the gap between simulation and reality.</p>
+      </article>
+      <article class="theme reveal">
+        <h3 style="font-size:1.25rem;font-weight:500">Controllers that keep learning</h3>
+        <p>Extend knowledge distillation so that one compact controller handles many tasks and can absorb new skills on the robot, without retraining the whole team.</p>
+      </article>
+      <article class="theme reveal">
+        <h3 style="font-size:1.25rem;font-weight:500">Robotic olfaction</h3>
+        <p>Teams of robots that search for the source of a gas or odour, for leak detection and disaster response, where the mix of sensors in the team decides how fast the source is found.</p>
+      </article>
+      <article class="theme reveal">
+        <h3 style="font-size:1.25rem;font-weight:500">Robots that work with people</h3>
+        <p>Building on my work at the NISAR Lab: multi-robot and human-machine systems for medical robotics, haptics, and robots that move safely through crowds.</p>
+      </article>
+    </div>
   </div>
 </section>
 

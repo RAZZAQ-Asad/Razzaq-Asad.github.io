@@ -9,10 +9,10 @@ A static, multi-page academic website with an interactive swarm robotics simulat
 | File | Page |
 |---|---|
 | `index.html` | Home: portrait, floating logo ribbon (each logo links to the institution), news, research overview, awards, gallery preview, contact |
-| `research.html` | Research themes, figures from the published studies, the Swarm Lab simulator, PhD thesis |
+| `research.html` | Research themes, figures from the published studies, the Swarm Lab simulator, research vision (next five years), PhD thesis |
 | `publications.html` | Journal articles, conference papers, poster and theses, with filters and "copy citation" |
 | `gallery.html` | Photo albums: Life in Japan, Events & Conferences, Life Moments |
-| `cv.html` | CV: bio, education, experience, awards, skills, profiles, CV download |
+| `cv.html` | CV: bio, education, experience, awards, skills, teaching and mentoring, sports, profiles, CV download |
 | `404.html` | Not-found page |
 
 ## Editing content: `assets/config.js`
@@ -24,7 +24,7 @@ Most changes only need this one file. An empty string `""` hides the item on the
 | Add a gallery photo | Upload the photo to `assets/gallery/`, then add a line inside `gallery: [...]`:<br>`{ src: "assets/gallery/name.jpg", caption: "...", category: "japan" }` |
 | Gallery albums | `"japan"` = Life in Japan, `"events"` = Events & Conferences, `"moments"` = Life Moments |
 | Institution logo | Upload the logo to `assets/` and set it in `logos`, e.g. `jst: "assets/logo-jst.png"`.<br>For a white logo use `{ src: "assets/logo.webp", dark: true }`. |
-| CV PDF | Replace `assets/Asad_Razzaq_CV.pdf` (same name) or change `cvPdf` |
+| CV PDF | Replace `assets/Asad_Razzaq_CV.pdf` (same name) or change `cvPdf`. The current file is the website version: no date of birth, references on request. |
 | Thesis or defense slides | Set `thesisPdf` or `defenseSlides` (save PowerPoint as PDF first) |
 | Paper PDF or talk slides | e.g. `papers: { C4: { slides: "assets/C4-slides.pdf" } }` |
 | Profile links | `links: { instagram: "https://www.instagram.com/..." }` |
