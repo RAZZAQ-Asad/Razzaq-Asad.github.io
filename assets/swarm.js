@@ -204,8 +204,18 @@
     if ("IntersectionObserver" in window) new IntersectionObserver((es) => es.forEach((e) => (L.vis = e.isIntersecting))).observe(cv);
     draw(cv, L.w, opt);
   }
-  ambient($("hero-arena"), "warehouse", { s: 4, c: 250, k: 4, p: 0.85 }, 2, { sensors: true, labels: false, battery: false, spf: 3 });
-  ambient($("teaser"), "warehouse", { s: 4, c: 250, k: 4, p: 0.85 }, 5, { sensors: true, labels: true, battery: true, spf: 2 });
+  // Build the ambient swarms only when their canvas is on screen and the browser is idle,
+  // so the page becomes interactive first (faster load on phones).
+  const idle = window.requestIdleCallback ? (f) => requestIdleCallback(f, { timeout: 600 }) : (f) => setTimeout(f, 200);
+  function lazyAmbient(cv, ...args) {
+    if (!cv) return;
+    const go = () => idle(() => ambient(cv, ...args));
+    if (!("IntersectionObserver" in window)) return go();
+    const io = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) { io.disconnect(); go(); } }, { rootMargin: "200px" });
+    io.observe(cv);
+  }
+  lazyAmbient($("hero-arena"), "warehouse", { s: 4, c: 250, k: 4, p: 0.85 }, 2, { sensors: true, labels: false, battery: false, spf: 3 });
+  lazyAmbient($("teaser"), "warehouse", { s: 4, c: 250, k: 4, p: 0.85 }, 5, { sensors: true, labels: true, battery: true, spf: 2 });
   addEventListener("resize", () => loops.forEach((L) => draw(L.cv, L.w, L.opt)));
 
   /* ---------- Swarm Lab ---------- */
