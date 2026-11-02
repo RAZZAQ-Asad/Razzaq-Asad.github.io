@@ -22,13 +22,27 @@
     });
   });
 
+  /* ---- mobile menu ---- */
+  const nav = $(".nav"), menuBtn = $(".menu-btn");
+  if (nav && menuBtn) {
+    const setOpen = (open) => {
+      nav.classList.toggle("open", open);
+      menuBtn.setAttribute("aria-expanded", open);
+      menuBtn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    };
+    menuBtn.addEventListener("click", (e) => { e.stopPropagation(); setOpen(!nav.classList.contains("open")); });
+    $$("#nav-links a").forEach((a) => a.addEventListener("click", () => setOpen(false)));
+    document.addEventListener("click", (e) => { if (nav.classList.contains("open") && !nav.contains(e.target)) setOpen(false); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape" && nav.classList.contains("open")) { setOpen(false); menuBtn.focus(); } });
+  }
+
   /* ---- photos ---- */
   $$("[data-photo]").forEach((img) => { const p = get(img.dataset.photo); if (p) img.src = p; else img.closest("[data-photo-wrap]")?.setAttribute("hidden", ""); });
 
   /* ---- profile links ---- */
   $$("[data-link]").forEach((a) => {
     const u = (S.links || {})[a.dataset.link];
-    if (u) { a.href = u; a.hidden = false; if (!a.target) { a.target = "_blank"; a.rel = "noopener"; } } else a.hidden = true;
+    if (u) { a.href = u; a.hidden = false; if (!a.target) { a.target = "_blank"; a.rel = "noopener"; } } else a.remove();
   });
   $$("[data-email]").forEach((el) => { el.textContent = S.email; if (el.tagName === "A") el.href = "mailto:" + S.email; });
 
@@ -113,6 +127,7 @@
       Object.keys(CATS).forEach((key) => {
         if (only && only !== key) return;
         const list = items.filter((g) => (g.category || "moments") === key);
+        if (!list.length) return; // albums without photos stay hidden until photos are added
         const sec = document.createElement("section"); sec.className = "gal-cat"; sec.id = key;
         sec.innerHTML = '<div class="gal-cat-head"><h2>' + CATS[key].title + '</h2><p>' + CATS[key].text + "</p></div>";
         if (!list.length) {
@@ -141,6 +156,9 @@
         sec.appendChild(ul); galRoot.appendChild(sec);
       }
     };
+    if (chips) $$(".chip", chips).forEach((c) => {
+      if (c.dataset.cat && !items.some((g) => (g.category || "moments") === c.dataset.cat)) c.remove();
+    });
     if (chips) chips.addEventListener("click", (e) => {
       const b = e.target.closest(".chip"); if (!b) return;
       $$(".chip", chips).forEach((c) => c.setAttribute("aria-pressed", c === b));
@@ -160,13 +178,18 @@
       const im = new Image(); im.src = it.src; im.alt = it.caption || ""; im.loading = "lazy";
       a.appendChild(im); teaser.appendChild(a);
     });
-    // fewer than 4 photos: fill the row with links to the three albums
-    Object.keys(CATS).slice(0, Math.max(0, 4 - pick.length)).forEach((key) => {
-      const a = document.createElement("a"); a.href = "gallery.html#" + key; a.className = "cat";
-      const n = items.filter((g) => (g.category || "moments") === key).length;
-      a.innerHTML = '<span class="eyebrow">' + (n ? n + (n === 1 ? " photo" : " photos") : "Album") + "</span><h3>" + CATS[key].title + '</h3><span class="arrow">Open</span>';
-      teaser.appendChild(a);
-    });
+    // fewer than 4 photos: one card that fills the row and lists the albums that have photos
+    if (pick.length && pick.length < 4) {
+      const card = document.createElement("div"); card.className = "albums";
+      card.style.gridColumn = "span " + (4 - pick.length);
+      let html = '<p class="eyebrow">Albums</p><ul>';
+      Object.keys(CATS).forEach((key) => {
+        const n = items.filter((g) => (g.category || "moments") === key).length;
+        if (n) html += '<li><a href="gallery.html#' + key + '"><span>' + CATS[key].title + '</span><span class="mono muted">' + n + (n === 1 ? " photo" : " photos") + "</span></a></li>";
+      });
+      card.innerHTML = html + '</ul><a class="arrow" href="gallery.html">Open gallery</a>';
+      teaser.appendChild(card);
+    }
     const n = $("#gal-count"); if (n && items.length >= 4) n.textContent = items.length + " photos";
   }
 
