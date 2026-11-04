@@ -81,7 +81,16 @@ Still to add:
 
 ## Blog
 
-**Hidden for now.** The pages are still in the repository, but they are not in the menu, the home page or the sitemap, and each one has `noindex` so Google leaves them out.
+**Hidden for now.** Nothing was deleted. Every blog piece is commented out in the HTML and marked `BLOG HIDDEN`, so it is easy to find with GitHub search (press `/` in the repository and type `BLOG HIDDEN`).
+
+To bring the blog back:
+1. **Menu link** (every page): change `<!-- BLOG HIDDEN: <li><a href="blog.html">Blog</a></li> -->` to `<li><a href="blog.html">Blog</a></li>`. The footer has the same kind of line.
+2. **Home page section** (`index.html`): delete the line that starts with `<!-- BLOG HIDDEN: home page blog section` and the line `END OF HIDDEN BLOG SECTION -->`.
+3. **Google** (`blog.html` and every `blog-*.html`): change `noindex, follow` to `index, follow, max-image-preview:large` (the comment next to it says the same).
+4. **Sitemap** (`sitemap.xml`): remove `<!-- BLOG HIDDEN:` and ` -->` around the blog lines.
+5. Optional, every page: un-comment the RSS `<link rel="alternate" ...>` line in the `<head>`.
+
+Or ask Claude to "bring the blog back": the build script has a single switch (`BLOG_PUBLIC`) that does all of this at once.
 
 - Each post is one HTML file (`blog-<topic>.html`) with BlogPosting structured data, its own social image in `assets/blog/`, and a demo built by `assets/blog.js` from `<figure class="demo" data-demo="...">`.
 - `feed.xml` is the RSS feed for feed readers (Feedly, Inoreader). It is not linked on the page because browsers show it as raw code; readers find it automatically. `sitemap.xml` lists every post.
