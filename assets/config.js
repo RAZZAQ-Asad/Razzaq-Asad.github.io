@@ -51,8 +51,7 @@ window.SITE = {
   /* Gallery. category: "japan" = Life in Japan, "events" = Events & Conferences,
      "moments" = Life Moments. Add as many as you like; newest first looks best. */
   gallery: [
-    { src: "assets/gallery/bangkok-rooftop-1.jpg", caption: "Bangkok at night, November 2025", category: "moments" },
-    { src: "assets/gallery/sakura-japan.jpg", caption: "Cherry blossom season in Japan", category: "japan" }
+    // The photo section is hidden for now (search GALLERY HIDDEN in the HTML files). Add photos here when you bring it back.
     // { src: "assets/gallery/toyama-mountains.jpg", caption: "Tateyama mountains from Toyama", category: "japan" },
     // { src: "assets/gallery/iridia-dorigo.jpg", caption: "With Prof. Marco Dorigo at IRIDIA, Brussels, 2025", category: "events" },
     // { src: "assets/gallery/phd-graduation.jpg", caption: "PhD graduation, University of Toyama, 2025", category: "moments" },
