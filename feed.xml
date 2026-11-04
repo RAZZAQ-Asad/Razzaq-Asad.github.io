@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Asad Razzaq, PhD: robots, swarms and AI, explained</title>
+  <link>https://razzaq-asad.github.io/blog.html</link>
+  <atom:link href="https://razzaq-asad.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+  <description>Articles on swarm intelligence, evolutionary robotics and machine learning, each with an interactive simulation.</description>
+  <language>en</language>
+  <lastBuildDate>Wed, 04 Nov 2026 09:00:00 +0900</lastBuildDate>
+  <item>
+    <title>How ants find food without a leader</title>
+    <link>https://razzaq-asad.github.io/blog-ants-swarm-intelligence.html</link>
+    <guid isPermaLink="true">https://razzaq-asad.github.io/blog-ants-swarm-intelligence.html</guid>
+    <pubDate>Wed, 04 Nov 2026 09:00:00 +0900</pubDate>
+    <description>No ant knows the map, yet the colony finds short paths to food. Play with a live simulation of pheromone trails, stigmergy and ant colony optimization.</description>
+    <category>Swarm intelligence</category><category>Stigmergy</category><category>Ant colony optimization</category>
+  </item>
+  <item>
+    <title>Picking a playing XI for robots: how many scouts does a swarm need?</title>
+    <link>https://razzaq-asad.github.io/blog-robot-team-composition.html</link>
+    <guid isPermaLink="true">https://razzaq-asad.github.io/blog-robot-team-composition.html</guid>
+    <pubDate>Wed, 04 Nov 2026 09:00:00 +0900</pubDate>
+    <description>A cricket captain changes the XI for the pitch. Robot swarms need the same thinking: try a simulation to find the best mix of scout and carrier robots.</description>
+    <category>Swarm robotics</category><category>Heterogeneous swarms</category><category>Multi-robot systems</category>
+  </item>
+  <item>
+    <title>Watch a genetic algorithm teach robots to drive</title>
+    <link>https://razzaq-asad.github.io/blog-genetic-algorithm-robots.html</link>
+    <guid isPermaLink="true">https://razzaq-asad.github.io/blog-genetic-algorithm-robots.html</guid>
+    <pubDate>Wed, 04 Nov 2026 09:00:00 +0900</pubDate>
+    <description>A genetic algorithm explained with 40 little robots. Watch neural network controllers improve generation by generation, then try the trap course that defeats them.</description>
+    <category>Genetic algorithms</category><category>Evolutionary robotics</category><category>Neuroevolution</category>
+  </item>
+  <item>
+    <title>Can robots smell? How a robot tracks a gas leak to its source</title>
+    <link>https://razzaq-asad.github.io/blog-robot-smell-odor-source-localization.html</link>
+    <guid isPermaLink="true">https://razzaq-asad.github.io/blog-robot-smell-odor-source-localization.html</guid>
+    <pubDate>Wed, 04 Nov 2026 09:00:00 +0900</pubDate>
+    <description>Wind tears smells into patches, so following the gradient fails. See how a moth-inspired surge-and-cast strategy finds an odour source anyway.</description>
+    <category>Robotic olfaction</category><category>Bio-inspired robotics</category><category>Search strategies</category>
+  </item>
+  <item>
+    <title>Knowledge distillation, explained with robots</title>
+    <link>https://razzaq-asad.github.io/blog-knowledge-distillation-explained.html</link>
+    <guid isPermaLink="true">https://razzaq-asad.github.io/blog-knowledge-distillation-explained.html</guid>
+    <pubDate>Wed, 04 Nov 2026 09:00:00 +0900</pubDate>
+    <description>What is knowledge distillation? A plain-English explanation with a live neural network that learns to copy three teachers, and why robot swarms need it.</description>
+    <category>Knowledge distillation</category><category>Neural networks</category><category>Swarm robotics</category>
+  </item>
+  <item>
+    <title>Doing a PhD in Japan from Pakistan: a practical guide</title>
+    <link>https://razzaq-asad.github.io/blog-phd-in-japan-from-pakistan.html</link>
+    <guid isPermaLink="true">https://razzaq-asad.github.io/blog-phd-in-japan-from-pakistan.html</guid>
+    <pubDate>Wed, 04 Nov 2026 09:00:00 +0900</pubDate>
+    <description>A practical guide for Pakistani students planning a PhD in Japan: finding a supervisor, MEXT, starting as a research student, SPRING changes and a checklist.</description>
+    <category>PhD in Japan</category><category>MEXT scholarship</category><category>Pakistan</category>
+  </item>
+</channel>
+</rss>

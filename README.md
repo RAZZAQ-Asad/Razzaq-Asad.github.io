@@ -11,6 +11,8 @@ A static, multi-page academic website with an interactive swarm robotics simulat
 | `index.html` | Home: portrait, floating logo ribbon (each logo links to the institution), news, research overview, awards, gallery preview, contact |
 | `research.html` | Research themes, figures from the published studies, the Swarm Lab simulator, research vision (next five years), PhD thesis |
 | `publications.html` | Journal articles, conference papers, poster and theses, with filters and "copy citation" |
+| `blog.html` | Blog index: six articles, each with an interactive simulation |
+| `blog-*.html` | Blog posts (ants and swarm intelligence, robot team composition, genetic algorithms, robot olfaction, knowledge distillation, PhD in Japan from Pakistan) |
 | `gallery.html` | Photo albums: Life in Japan, Events & Conferences, Life Moments |
 | `cv.html` | CV: bio, education, experience, awards, skills, teaching and mentoring, sports, profiles, CV download |
 | `404.html` | Not-found page |
@@ -43,6 +45,8 @@ To edit a file on GitHub: open it, click the pencil icon, make the change, then 
 | `site.js` | Shared behaviour: theme toggle, links, logos, PDF viewer, gallery, filters |
 | `engine.js` | The Swarm Lab simulator, path planner and genetic algorithm (also runs as a Web Worker) |
 | `swarm.js` | Drawing, the live swarms on the home page, the Swarm Lab controls and the robot inspector |
+| `blog.js` | The blog demos: ant trails, scouts and carriers, genetic algorithm, odour search, knowledge distillation, checklist |
+| `blog/` | Social-media images (1200×630) and card thumbnails for each post |
 | `asad-studio.jpg`, `asad-avatar.jpg` | Portraits: home and CV page, small menu icon |
 | `logo-*.svg/png/webp` | Institution logos |
 | `fig-*.jpg` | Figures from the published studies |
@@ -74,6 +78,13 @@ Still to add:
 - Gallery photos (Toyama mountains, IRIDIA with Prof. Dorigo, conferences): put them in `assets/gallery/` and list them in `config.js`.
 - An Instagram link, if wanted (`links.instagram` in `config.js`).
 - Website links for Approsoft, Souya and Iqra College (their logos are shown without a link). In `index.html`, change `<span class="mq-item">` for that entry to `<a class="mq-item" href="URL" target="_blank" rel="noopener">` (and `</span>` to `</a>`) in both copies of the ribbon list.
+
+## Blog
+
+- Each post is one HTML file (`blog-<topic>.html`) with BlogPosting structured data, its own social image in `assets/blog/`, and a demo built by `assets/blog.js` from `<figure class="demo" data-demo="...">`.
+- `feed.xml` is the RSS feed; `sitemap.xml` lists every post.
+- The demos are small toy models written for the blog. The numbers quoted in the posts come from running them.
+- After publishing a new post: add it to `sitemap.xml` and `feed.xml`, then use "Request indexing" in Google Search Console.
 
 ## Search engines (SEO)
 

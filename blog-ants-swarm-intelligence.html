@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>How Ants Find Food Without a Leader · Swarm Intelligence Explained</title>
+<meta name="description" content="No ant knows the map, yet the colony finds short paths to food. Play with a live simulation of pheromone trails, stigmergy and ant colony optimization.">
+<meta name="author" content="Asad Razzaq">
+<link rel="canonical" href="https://razzaq-asad.github.io/blog-ants-swarm-intelligence.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Asad Razzaq, PhD">
+<meta property="og:title" content="How Ants Find Food Without a Leader · Swarm Intelligence Explained">
+<meta property="og:description" content="No ant knows the map, yet the colony finds short paths to food. Play with a live simulation of pheromone trails, stigmergy and ant colony optimization.">
+<meta property="og:url" content="https://razzaq-asad.github.io/blog-ants-swarm-intelligence.html">
+<meta property="og:image" content="https://razzaq-asad.github.io/assets/blog/ants-swarm-intelligence.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="How ants find food without a leader">
+<meta property="article:published_time" content="2026-11-04">
+<meta property="article:modified_time" content="2026-11-04">
+<meta property="article:author" content="https://razzaq-asad.github.io/">
+<meta property="article:section" content="Swarm intelligence">
+<meta property="article:tag" content="Swarm intelligence">
+<meta property="article:tag" content="Stigmergy">
+<meta property="article:tag" content="Ant colony optimization">
+<meta name="keywords" content="swarm intelligence, how do ants find food, stigmergy, pheromone trails, ant colony optimization, emergent behavior, swarm robotics">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How Ants Find Food Without a Leader · Swarm Intelligence Explained">
+<meta name="twitter:description" content="No ant knows the map, yet the colony finds short paths to food. Play with a live simulation of pheromone trails, stigmergy and ant colony optimization.">
+<meta name="twitter:image" content="https://razzaq-asad.github.io/assets/blog/ants-swarm-intelligence.jpg">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="me" href="https://scholar.google.com/citations?user=ZE91v18AAAAJ">
+<link rel="me" href="https://www.researchgate.net/profile/Asad-Razzaq">
+<link rel="me" href="https://orcid.org/0009-0004-9389-3481">
+<link rel="me" href="https://www.linkedin.com/in/asadrazzaqphd/">
+<link rel="me" href="https://www.semanticscholar.org/author/2238456971">
+<link rel="me" href="https://github.com/RAZZAQ-Asad">
+<link rel="me" href="https://promotion-research.ctg.u-toyama.ac.jp/spring-student/razzaq_r5">
+<link rel="me" href="https://www.facebook.com/asu605">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://razzaq-asad.github.io/#website", "url": "https://razzaq-asad.github.io/", "name": "Asad Razzaq, PhD", "description": "Personal academic website of Dr. Asad Razzaq, researcher in swarm robotics and evolutionary AI.", "publisher": {"@id": "https://razzaq-asad.github.io/#person"}, "inLanguage": "en"}, {"@type": "Person", "@id": "https://razzaq-asad.github.io/#person", "name": "Asad Razzaq", "url": "https://razzaq-asad.github.io/"}, {"@type": "WebPage", "@id": "https://razzaq-asad.github.io/blog-ants-swarm-intelligence.html#webpage", "url": "https://razzaq-asad.github.io/blog-ants-swarm-intelligence.html", "name": "How Ants Find Food Without a Leader · Swarm Intelligence Explained", "description": "No ant knows the map, yet the colony finds short paths to food. Play with a live simulation of pheromone trails, stigmergy and ant colony optimization.", "inLanguage": "en", "isPartOf": {"@id": "https://razzaq-asad.github.io/#website"}, "about": {"@id": "https://razzaq-asad.github.io/#person"}, "author": {"@id": "https://razzaq-asad.github.io/#person"}, "dateModified": "2026-11-04", "breadcrumb": {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://razzaq-asad.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://razzaq-asad.github.io/blog.html"}, {"@type": "ListItem", "position": 3, "name": "How ants find food without a leader", "item": "https://razzaq-asad.github.io/blog-ants-swarm-intelligence.html"}]}, "primaryImageOfPage": {"@type": "ImageObject", "url": "https://razzaq-asad.github.io/assets/blog/ants-swarm-intelligence.jpg"}}, {"@type": "BlogPosting", "@id": "https://razzaq-asad.github.io/blog-ants-swarm-intelligence.html#article", "headline": "How ants find food without a leader", "description": "No ant knows the map, yet the colony finds short paths to food. Play with a live simulation of pheromone trails, stigmergy and ant colony optimization.", "image": ["https://razzaq-asad.github.io/assets/blog/ants-swarm-intelligence.jpg"], "datePublished": "2026-11-04", "dateModified": "2026-11-04", "author": {"@id": "https://razzaq-asad.github.io/#person"}, "publisher": {"@id": "https://razzaq-asad.github.io/#person"}, "mainEntityOfPage": {"@id": "https://razzaq-asad.github.io/blog-ants-swarm-intelligence.html#webpage"}, "isPartOf": {"@id": "https://razzaq-asad.github.io/blog.html#blog"}, "keywords": "swarm intelligence, how do ants find food, stigmergy, pheromone trails, ant colony optimization, emergent behavior, swarm robotics", "articleSection": "Swarm intelligence", "about": [{"@type": "Thing", "name": "Swarm intelligence"}, {"@type": "Thing", "name": "Stigmergy"}, {"@type": "Thing", "name": "Ant colony optimization"}], "wordCount": 1048, "inLanguage": "en"}]}</script>
+<meta name="theme-color" content="#0B7782">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230B7782'/%3E%3Ccircle cx='10' cy='12' r='3' fill='%23fff'/%3E%3Ccircle cx='21' cy='9' r='3' fill='%23E5A93C'/%3E%3Ccircle cx='16' cy='21' r='3' fill='%23E5A93C'/%3E%3Ccircle cx='24' cy='22' r='3' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="alternate" type="application/rss+xml" title="Asad Razzaq, PhD: blog" href="https://razzaq-asad.github.io/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Asad Razzaq, home"><img src="assets/asad-avatar.jpg?v=2" alt="" width="30" height="30"><span>Asad Razzaq</span></a>
+    <ul id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="research.html#lab">Swarm Lab</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="blog.html" aria-current="page">Blog</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="cv.html">CV & Awards</a></li>
+    </ul>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <button class="theme-btn" type="button" aria-label="Switch theme"></button>
+  </div>
+</nav>
+<main id="main">
+<article class="post">
+<header class="page-head post-head">
+  <div class="wrap">
+    <p class="eyebrow"><a href="blog.html" style="color:inherit">Blog</a> · Swarm intelligence</p>
+    <div>
+      <h1>How ants find food without a leader</h1>
+      <p class="lead">No ant knows the map and nobody is in charge, yet the colony finds short paths to food. Here is how, with a simulation you can play with.</p>
+      <p class="byline"><img src="assets/asad-avatar.jpg?v=2" alt="" width="28" height="28"><a href="index.html" rel="author">Asad Razzaq, PhD</a><time datetime="2026-11-04">4 Nov 2026</time><span>7 min read</span></p>
+    </div>
+  </div>
+</header>
+<section class="sec" style="border-top:0">
+  <div class="wrap">
+    <div class="prose">
+
+<p>Leave a crumb near an ant nest and within minutes there is a line of ants running between the crumb and the nest. Nobody planned that line. No ant has a map, there is no foreman, and each ant only knows what is right in front of its antennae. The line comes from a few simple rules followed by many ants at once.</p>
+<p>That is swarm intelligence in one picture, and it is where my own field, swarm robotics, starts. Below is a small colony you can play with.</p>
+<figure class="demo" data-demo="ants" aria-label="Interactive ant colony simulation">
+  <div class="demo-ui"></div>
+  <figcaption><b>Try it.</b> Ants (dark dots) leave the nest and wander. An ant that finds food (red) carries it home (amber dots) and leaves an amber “food” trail. Ants leaving the nest lay a teal “home” trail that helps the carriers find their way back. Tap the arena to drop new food. A toy model written for this post.</figcaption>
+</figure>
+
+<h2>Three rules, no plan</h2>
+<p>Every ant in the simulation follows the same three rules:</p>
+<ol>
+  <li><b>Walk forward</b>, wiggling a little at random.</li>
+  <li><b>Smell the ground</b> just ahead, ahead-left and ahead-right. If you are looking for food, turn towards the strongest food scent. If you are carrying food, turn towards the strongest home scent.</li>
+  <li><b>Leave scent behind you</b>: home scent while searching, food scent while carrying. The longer it has been since you left the nest or the food, the weaker the scent you lay.</li>
+</ol>
+<p>The world adds one more rule: scent slowly evaporates.</p>
+<p>Notice what is missing. There is no rule that says “find the shortest path”, and the path is not stored in any ant. It is stored in the ground.</p>
+
+<h2>The ground is the memory: stigmergy</h2>
+<p>The French biologist Pierre-Paul Grassé coined the word <b>stigmergy</b> in 1959, while studying how termites build their nests. It means coordination through traces left in the environment. One individual changes the world, and the change tells the next individual what to do.</p>
+<p>You already know human examples. A footpath worn across a lawn gets used because it is visible, and it stays visible because it gets used. A shared document with a half-finished section invites the next person to finish it.</p>
+<p>For ants the trace is a pheromone, a chemical they lay and smell. In the simulation it is just a number stored in each grid cell, but the effect is the same: a good route makes itself more attractive.</p>
+
+<h2>Why the short path wins</h2>
+<p>In a well-known experiment, Goss, Aron, Deneubourg and Pasteels gave Argentine ants a bridge with two branches of different lengths between the nest and a food source. After a few minutes most of the traffic used the shorter branch.</p>
+<p>No ant measured anything. Ants on the short branch simply finish their round trips sooner, so the short branch gets fresh pheromone more often. A small early lead attracts more ants, who lay more pheromone, who attract more ants. Biologists call this positive feedback.</p>
+<p>Evaporation is the brake. A trail that is not refreshed fades away. That is how the colony forgets food that has run out. Watch the demo: the nearer pile usually gets the strong trail first, and when it is empty its trail fades and the colony moves on to the other pile.</p>
+
+<div class="callout"><b>Three things to try</b>
+<ul>
+  <li><b>Trail memory: Long.</b> Ants keep returning to an empty spot because the old trail lingers. Too much memory means acting on old information.</li>
+  <li><b>Trail memory: Short.</b> Trails fade before they can guide anyone. Too little memory means no learning at all.</li>
+  <li><b>Untick “Ants follow trails”.</b> In five runs of this model, blind ants brought home about a third as much food in the same time (267 units against 740 over 2,000 steps).</li>
+</ul></div>
+<p>The balance between using what you know and still exploring appears in almost every learning system, from ant colonies to reinforcement learning. Here it is a single slider.</p>
+
+<h2>From ants to algorithms</h2>
+<p>In the early 1990s Marco Dorigo turned this behaviour into an optimisation method called Ant System. Virtual ants build candidate solutions to a problem, such as the shortest tour through a set of cities, and leave virtual pheromone on the choices that belonged to good solutions. Over many rounds the pheromone concentrates on good choices, and the colony converges.</p>
+<p>That idea grew into a family of methods called <b>ant colony optimization</b> (ACO). It has been applied to vehicle routing, scheduling and routing in communication networks, among other problems.</p>
+
+<h2>From ants to robots</h2>
+<p>Swarm robotics borrows the design, not the chemistry: many simple robots, each sensing only its surroundings, with no central controller. Three benefits make this attractive:</p>
+<ul>
+  <li><b>Robustness.</b> If one robot fails, the rest carry on.</li>
+  <li><b>Scalability.</b> The same rules work for ten robots or a thousand.</li>
+  <li><b>Flexibility.</b> The group adapts to the situation without being reprogrammed.</li>
+</ul>
+<p>In 2014 a Harvard team showed 1,024 small Kilobots assembling themselves into shapes using only local rules.</p>
+<p>Robots rarely lay real chemicals. Researchers use stand-ins instead: light drawn on the floor, marks on a shared digital map, or messages passed from neighbour to neighbour.</p>
+<p>The hard part is going in the other direction. With ants we see the rules and watch the trail appear. With robots we know the behaviour we want and have to <em>find</em> local rules that produce it. That inverse problem is why I use evolution to search for robot controllers, which you can watch in action in <a href="blog-genetic-algorithm-robots.html">Watch a genetic algorithm teach robots to drive</a>.</p>
+
+<ul class="key-points">
+  <li>No ant knows the route. The route is stored in the environment as pheromone.</li>
+  <li>Positive feedback finds good paths; evaporation forgets bad and outdated ones.</li>
+  <li>Ant colony optimization turns this into a general method for hard combinatorial problems.</li>
+  <li>Swarm robotics uses the same principle: simple local rules, many agents, no leader.</li>
+</ul>
+
+<h2>Further reading</h2>
+<ol class="refs"><li>P.-P. Grassé (1959). La reconstruction du nid et les coordinations interindividuelles chez <i>Bellicositermes natalensis</i> et <i>Cubitermes</i> sp. <i>Insectes Sociaux</i> 6, 41–80.</li><li>S. Goss, S. Aron, J.-L. Deneubourg, J. M. Pasteels (1989). Self-organized shortcuts in the Argentine ant. <i>Naturwissenschaften</i> 76, 579–581.</li><li>M. Dorigo, V. Maniezzo, A. Colorni (1996). Ant System: optimization by a colony of cooperating agents. <i>IEEE Transactions on Systems, Man, and Cybernetics, Part B</i> 26(1), 29–41.</li><li>M. Dorigo, T. Stützle (2004). <i>Ant Colony Optimization</i>. MIT Press.</li><li>M. Rubenstein, A. Cornejo, R. Nagpal (2014). Programmable self-assembly in a thousand-robot swarm. <i>Science</i> 345, 795–799.</li></ol>
+
+      <div class="tags" aria-label="Topics"><span class="tag">Swarm intelligence</span><span class="tag">Stigmergy</span><span class="tag">Ant colony optimization</span></div>
+      <aside class="author-box" aria-label="About the author">
+        <img src="assets/asad-avatar.jpg?v=2" alt="Asad Razzaq" width="72" height="72" loading="lazy">
+        <div><p><b>Asad Razzaq, PhD</b> is a researcher at the <a href="https://nisarlab.org/" target="_blank" rel="noopener">NISAR Lab</a>, Kyoto University of Advanced Science. He works on swarm robotics and evolutionary AI: teams of robots that learn to work together.</p>
+        <p class="row"><a href="research.html">Research</a> · <a href="publications.html">Publications</a> · <a href="research.html#lab">Swarm Lab</a> · <a href="feed.xml">RSS</a></p></div>
+      </aside>
+    </div>
+  </div>
+</section>
+</article>
+<section class="sec tint" aria-labelledby="h-more">
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Keep reading</p><div class="head-row"><h2 id="h-more">More from the blog</h2><a class="arrow" href="blog.html">All posts</a></div></div>
+    <div class="posts indent"><a class="post-card reveal" href="blog-robot-team-composition.html"><img src="assets/blog/robot-team-composition-card.jpg" alt="" width="720" height="378" loading="lazy"><div class="pc-body"><p class="eyebrow">Swarm robotics</p><h3>Picking a playing XI for robots: how many scouts does a swarm need?</h3><p>A cricket captain picks a different XI for a turning pitch than for a green one. Teams of robots need the same thinking, and the right mix keeps changing.</p><p class="pc-meta">4 Nov 2026 · 7 min read · interactive</p></div></a><a class="post-card reveal" href="blog-genetic-algorithm-robots.html"><img src="assets/blog/genetic-algorithm-robots-card.jpg" alt="" width="720" height="378" loading="lazy"><div class="pc-body"><p class="eyebrow">Evolutionary robotics</p><h3>Watch a genetic algorithm teach robots to drive</h3><p>Nobody programs these robots. They start with random brains and get better by selection, crossover and mutation. Then there is a course they cannot solve, and that is the best lesson of all.</p><p class="pc-meta">4 Nov 2026 · 8 min read · interactive</p></div></a></div>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <div style="display:flex;flex-direction:column;gap:10px;min-width:0">
+      <p class="fname">Asad Razzaq, PhD</p>
+      <p class="muted" style="max-width:52ch">Swarm robotics and evolutionary AI · NISAR Lab, Kyoto University of Advanced Science, Japan</p>
+      <p><a data-email href="mailto:asad.razzaq@kuas.ac.jp">asad.razzaq@kuas.ac.jp</a></p>
+      <div class="links">
+        <a class="btn small" data-link="scholar" href="https://scholar.google.com/citations?user=ZE91v18AAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+        <a class="btn small" data-link="researchgate" href="https://www.researchgate.net/profile/Asad-Razzaq" target="_blank" rel="noopener">ResearchGate</a>
+        <a class="btn small" data-link="orcid" href="https://orcid.org/0009-0004-9389-3481" target="_blank" rel="noopener">ORCID</a>
+        <a class="btn small" data-link="linkedin" href="https://www.linkedin.com/in/asadrazzaqphd/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn small" data-link="semanticscholar" href="https://www.semanticscholar.org/author/2238456971" target="_blank" rel="noopener">Semantic Scholar</a>
+        <a class="btn small" data-link="github" href="https://github.com/RAZZAQ-Asad" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn small" data-link="spring" href="https://promotion-research.ctg.u-toyama.ac.jp/spring-student/razzaq_r5" target="_blank" rel="noopener">SPRING profile</a>
+        <a class="btn small" data-link="facebook" href="https://www.facebook.com/asu605" target="_blank" rel="noopener">Facebook</a>
+        <a class="btn small" data-link="instagram" target="_blank" rel="noopener" hidden>Instagram</a>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <nav aria-label="Footer"><a href="index.html">Home</a> <a href="research.html">Research</a> <a href="publications.html">Publications</a> <a href="blog.html">Blog</a> <a href="gallery.html">Gallery</a> <a href="cv.html">CV & Awards</a></nav>
+      <p class="small">© <span data-year>2026</span> Asad Razzaq · The Swarm Lab runs in your browser</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/config.js" defer></script>
+<script src="assets/site.js" defer></script>
+<script src="assets/blog.js" defer></script>
+</body>
+</html>

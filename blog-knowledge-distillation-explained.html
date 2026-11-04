@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Knowledge Distillation Explained, with an Interactive Demo</title>
+<meta name="description" content="What is knowledge distillation? A plain-English explanation with a live neural network that learns to copy three teachers, and why robot swarms need it.">
+<meta name="author" content="Asad Razzaq">
+<link rel="canonical" href="https://razzaq-asad.github.io/blog-knowledge-distillation-explained.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Asad Razzaq, PhD">
+<meta property="og:title" content="Knowledge Distillation Explained, with an Interactive Demo">
+<meta property="og:description" content="What is knowledge distillation? A plain-English explanation with a live neural network that learns to copy three teachers, and why robot swarms need it.">
+<meta property="og:url" content="https://razzaq-asad.github.io/blog-knowledge-distillation-explained.html">
+<meta property="og:image" content="https://razzaq-asad.github.io/assets/blog/knowledge-distillation-explained.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Knowledge distillation, explained with robots">
+<meta property="article:published_time" content="2026-11-04">
+<meta property="article:modified_time" content="2026-11-04">
+<meta property="article:author" content="https://razzaq-asad.github.io/">
+<meta property="article:section" content="Machine learning">
+<meta property="article:tag" content="Knowledge distillation">
+<meta property="article:tag" content="Neural networks">
+<meta property="article:tag" content="Swarm robotics">
+<meta name="keywords" content="knowledge distillation explained, teacher student network, policy distillation, model compression, multi-task learning, neural network controller, swarm robotics">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Knowledge Distillation Explained, with an Interactive Demo">
+<meta name="twitter:description" content="What is knowledge distillation? A plain-English explanation with a live neural network that learns to copy three teachers, and why robot swarms need it.">
+<meta name="twitter:image" content="https://razzaq-asad.github.io/assets/blog/knowledge-distillation-explained.jpg">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="me" href="https://scholar.google.com/citations?user=ZE91v18AAAAJ">
+<link rel="me" href="https://www.researchgate.net/profile/Asad-Razzaq">
+<link rel="me" href="https://orcid.org/0009-0004-9389-3481">
+<link rel="me" href="https://www.linkedin.com/in/asadrazzaqphd/">
+<link rel="me" href="https://www.semanticscholar.org/author/2238456971">
+<link rel="me" href="https://github.com/RAZZAQ-Asad">
+<link rel="me" href="https://promotion-research.ctg.u-toyama.ac.jp/spring-student/razzaq_r5">
+<link rel="me" href="https://www.facebook.com/asu605">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://razzaq-asad.github.io/#website", "url": "https://razzaq-asad.github.io/", "name": "Asad Razzaq, PhD", "description": "Personal academic website of Dr. Asad Razzaq, researcher in swarm robotics and evolutionary AI.", "publisher": {"@id": "https://razzaq-asad.github.io/#person"}, "inLanguage": "en"}, {"@type": "Person", "@id": "https://razzaq-asad.github.io/#person", "name": "Asad Razzaq", "url": "https://razzaq-asad.github.io/"}, {"@type": "WebPage", "@id": "https://razzaq-asad.github.io/blog-knowledge-distillation-explained.html#webpage", "url": "https://razzaq-asad.github.io/blog-knowledge-distillation-explained.html", "name": "Knowledge Distillation Explained, with an Interactive Demo", "description": "What is knowledge distillation? A plain-English explanation with a live neural network that learns to copy three teachers, and why robot swarms need it.", "inLanguage": "en", "isPartOf": {"@id": "https://razzaq-asad.github.io/#website"}, "about": {"@id": "https://razzaq-asad.github.io/#person"}, "author": {"@id": "https://razzaq-asad.github.io/#person"}, "dateModified": "2026-11-04", "breadcrumb": {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://razzaq-asad.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://razzaq-asad.github.io/blog.html"}, {"@type": "ListItem", "position": 3, "name": "Knowledge distillation, explained with robots", "item": "https://razzaq-asad.github.io/blog-knowledge-distillation-explained.html"}]}, "primaryImageOfPage": {"@type": "ImageObject", "url": "https://razzaq-asad.github.io/assets/blog/knowledge-distillation-explained.jpg"}}, {"@type": "BlogPosting", "@id": "https://razzaq-asad.github.io/blog-knowledge-distillation-explained.html#article", "headline": "Knowledge distillation, explained with robots", "description": "What is knowledge distillation? A plain-English explanation with a live neural network that learns to copy three teachers, and why robot swarms need it.", "image": ["https://razzaq-asad.github.io/assets/blog/knowledge-distillation-explained.jpg"], "datePublished": "2026-11-04", "dateModified": "2026-11-04", "author": {"@id": "https://razzaq-asad.github.io/#person"}, "publisher": {"@id": "https://razzaq-asad.github.io/#person"}, "mainEntityOfPage": {"@id": "https://razzaq-asad.github.io/blog-knowledge-distillation-explained.html#webpage"}, "isPartOf": {"@id": "https://razzaq-asad.github.io/blog.html#blog"}, "keywords": "knowledge distillation explained, teacher student network, policy distillation, model compression, multi-task learning, neural network controller, swarm robotics", "articleSection": "Machine learning", "about": [{"@type": "Thing", "name": "Knowledge distillation"}, {"@type": "Thing", "name": "Neural networks"}, {"@type": "Thing", "name": "Swarm robotics"}], "wordCount": 640, "inLanguage": "en"}]}</script>
+<meta name="theme-color" content="#0B7782">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230B7782'/%3E%3Ccircle cx='10' cy='12' r='3' fill='%23fff'/%3E%3Ccircle cx='21' cy='9' r='3' fill='%23E5A93C'/%3E%3Ccircle cx='16' cy='21' r='3' fill='%23E5A93C'/%3E%3Ccircle cx='24' cy='22' r='3' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="alternate" type="application/rss+xml" title="Asad Razzaq, PhD: blog" href="https://razzaq-asad.github.io/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Asad Razzaq, home"><img src="assets/asad-avatar.jpg?v=2" alt="" width="30" height="30"><span>Asad Razzaq</span></a>
+    <ul id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="research.html#lab">Swarm Lab</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="blog.html" aria-current="page">Blog</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="cv.html">CV & Awards</a></li>
+    </ul>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <button class="theme-btn" type="button" aria-label="Switch theme"></button>
+  </div>
+</nav>
+<main id="main">
+<article class="post">
+<header class="page-head post-head">
+  <div class="wrap">
+    <p class="eyebrow"><a href="blog.html" style="color:inherit">Blog</a> · Machine learning</p>
+    <div>
+      <h1>Knowledge distillation, explained with robots</h1>
+      <p class="lead">A small “student” network learns by copying bigger or more specialised “teachers”. Watch one learn three behaviours at once, and see why it matters for robots.</p>
+      <p class="byline"><img src="assets/asad-avatar.jpg?v=2" alt="" width="28" height="28"><a href="index.html" rel="author">Asad Razzaq, PhD</a><time datetime="2026-11-04">4 Nov 2026</time><span>6 min read</span></p>
+    </div>
+  </div>
+</header>
+<section class="sec" style="border-top:0">
+  <div class="wrap">
+    <div class="prose">
+
+<p>Big neural networks are good at their jobs, but they are slow and expensive to run. Some jobs also need several networks, each a specialist at one thing. <b>Knowledge distillation</b> deals with both problems. A smaller <em>student</em> network is trained to imitate one or more <em>teacher</em> networks, and ends up doing their work at a fraction of the cost.</p>
+
+<h2>Learning by imitation</h2>
+<p>The usual way to train a network is to show it examples with correct answers. Distillation changes the target: instead of the correct answer, the student copies whatever the teacher outputs.</p>
+<p>That sounds like a step backwards, but the teacher's outputs carry more information than bare labels. An image classifier that says “this is a 2, but it looks a bit like a 7” is telling the student something about handwriting that the label “2” alone does not. Geoffrey Hinton and colleagues popularised the term in 2015, building on earlier work on compressing large models into small ones.</p>
+<p>Distillation also works with <b>several teachers</b>. In <em>policy distillation</em>, several networks that each control an agent in a different task are merged into one network that can do all of them.</p>
+
+<h2>Try it: three teachers, one student</h2>
+<p>Below, three teachers each map a sensor reading to a steering command:</p>
+<ul>
+  <li><b>Go to goal</b> steers towards the goal.</li>
+  <li><b>Avoid obstacle</b> swerves away from things directly ahead.</li>
+  <li><b>Stay together</b> keeps the robot near its neighbours.</li>
+</ul>
+<p>The student sees the same reading plus which task is active, and it is trained only to match the teachers' outputs.</p>
+<figure class="demo" data-demo="distill" aria-label="Interactive knowledge distillation demo">
+  <div class="demo-ui"></div>
+  <figcaption><b>Try it.</b> Dashed lines are the teachers, solid lines are the student. Change the number of hidden neurons and restart training to see how student size affects what it can learn. The network trains live in your browser. A toy model written for this post.</figcaption>
+</figure>
+<p>Size matters, up to a point. Here is the imitation error after 6,000 training steps in my runs:</p>
+<table>
+  <thead><tr><th scope="col">Hidden neurons</th><th scope="col">Weights</th><th scope="col">Imitation error</th><th scope="col">What it looks like</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>7</td><td>0.17</td><td>Cannot represent all three; settles for a compromise</td></tr>
+    <tr><td>2</td><td>13</td><td>0.011</td><td>Roughly right, misses the details</td></tr>
+    <tr><td>4</td><td>25</td><td>0.0055</td><td>Close</td></tr>
+    <tr><td>8</td><td>49</td><td>0.00005</td><td>Practically identical to the teachers</td></tr>
+  </tbody>
+</table>
+<p>A good student needs enough capacity to hold what the teachers know, and no more than that.</p>
+
+<h2>Why robot swarms need this</h2>
+<p>When you evolve controllers for a swarm (see <a href="blog-genetic-algorithm-robots.html">the genetic algorithm post</a>), evolution tends to produce <b>specialists</b>. A controller evolved for cooperative transport is good at transport and not much else. Real missions mix tasks: carry this, avoid that, keep the group together.</p>
+<p>Evolving one controller for everything at once is hard. The tasks compete for the same weights, and the search space grows.</p>
+<p>In my <a href="publications.html#C1">ANTS 2026 paper</a> (Springer LNCS), I took the distillation route:</p>
+<ol>
+  <li>Start from task-specific teacher controllers for transport, obstacle avoidance and aggregation.</li>
+  <li>Distil them into one compact student controller.</li>
+</ol>
+<p>The single student handles composite tasks that combine all three. A small controller also matters in practice, because swarm robots are small and cheap and have little computing power to spare.</p>
+<p>The demo above is a one-dimensional cartoon of that idea. The paper does the same thing with neural controllers running in multi-robot simulations.</p>
+
+<ul class="key-points">
+  <li>Knowledge distillation trains a student network to imitate one or more teachers.</li>
+  <li>Teacher outputs carry richer information than plain labels.</li>
+  <li>Several specialist teachers can be merged into one versatile student.</li>
+  <li>For robots, this gives small, multi-skilled controllers that fit on cheap hardware.</li>
+</ul>
+
+<h2>Further reading</h2>
+<ol class="refs"><li>C. Buciluǎ, R. Caruana, A. Niculescu-Mizil (2006). Model compression. <i>Proc. ACM SIGKDD</i>, 535–541.</li><li>G. Hinton, O. Vinyals, J. Dean (2015). Distilling the knowledge in a neural network. arXiv:1503.02531.</li><li>A. A. Rusu et al. (2016). Policy distillation. <i>ICLR 2016</i>. arXiv:1511.06295.</li><li>A. Razzaq, T. Yasuda (2026). Knowledge distillation for developing versatile controllers of robotic swarms. In <i>Swarm Intelligence (ANTS 2026)</i>, LNCS 16515, Springer. <a href="publications.html#C1">Details</a>.</li></ol>
+
+      <div class="tags" aria-label="Topics"><span class="tag">Knowledge distillation</span><span class="tag">Neural networks</span><span class="tag">Swarm robotics</span></div>
+      <aside class="author-box" aria-label="About the author">
+        <img src="assets/asad-avatar.jpg?v=2" alt="Asad Razzaq" width="72" height="72" loading="lazy">
+        <div><p><b>Asad Razzaq, PhD</b> is a researcher at the <a href="https://nisarlab.org/" target="_blank" rel="noopener">NISAR Lab</a>, Kyoto University of Advanced Science. He works on swarm robotics and evolutionary AI: teams of robots that learn to work together.</p>
+        <p class="row"><a href="research.html">Research</a> · <a href="publications.html">Publications</a> · <a href="research.html#lab">Swarm Lab</a> · <a href="feed.xml">RSS</a></p></div>
+      </aside>
+    </div>
+  </div>
+</section>
+</article>
+<section class="sec tint" aria-labelledby="h-more">
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Keep reading</p><div class="head-row"><h2 id="h-more">More from the blog</h2><a class="arrow" href="blog.html">All posts</a></div></div>
+    <div class="posts indent"><a class="post-card reveal" href="blog-genetic-algorithm-robots.html"><img src="assets/blog/genetic-algorithm-robots-card.jpg" alt="" width="720" height="378" loading="lazy"><div class="pc-body"><p class="eyebrow">Evolutionary robotics</p><h3>Watch a genetic algorithm teach robots to drive</h3><p>Nobody programs these robots. They start with random brains and get better by selection, crossover and mutation. Then there is a course they cannot solve, and that is the best lesson of all.</p><p class="pc-meta">4 Nov 2026 · 8 min read · interactive</p></div></a><a class="post-card reveal" href="blog-robot-team-composition.html"><img src="assets/blog/robot-team-composition-card.jpg" alt="" width="720" height="378" loading="lazy"><div class="pc-body"><p class="eyebrow">Swarm robotics</p><h3>Picking a playing XI for robots: how many scouts does a swarm need?</h3><p>A cricket captain picks a different XI for a turning pitch than for a green one. Teams of robots need the same thinking, and the right mix keeps changing.</p><p class="pc-meta">4 Nov 2026 · 7 min read · interactive</p></div></a></div>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <div style="display:flex;flex-direction:column;gap:10px;min-width:0">
+      <p class="fname">Asad Razzaq, PhD</p>
+      <p class="muted" style="max-width:52ch">Swarm robotics and evolutionary AI · NISAR Lab, Kyoto University of Advanced Science, Japan</p>
+      <p><a data-email href="mailto:asad.razzaq@kuas.ac.jp">asad.razzaq@kuas.ac.jp</a></p>
+      <div class="links">
+        <a class="btn small" data-link="scholar" href="https://scholar.google.com/citations?user=ZE91v18AAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+        <a class="btn small" data-link="researchgate" href="https://www.researchgate.net/profile/Asad-Razzaq" target="_blank" rel="noopener">ResearchGate</a>
+        <a class="btn small" data-link="orcid" href="https://orcid.org/0009-0004-9389-3481" target="_blank" rel="noopener">ORCID</a>
+        <a class="btn small" data-link="linkedin" href="https://www.linkedin.com/in/asadrazzaqphd/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn small" data-link="semanticscholar" href="https://www.semanticscholar.org/author/2238456971" target="_blank" rel="noopener">Semantic Scholar</a>
+        <a class="btn small" data-link="github" href="https://github.com/RAZZAQ-Asad" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn small" data-link="spring" href="https://promotion-research.ctg.u-toyama.ac.jp/spring-student/razzaq_r5" target="_blank" rel="noopener">SPRING profile</a>
+        <a class="btn small" data-link="facebook" href="https://www.facebook.com/asu605" target="_blank" rel="noopener">Facebook</a>
+        <a class="btn small" data-link="instagram" target="_blank" rel="noopener" hidden>Instagram</a>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <nav aria-label="Footer"><a href="index.html">Home</a> <a href="research.html">Research</a> <a href="publications.html">Publications</a> <a href="blog.html">Blog</a> <a href="gallery.html">Gallery</a> <a href="cv.html">CV & Awards</a></nav>
+      <p class="small">© <span data-year>2026</span> Asad Razzaq · The Swarm Lab runs in your browser</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/config.js" defer></script>
+<script src="assets/site.js" defer></script>
+<script src="assets/blog.js" defer></script>
+</body>
+</html>

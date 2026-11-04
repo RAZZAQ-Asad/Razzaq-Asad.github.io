@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Can Robots Smell? Odour Source Localization Explained</title>
+<meta name="description" content="Wind tears smells into patches, so following the gradient fails. See how a moth-inspired surge-and-cast strategy finds an odour source anyway.">
+<meta name="author" content="Asad Razzaq">
+<link rel="canonical" href="https://razzaq-asad.github.io/blog-robot-smell-odor-source-localization.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Asad Razzaq, PhD">
+<meta property="og:title" content="Can Robots Smell? Odour Source Localization Explained">
+<meta property="og:description" content="Wind tears smells into patches, so following the gradient fails. See how a moth-inspired surge-and-cast strategy finds an odour source anyway.">
+<meta property="og:url" content="https://razzaq-asad.github.io/blog-robot-smell-odor-source-localization.html">
+<meta property="og:image" content="https://razzaq-asad.github.io/assets/blog/robot-smell-odor-source-localization.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Can robots smell? How a robot tracks a gas leak to its source">
+<meta property="article:published_time" content="2026-11-04">
+<meta property="article:modified_time" content="2026-11-04">
+<meta property="article:author" content="https://razzaq-asad.github.io/">
+<meta property="article:section" content="Robotics">
+<meta property="article:tag" content="Robotic olfaction">
+<meta property="article:tag" content="Bio-inspired robotics">
+<meta property="article:tag" content="Search strategies">
+<meta name="keywords" content="can robots smell, robotic olfaction, odor source localization, gas leak detection robot, surge and cast, moth inspired robot, chemotaxis, electronic nose">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Can Robots Smell? Odour Source Localization Explained">
+<meta name="twitter:description" content="Wind tears smells into patches, so following the gradient fails. See how a moth-inspired surge-and-cast strategy finds an odour source anyway.">
+<meta name="twitter:image" content="https://razzaq-asad.github.io/assets/blog/robot-smell-odor-source-localization.jpg">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="me" href="https://scholar.google.com/citations?user=ZE91v18AAAAJ">
+<link rel="me" href="https://www.researchgate.net/profile/Asad-Razzaq">
+<link rel="me" href="https://orcid.org/0009-0004-9389-3481">
+<link rel="me" href="https://www.linkedin.com/in/asadrazzaqphd/">
+<link rel="me" href="https://www.semanticscholar.org/author/2238456971">
+<link rel="me" href="https://github.com/RAZZAQ-Asad">
+<link rel="me" href="https://promotion-research.ctg.u-toyama.ac.jp/spring-student/razzaq_r5">
+<link rel="me" href="https://www.facebook.com/asu605">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://razzaq-asad.github.io/#website", "url": "https://razzaq-asad.github.io/", "name": "Asad Razzaq, PhD", "description": "Personal academic website of Dr. Asad Razzaq, researcher in swarm robotics and evolutionary AI.", "publisher": {"@id": "https://razzaq-asad.github.io/#person"}, "inLanguage": "en"}, {"@type": "Person", "@id": "https://razzaq-asad.github.io/#person", "name": "Asad Razzaq", "url": "https://razzaq-asad.github.io/"}, {"@type": "WebPage", "@id": "https://razzaq-asad.github.io/blog-robot-smell-odor-source-localization.html#webpage", "url": "https://razzaq-asad.github.io/blog-robot-smell-odor-source-localization.html", "name": "Can Robots Smell? Odour Source Localization Explained", "description": "Wind tears smells into patches, so following the gradient fails. See how a moth-inspired surge-and-cast strategy finds an odour source anyway.", "inLanguage": "en", "isPartOf": {"@id": "https://razzaq-asad.github.io/#website"}, "about": {"@id": "https://razzaq-asad.github.io/#person"}, "author": {"@id": "https://razzaq-asad.github.io/#person"}, "dateModified": "2026-11-04", "breadcrumb": {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://razzaq-asad.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://razzaq-asad.github.io/blog.html"}, {"@type": "ListItem", "position": 3, "name": "Can robots smell? How a robot tracks a gas leak to its source", "item": "https://razzaq-asad.github.io/blog-robot-smell-odor-source-localization.html"}]}, "primaryImageOfPage": {"@type": "ImageObject", "url": "https://razzaq-asad.github.io/assets/blog/robot-smell-odor-source-localization.jpg"}}, {"@type": "BlogPosting", "@id": "https://razzaq-asad.github.io/blog-robot-smell-odor-source-localization.html#article", "headline": "Can robots smell? How a robot tracks a gas leak to its source", "description": "Wind tears smells into patches, so following the gradient fails. See how a moth-inspired surge-and-cast strategy finds an odour source anyway.", "image": ["https://razzaq-asad.github.io/assets/blog/robot-smell-odor-source-localization.jpg"], "datePublished": "2026-11-04", "dateModified": "2026-11-04", "author": {"@id": "https://razzaq-asad.github.io/#person"}, "publisher": {"@id": "https://razzaq-asad.github.io/#person"}, "mainEntityOfPage": {"@id": "https://razzaq-asad.github.io/blog-robot-smell-odor-source-localization.html#webpage"}, "isPartOf": {"@id": "https://razzaq-asad.github.io/blog.html#blog"}, "keywords": "can robots smell, robotic olfaction, odor source localization, gas leak detection robot, surge and cast, moth inspired robot, chemotaxis, electronic nose", "articleSection": "Robotics", "about": [{"@type": "Thing", "name": "Robotic olfaction"}, {"@type": "Thing", "name": "Bio-inspired robotics"}, {"@type": "Thing", "name": "Search strategies"}], "wordCount": 785, "inLanguage": "en"}]}</script>
+<meta name="theme-color" content="#0B7782">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230B7782'/%3E%3Ccircle cx='10' cy='12' r='3' fill='%23fff'/%3E%3Ccircle cx='21' cy='9' r='3' fill='%23E5A93C'/%3E%3Ccircle cx='16' cy='21' r='3' fill='%23E5A93C'/%3E%3Ccircle cx='24' cy='22' r='3' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="alternate" type="application/rss+xml" title="Asad Razzaq, PhD: blog" href="https://razzaq-asad.github.io/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Asad Razzaq, home"><img src="assets/asad-avatar.jpg?v=2" alt="" width="30" height="30"><span>Asad Razzaq</span></a>
+    <ul id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="research.html#lab">Swarm Lab</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="blog.html" aria-current="page">Blog</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="cv.html">CV & Awards</a></li>
+    </ul>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <button class="theme-btn" type="button" aria-label="Switch theme"></button>
+  </div>
+</nav>
+<main id="main">
+<article class="post">
+<header class="page-head post-head">
+  <div class="wrap">
+    <p class="eyebrow"><a href="blog.html" style="color:inherit">Blog</a> · Robotics</p>
+    <div>
+      <h1>Can robots smell? How a robot tracks a gas leak to its source</h1>
+      <p class="lead">“Follow the smell to where it is strongest” sounds easy. In moving air it mostly fails. Here is why, and what moths do instead.</p>
+      <p class="byline"><img src="assets/asad-avatar.jpg?v=2" alt="" width="28" height="28"><a href="index.html" rel="author">Asad Razzaq, PhD</a><time datetime="2026-11-04">4 Nov 2026</time><span>7 min read</span></p>
+    </div>
+  </div>
+</header>
+<section class="sec" style="border-top:0">
+  <div class="wrap">
+    <div class="prose">
+
+<p>Imagine a gas leak in a large factory. You send in a robot with a chemical sensor and give it a simple instruction: go where the smell is strongest. It sounds like it should work. In most real situations it does not.</p>
+
+<h2>Smell does not spread the way you think</h2>
+<p>We picture a smell as a smooth cloud that is strongest at the source and fades evenly with distance. That picture holds in perfectly still air, or at the tiny scale of a bacterium.</p>
+<p>In a room with any air movement, wind and turbulence tear the odour into filaments and patches. A sensor in the plume reads a sudden whiff, then nothing, then another whiff. Most of the time the reading is zero, even quite close to the source. At any moment the “gradient” points in a random direction, or nowhere at all.</p>
+<figure class="demo" data-demo="smell" aria-label="Interactive odour plume and robot search simulation">
+  <div class="demo-ui"></div>
+  <figcaption><b>Try it.</b> Wind carries odour puffs (teal) from the source (red) towards the right. The robot (dark triangle) starts downwind. Amber dots mark where it caught a whiff. Pick a strategy and an air condition, or press <b>Race 20 searches</b> to compare all three strategies in the current air. A toy model written for this post.</figcaption>
+</figure>
+
+<h2>Three ways to search</h2>
+<h3>Random walk</h3>
+<p>The robot wanders and hopes. It is a useful baseline: any strategy worth having should beat it.</p>
+<h3>Follow the gradient</h3>
+<p>The robot has two “nostrils”, one on the left and one on the right, and turns towards the side that smells stronger. Biologists call this <b>chemotaxis</b>. It is how bacteria swim towards food, and in calm air it is fast and direct.</p>
+<h3>Surge and cast</h3>
+<p>This is what male moths do when they track a female's pheromone over long distances:</p>
+<ul>
+  <li><b>Surge.</b> When the moth smells the pheromone, it flies straight <em>upwind</em>.</li>
+  <li><b>Cast.</b> When it loses the scent, it stops advancing and zigzags <em>across</em> the wind in wider and wider sweeps until it catches the plume again.</li>
+</ul>
+<p>The key ingredient is not a better nose but a second sense: wind direction. The robot in the demo gets an anemometer (a wind sensor) for this.</p>
+
+<h2>What happened in my runs</h2>
+<p>I ran each strategy 30 times in each air condition, with a limit of 4,000 time steps per search:</p>
+<table>
+  <thead><tr><th scope="col">Air</th><th scope="col">Random walk</th><th scope="col">Follow the gradient</th><th scope="col">Surge and cast</th></tr></thead>
+  <tbody>
+    <tr><td>Calm</td><td>17 / 30</td><td>30 / 30, avg 417 steps</td><td>30 / 30, avg 478 steps</td></tr>
+    <tr><td>Breezy</td><td>16 / 30</td><td>7 / 30</td><td>30 / 30, avg 933 steps</td></tr>
+    <tr><td>Gusty</td><td>19 / 30</td><td>1 / 30</td><td>29 / 30, avg 1,536 steps</td></tr>
+  </tbody>
+</table>
+<p>Two results stand out:</p>
+<ul>
+  <li><b>Following the gradient is the fastest method in calm air</b> and worse than random once the air moves. Each whiff pulls the robot sideways, and between whiffs it has nothing to go on.</li>
+  <li><b>Surge and cast is slower in calm air but almost never fails.</b> Its strength is robustness, not speed.</li>
+</ul>
+<p>Press the race button and you will get somewhat different numbers, because it uses 20 different random searches. The pattern holds.</p>
+<p>This is a recurring theme in robotics: the best strategy depends on the environment. Robust strategies use more than one source of information.</p>
+
+<h2>Real robot noses</h2>
+<p>Real gas sensors make the problem harder than the demo. The common metal-oxide sensors used in electronic noses take seconds to respond and longer to recover, so a whiff smears into a slow bump. A robot moving at walking speed has passed the patch by the time the sensor notices it.</p>
+<p>Researchers fight back with better sensors, with probabilistic strategies such as <b>infotaxis</b> (move to wherever you expect to learn the most about the source position), and with <b>teams of robots</b> that spread out across the plume and share their detections.</p>
+<p>That last idea is why olfaction interests me. A search that is hopeless for one robot in gusty air becomes far easier for a swarm that can cover the width of a plume at once. Odour search with multiple robots is one of the directions in my <a href="research.html#vision">research plan</a>.</p>
+<p>The applications are practical ones: finding gas leaks in plants and pipelines, monitoring air quality, and searching collapsed buildings, where people cannot safely go first.</p>
+
+<ul class="key-points">
+  <li>In moving air, odour arrives as intermittent patches, not as a smooth gradient.</li>
+  <li>Gradient-following works in calm air and fails in turbulence.</li>
+  <li>Moth-inspired surge and cast uses wind direction and stays reliable.</li>
+  <li>Several robots sharing their detections are a promising way to search turbulent plumes.</li>
+</ul>
+
+<h2>Further reading</h2>
+<ol class="refs"><li>J. S. Kennedy, D. Marsh (1974). Pheromone-regulated anemotaxis in flying moths. <i>Science</i> 184, 999–1001.</li><li>R. A. Russell (1999). <i>Odour Detection by Mobile Robots</i>. World Scientific.</li><li>M. Vergassola, E. Villermaux, B. I. Shraiman (2007). ‘Infotaxis’ as a strategy for searching without gradients. <i>Nature</i> 445, 406–409.</li></ol>
+
+      <div class="tags" aria-label="Topics"><span class="tag">Robotic olfaction</span><span class="tag">Bio-inspired robotics</span><span class="tag">Search strategies</span></div>
+      <aside class="author-box" aria-label="About the author">
+        <img src="assets/asad-avatar.jpg?v=2" alt="Asad Razzaq" width="72" height="72" loading="lazy">
+        <div><p><b>Asad Razzaq, PhD</b> is a researcher at the <a href="https://nisarlab.org/" target="_blank" rel="noopener">NISAR Lab</a>, Kyoto University of Advanced Science. He works on swarm robotics and evolutionary AI: teams of robots that learn to work together.</p>
+        <p class="row"><a href="research.html">Research</a> · <a href="publications.html">Publications</a> · <a href="research.html#lab">Swarm Lab</a> · <a href="feed.xml">RSS</a></p></div>
+      </aside>
+    </div>
+  </div>
+</section>
+</article>
+<section class="sec tint" aria-labelledby="h-more">
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Keep reading</p><div class="head-row"><h2 id="h-more">More from the blog</h2><a class="arrow" href="blog.html">All posts</a></div></div>
+    <div class="posts indent"><a class="post-card reveal" href="blog-ants-swarm-intelligence.html"><img src="assets/blog/ants-swarm-intelligence-card.jpg" alt="" width="720" height="378" loading="lazy"><div class="pc-body"><p class="eyebrow">Swarm intelligence</p><h3>How ants find food without a leader</h3><p>No ant knows the map and nobody is in charge, yet the colony finds short paths to food. Here is how, with a simulation you can play with.</p><p class="pc-meta">4 Nov 2026 · 7 min read · interactive</p></div></a><a class="post-card reveal" href="blog-robot-team-composition.html"><img src="assets/blog/robot-team-composition-card.jpg" alt="" width="720" height="378" loading="lazy"><div class="pc-body"><p class="eyebrow">Swarm robotics</p><h3>Picking a playing XI for robots: how many scouts does a swarm need?</h3><p>A cricket captain picks a different XI for a turning pitch than for a green one. Teams of robots need the same thinking, and the right mix keeps changing.</p><p class="pc-meta">4 Nov 2026 · 7 min read · interactive</p></div></a></div>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <div style="display:flex;flex-direction:column;gap:10px;min-width:0">
+      <p class="fname">Asad Razzaq, PhD</p>
+      <p class="muted" style="max-width:52ch">Swarm robotics and evolutionary AI · NISAR Lab, Kyoto University of Advanced Science, Japan</p>
+      <p><a data-email href="mailto:asad.razzaq@kuas.ac.jp">asad.razzaq@kuas.ac.jp</a></p>
+      <div class="links">
+        <a class="btn small" data-link="scholar" href="https://scholar.google.com/citations?user=ZE91v18AAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+        <a class="btn small" data-link="researchgate" href="https://www.researchgate.net/profile/Asad-Razzaq" target="_blank" rel="noopener">ResearchGate</a>
+        <a class="btn small" data-link="orcid" href="https://orcid.org/0009-0004-9389-3481" target="_blank" rel="noopener">ORCID</a>
+        <a class="btn small" data-link="linkedin" href="https://www.linkedin.com/in/asadrazzaqphd/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn small" data-link="semanticscholar" href="https://www.semanticscholar.org/author/2238456971" target="_blank" rel="noopener">Semantic Scholar</a>
+        <a class="btn small" data-link="github" href="https://github.com/RAZZAQ-Asad" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn small" data-link="spring" href="https://promotion-research.ctg.u-toyama.ac.jp/spring-student/razzaq_r5" target="_blank" rel="noopener">SPRING profile</a>
+        <a class="btn small" data-link="facebook" href="https://www.facebook.com/asu605" target="_blank" rel="noopener">Facebook</a>
+        <a class="btn small" data-link="instagram" target="_blank" rel="noopener" hidden>Instagram</a>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <nav aria-label="Footer"><a href="index.html">Home</a> <a href="research.html">Research</a> <a href="publications.html">Publications</a> <a href="blog.html">Blog</a> <a href="gallery.html">Gallery</a> <a href="cv.html">CV & Awards</a></nav>
+      <p class="small">© <span data-year>2026</span> Asad Razzaq · The Swarm Lab runs in your browser</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/config.js" defer></script>
+<script src="assets/site.js" defer></script>
+<script src="assets/blog.js" defer></script>
+</body>
+</html>
