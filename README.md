@@ -8,12 +8,12 @@ A static, multi-page academic website with an interactive swarm robotics simulat
 
 | File | Page |
 |---|---|
-| `index.html` | Home: portrait, floating logo ribbon (each logo links to the institution), news, research overview, awards, gallery preview, contact |
+| `index.html` | Home: portrait, floating logo ribbon (each logo links to the institution), news, research overview, awards, contact |
 | `research.html` | Research themes, figures from the published studies, the Swarm Lab simulator, research vision (next five years), PhD thesis |
 | `publications.html` | Journal articles, conference papers, poster and theses, with filters and "copy citation" |
 | `blog.html` | Blog index: six articles, each with an interactive simulation |
 | `blog-*.html` | Blog posts (ants and swarm intelligence, robot team composition, genetic algorithms, robot olfaction, knowledge distillation, PhD in Japan from Pakistan) |
-| `gallery.html` | Photo albums: Life in Japan, Events & Conferences, Life Moments |
+| `gallery.html` | Photo albums (hidden for now, see below) |
 | `cv.html` | CV: bio, education, experience, awards, skills, teaching and mentoring, sports, profiles, CV download |
 | `404.html` | Not-found page |
 
@@ -75,9 +75,12 @@ The model is simplified (2-D, rule-based controllers). The published studies use
 ## Status (last updated 27 Oct 2026)
 
 Still to add:
-- Gallery photos (Toyama mountains, IRIDIA with Prof. Dorigo, conferences): put them in `assets/gallery/` and list them in `config.js`.
 - An Instagram link, if wanted (`links.instagram` in `config.js`).
 - Website links for Approsoft, Souya and Iqra College (their logos are shown without a link). In `index.html`, change `<span class="mq-item">` for that entry to `<a class="mq-item" href="URL" target="_blank" rel="noopener">` (and `</span>` to `</a>`) in both copies of the ribbon list.
+
+## Gallery (hidden for now)
+
+The photo section is hidden the same way as the blog: the menu link, the footer link and the home page section are commented out and marked `GALLERY HIDDEN`, `gallery.html` has `noindex`, and it is commented out in `sitemap.xml`. To bring it back, add photos to `gallery: [...]` in `assets/config.js`, then remove the `GALLERY HIDDEN` comment marks (same steps as for the blog below), or ask Claude to set `GALLERY_PUBLIC = True`.
 
 ## Blog
 
