@@ -168,7 +168,7 @@ a.card:hover { border-color: var(--accent); transform: translateY(-2px); }
 
 /* ---------- awards ---------- */
 .awards { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; }
-.awards .award { grid-column: span 2; }
+.awards .award { grid-column: span 3; }
 .awards .award.top { grid-column: span 3; }
 .award.top h3 { font-size: 1.35rem; }
 .award { position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px 20px 20px; display: flex; flex-direction: column; gap: 8px; overflow: hidden; }
