@@ -81,6 +81,8 @@ Still to add:
 
 ## Blog
 
+**Hidden for now.** The pages are still in the repository, but they are not in the menu, the home page or the sitemap, and each one has `noindex` so Google leaves them out.
+
 - Each post is one HTML file (`blog-<topic>.html`) with BlogPosting structured data, its own social image in `assets/blog/`, and a demo built by `assets/blog.js` from `<figure class="demo" data-demo="...">`.
 - `feed.xml` is the RSS feed for feed readers (Feedly, Inoreader). It is not linked on the page because browsers show it as raw code; readers find it automatically. `sitemap.xml` lists every post.
 - The demos are small toy models written for the blog. The numbers quoted in the posts come from running them.
