@@ -333,6 +333,34 @@
       setTab("you"); board(); $("result").textContent = SCENARIOS[st.key].label + ". Press Run mission.";
     });
 
+    let compareWorker = null;
+    function clearComparison() {
+      if (compareWorker) compareWorker.terminate();
+      compareWorker = null; $("compare").disabled = false;
+      $("compare-result").textContent = "Run evolution first, then compare the two designs.";
+    }
+    $("compare").addEventListener("click", () => {
+      if (!evo.best) { $("compare-result").textContent = "Run evolution first to produce a candidate design."; return; }
+      if (compareWorker) compareWorker.terminate();
+      $("compare").disabled = true;
+      $("compare-result").textContent = "Testing six missions in a background worker…";
+      try {
+        compareWorker = new Worker("assets/engine.js");
+        compareWorker.onmessage = (event) => {
+          const lines = event.data.results.map((entry, i) => {
+            const scores = entry.runs.map((run) => run.f * 50), mean = scores.reduce((a,b) => a+b,0) / scores.length;
+            return (i ? "Evolved candidate" : "Your slider design") + ": " + genoText(entry.g) + "\nMean " + mean.toFixed(1) + "/100 · range " + Math.min(...scores).toFixed(1) + "–" + Math.max(...scores).toFixed(1) + "\n" + entry.runs.map((run) => "Seed " + run.seed + ": " + (run.f * 50).toFixed(1) + " pts, " + run.delivered + "/3 delivered").join("; ");
+          });
+          $("compare-result").textContent = lines.join("\n\n") + "\n\nSnapshot of designs at test start; rerun after changing the sliders or evolving again.";
+          compareWorker.terminate(); compareWorker = null; $("compare").disabled = false;
+        };
+        compareWorker.onerror = () => { clearComparison(); $("compare-result").textContent = "The background test could not complete. Please try again in a browser that supports Web Workers."; };
+        compareWorker.postMessage({ cmd: "compare", key: st.key, you: userG(), evolved: evo.best.g });
+      } catch (error) { clearComparison(); $("compare-result").textContent = "Background testing is unavailable in this browser."; }
+    });
+    $("scen").addEventListener("click", clearComparison);
+    addEventListener("pagehide", () => { if (compareWorker) compareWorker.terminate(); });
+
     function setTab(t) {
       st.mode = t;
       $("tab-you").setAttribute("aria-selected", t === "you"); $("tab-evo").setAttribute("aria-selected", t === "evo");
@@ -360,6 +388,7 @@
     function startEvo() {
       stopEvo();
       evo.hist = []; evo.best = null; evo.gen = 0; evo.running = true;
+      $("evo-load").disabled = true; clearComparison();
       $("evo-start").disabled = true; $("evo-stop").disabled = false; $("evo-start").textContent = "Evolving…";
       $("e-gen").textContent = "0 / " + GENS; $("e-best").textContent = "–"; $("e-geno").textContent = "–"; drawChart();
       try {

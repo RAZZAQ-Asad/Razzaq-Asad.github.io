@@ -111,3 +111,13 @@ Or ask Claude to "bring the blog back": the build script has a single switch (`B
 
 - Use `.jpg` or `.webp`, about 1600 px on the long side and under 500 KB each.
 - Ask for permission before posting photos of other people.
+
+## Portfolio and model review (6 November 2026)
+
+- Homepage: source-backed selected studies, direct research/CV/contact actions, three recent news items with an archive, and static academic affiliations. Detailed career and award history remain on the CV.
+- Swarm Lab: limitations are visible before the controls; expandable methods explain central coordination, illustrative physics/energy, exact scoring and reproducibility.
+- Evolution now uses search seed 2026 and slider-aligned genes. Copying a design therefore preserves the evaluated parameters.
+- A separate Web Worker compares both designs on held-out seeds 23, 47 and 89. Results show each run, mean and range; three seeds do not establish statistical validity.
+- Still requires author-supplied material: research/teaching statement PDFs, permitted manuscripts, code repositories, research videos, and verified quantitative study results. No placeholder claims or fabricated metrics were added.
+
+Run simulator regression checks with `node tests/engine.cjs`. Optional statement links become visible when `researchStatement` / `teachingStatement` in `assets/config.js` point to your PDFs.

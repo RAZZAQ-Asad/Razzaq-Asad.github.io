@@ -8,6 +8,8 @@ window.SITE = {
   photo: "assets/asad-studio.jpg",       // home page portrait
   photoFormal: "assets/asad-studio.jpg", // CV page photo
   cvPdf: "assets/Asad_Razzaq_CV.pdf",
+  researchStatement: "", // Optional author-supplied research statement PDF
+  teachingStatement: "", // Optional author-supplied teaching statement PDF
   thesisPdf: "",      // "assets/thesis.pdf"
   defenseSlides: "",  // "assets/defense-slides.pdf"  (PowerPoint -> Save as PDF)
 
@@ -17,9 +19,9 @@ window.SITE = {
     orcid: "https://orcid.org/0009-0004-9389-3481",
     linkedin: "https://www.linkedin.com/in/asadrazzaqphd/",
     semanticscholar: "https://www.semanticscholar.org/author/2238456971",
-    github: "https://github.com/RAZZAQ-Asad",
+    github: "",
     spring: "https://promotion-research.ctg.u-toyama.ac.jp/spring-student/razzaq_r5",
-    facebook: "https://www.facebook.com/asu605",
+    facebook: "",
     instagram: ""     // "https://www.instagram.com/your-username/"
   },
 

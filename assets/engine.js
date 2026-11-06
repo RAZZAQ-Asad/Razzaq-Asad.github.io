@@ -53,6 +53,10 @@ function rng(a) { return function () { a |= 0; a = (a + 0x6D2B79F5) | 0; let t =
 const clamp = (x, a, b) => Math.max(a, Math.min(b, x));
 const hyp = (x, y) => Math.sqrt(x * x + y * y);
 const wrap = (a) => Math.atan2(Math.sin(a), Math.cos(a));
+function normalizeGenes(g) {
+  return { s: clamp(Math.round(g.s), 0, 9), c: clamp(Math.round(g.c / 10) * 10, 100, 400),
+    k: clamp(Math.round(g.k == null ? 4 : g.k), 3, 6), p: clamp(Math.round((g.p == null ? 0.8 : g.p) * 100) / 100, 0, 1) };
+}
 function workersFor(s) { return Math.floor((BUDGET - s * COST.scout) / COST.worker); }
 
 /* ---------- geometry ---------- */
@@ -181,8 +185,7 @@ function prep(key) {
 function makeWorld(g, seed, key, opt) {
   key = key || "warehouse"; opt = opt || {};
   const P = prep(key), scen = P.scen, rnd = rng(seed * 7919 + 13);
-  const nS = clamp(Math.round(g.s), LIMITS.s[0], LIMITS.s[1]), nW = workersFor(nS);
-  const G = { s: nS, c: clamp(g.c, LIMITS.c[0], LIMITS.c[1]), k: clamp(Math.round(g.k || 4), LIMITS.k[0], LIMITS.k[1]), p: clamp(g.p == null ? 0.8 : g.p, 0, 1) };
+  const G = normalizeGenes(g), nS = G.s, nW = workersFor(nS);
   // three packages at separate reachable spots
   const spots = scen.spots.filter(([x, y]) => fieldAt(P.boxTrue, x, y) < Infinity).slice();
   const pk = [];
@@ -644,18 +647,18 @@ function counts(w) {
 function simulate(g, seed, key) { const w = makeWorld(g, seed, key); while (!w.done) step(w); return { f: fitness(w), t: w.t, e: w.energy, done: w.done, delivered: w.delivered, cov: coverage(w) }; }
 
 /* ---------- evolution: genes = scouts (workers fill the budget), radio range, crew size, exploration ---------- */
-const POP = 8, GENS = 10, EVAL_SEEDS = [3, 11];
+const POP = 8, GENS = 10, EVAL_SEEDS = [3, 11], HOLDOUT_SEEDS = [23, 47, 89], SEARCH_SEED = 2026;
 function gauss(r) { let u = 0, v = 0; while (!u) u = r(); while (!v) v = r(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v); }
-function randG(r) { return { s: Math.floor(r() * 10), c: 100 + r() * 300, k: 3 + Math.floor(r() * 4), p: r() }; }
+function randG(r) { return normalizeGenes({ s: Math.floor(r() * 10), c: 100 + r() * 300, k: 3 + Math.floor(r() * 4), p: r() }); }
 function mutate(g, r) {
   const c = { s: g.s, c: g.c, k: g.k, p: g.p };
   if (r() < 0.5) c.s = clamp(c.s + Math.round(gauss(r) * 1.5), 0, 9);
   if (r() < 0.5) c.c = clamp(c.c + gauss(r) * 60, 100, 400);
   if (r() < 0.3) c.k = clamp(c.k + (r() < 0.5 ? -1 : 1), 3, 6);
   if (r() < 0.5) c.p = clamp(c.p + gauss(r) * 0.2, 0, 1);
-  return c;
+  return normalizeGenes(c);
 }
-function newEvo(key, seed) { const r = rng(seed || ((Math.random() * 1e9) | 0)); return { key, r, pop: Array.from({ length: POP }, () => randG(r)), fits: new Array(POP), idx: 0, gen: 0, best: null }; }
+function newEvo(key, seed) { const r = rng(seed == null ? SEARCH_SEED : seed); return { key, r, pop: Array.from({ length: POP }, () => randG(r)), fits: new Array(POP), idx: 0, gen: 0, best: null }; }
 function breed(ev) {
   const r = ev.r;
   const tour = () => { let k = -1; for (let i = 0; i < 3; i++) { const j = Math.floor(r() * POP); if (k < 0 || ev.fits[j] > ev.fits[k]) k = j; } return ev.pop[k]; };
@@ -681,7 +684,12 @@ function evalNext(ev) {
 }
 if (typeof window === "undefined" && typeof self !== "undefined") {
   self.onmessage = (e) => {
-    const msg = e.data || {}; if (msg.cmd !== "start") return;
+    const msg = e.data || {};
+    if (msg.cmd === "compare") {
+      const results = [msg.you, msg.evolved].map((g) => ({ g: normalizeGenes(g), runs: HOLDOUT_SEEDS.map((seed) => ({ seed, ...simulate(g, seed, msg.key) })) }));
+      self.postMessage({ type: "comparison", results }); return;
+    }
+    if (msg.cmd !== "start") return;
     const ev = newEvo(msg.key || "warehouse");
     let rep;
     do { rep = evalNext(ev); if (rep) self.postMessage(rep); } while (!rep || !rep.last);
