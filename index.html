@@ -51,6 +51,18 @@
 .method-feature h3 { margin-block: 12px 18px; line-height: 1.2; }
 .method-feature p:not(.eyebrow) { margin-bottom: 18px; font-size: 1rem; }
 @media(max-width:700px) { .paper-animation figcaption { flex-direction: column; padding: 18px; } .method-feature { grid-template-columns: 1fr; gap: 24px; } }
+.selected-project img { height: 252px; object-fit: contain; padding: 10px; background: #fff; }
+.thumbnail-source { color: var(--muted); font-size: .9rem !important; }
+.affiliation-grid [data-logo="spring"] img { height: auto; max-height: 54px; width: 220px; }
+@media(max-width:540px) { .selected-project img { height: 280px; } }
+.research-media-dialog { width: min(96vw, 1440px); max-height: 92vh; padding: 20px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--ink); }
+.research-media-dialog::backdrop { background: rgb(0 0 0 / .72); }
+.research-media-dialog header { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 18px; }
+.research-media-dialog h2 { font-size: 1.4rem; }
+.research-media-scroll { overflow: auto; max-height: 70vh; background: #fff; }
+.research-media-scroll img { display: block; width: 100%; max-width: none; height: auto; }
+.research-media-scroll.actual-size img { width: 1340px; }
+.research-media-dialog > p { margin-top: 12px; font-size: .95rem; }
 </style>
 </head>
 <body>
@@ -101,7 +113,7 @@
     </div>
   </div>
 </header>
-<section class="sec" aria-labelledby="h-research"><div class="wrap"><div class="sec-head"><p class="eyebrow">Selected work</p><div class="head-row"><div><h2 id="h-research">Research in focus</h2><p class="lead">Evolutionary design of heterogeneous robot teams, from cooperative transport to versatile controllers. Figures below come from the published studies.</p></div><a class="arrow" href="publications.html">All publications</a></div></div><div class="selected-projects"><article class="selected-project"><a href="research.html#composition" tabindex="-1" aria-hidden="true"><img src="assets/fig-alr2026-composition.jpg" alt="" width="800" height="650" loading="lazy"></a><div class="project-copy"><p class="eyebrow">ALR · 2026</p><h3><a href="research.html#composition">Designing the team and its controller together</a></h3><p>How should a swarm be composed when robots have different perceptual abilities?</p><p>My doctoral work jointly evolved group organization and neural controllers for heterogeneous teams.</p><div class="actions"><a class="btn small" href="publications.html#J1">Publication details</a><a class="btn small" href="https://doi.org/10.1007/s10015-025-01083-5" target="_blank" rel="noopener">Read paper</a></div></div></article><article class="selected-project"><a href="research.html#transport" tabindex="-1" aria-hidden="true"><img src="assets/home-jrm-result.webp" alt="" width="333" height="383" loading="lazy"></a><div class="project-copy"><p class="eyebrow">JRM · 2023</p><h3><a href="research.html#transport">Cooperative transport with different robot abilities</a></h3><p>How can robots with different sensing ranges transport an object together?</p><p>My co-authored study investigates evolved cooperative transport behavior in heterogeneous robotic swarms.</p><div class="actions"><a class="btn small" href="publications.html#J2">Publication details</a><a class="btn small" href="https://doi.org/10.20965/jrm.2023.p1007" target="_blank" rel="noopener">Read paper</a></div></div></article><article class="selected-project"><a href="research.html#versatile" tabindex="-1" aria-hidden="true"><img src="assets/fig-ants2026-distillation.jpg" alt="" width="800" height="650" loading="lazy"></a><div class="project-copy"><p class="eyebrow">ANTS · 2026</p><h3><a href="research.html#versatile">One compact controller, several tasks</a></h3><p>Can specialist swarm controllers be combined into a versatile controller?</p><p>My co-authored work uses knowledge distillation to combine task-specific teachers into a student controller for composite tasks.</p><div class="actions"><a class="btn small" href="publications.html#C1">Publication details</a></div></div></article></div></div></section>
+<section class="sec" aria-labelledby="h-research"><div class="wrap"><div class="sec-head"><p class="eyebrow">Selected work</p><div class="head-row"><div><h2 id="h-research">Research in focus</h2><p class="lead">Evolutionary design of heterogeneous robot teams, from cooperative transport to versatile controllers. Figures below come from the published studies.</p></div><a class="arrow" href="publications.html">All publications</a></div></div><div class="selected-projects"><article class="selected-project"><a href="research.html#composition" tabindex="-1" aria-hidden="true"><img src="assets/home-alr-setup.webp" alt="" width="565" height="547" loading="lazy"></a><div class="project-copy"><p class="eyebrow">ALR · 2026 / SWARM · 2024</p><h3><a href="research.html#composition">Designing the team and its controller together</a></h3><p>How should a swarm be composed when robots have different perceptual abilities?</p><p>My doctoral work jointly evolved group organization and neural controllers for heterogeneous teams.</p><p class="thumbnail-source">Setup shown: <a href="publications.html#C4">SWARM 2024</a>.</p><div class="actions"><a class="btn small" href="publications.html#J1">Publication details</a><a class="btn small" href="https://doi.org/10.1007/s10015-025-01083-5" target="_blank" rel="noopener">Read paper</a></div></div></article><article class="selected-project"><a href="research.html#transport" tabindex="-1" aria-hidden="true"><img src="assets/home-jrm-setup.webp" alt="" width="765" height="751" loading="lazy"></a><div class="project-copy"><p class="eyebrow">JRM · 2023</p><h3><a href="research.html#transport">Cooperative transport with different robot abilities</a></h3><p>How can robots with different sensing ranges transport an object together?</p><p>My co-authored study investigates evolved cooperative transport behavior in heterogeneous robotic swarms.</p><div class="actions"><a class="btn small" href="publications.html#J2">Publication details</a><a class="btn small" href="https://doi.org/10.20965/jrm.2023.p1007" target="_blank" rel="noopener">Read paper</a></div></div></article><article class="selected-project"><a href="research.html#versatile" tabindex="-1" aria-hidden="true"><img src="assets/home-ants-setup.webp" alt="" width="800" height="802" loading="lazy"></a><div class="project-copy"><p class="eyebrow">ANTS · 2026</p><h3><a href="research.html#versatile">One compact controller, several tasks</a></h3><p>Can specialist swarm controllers be combined into a versatile controller?</p><p>My co-authored work uses knowledge distillation to combine task-specific teachers into a student controller for composite tasks.</p><div class="actions"><a class="btn small" href="publications.html#C1">Publication details</a></div></div></article></div></div></section>
 
 
 
@@ -110,7 +122,7 @@
     <div class="sec-head"><p class="eyebrow">From the papers</p><div><h2 id="h-evidence">Research videos and methods</h2><p class="lead">Original research media, with the experiment and method kept in context.</p></div></div>
     <figure class="paper-animation">
       <img id="jrm-animation" src="assets/home-jrm-poster.webp" data-animation="assets/home-jrm-animation.webp" data-poster="assets/home-jrm-poster.webp" width="1340" height="428" alt="Four simulation panels compare homogeneous and heterogeneous robot teams early in evolution and after convergence. Robots transport red and yellow targets toward their matching goal zones." loading="lazy">
-      <figcaption><div><h3>Cooperative transport, before and after evolution</h3><p>JRM 2023 · A 12-second animation extracted from my research presentation. The panels compare one-controller and two-controller teams at early and converged stages.</p><a href="publications.html#J2">Paper details →</a> · <a href="assets/home-jrm-animation.webp" target="_blank" rel="noopener">Open full-size animation</a></div><button class="btn" type="button" id="jrm-play" aria-controls="jrm-animation" aria-pressed="false">Play research clip</button></figcaption>
+      <figcaption><div><h3>Cooperative transport, before and after evolution</h3><p>JRM 2023 · A 12-second animation extracted from my research presentation. The panels compare one-controller and two-controller teams at early and converged stages.</p><a href="publications.html#J2">Paper details →</a> · <a href="assets/home-jrm-animation.webp" id="jrm-open-full" aria-haspopup="dialog" aria-controls="jrm-full-viewer">Open full-size animation</a></div><button class="btn" type="button" id="jrm-play" aria-controls="jrm-animation" aria-pressed="false">Play research clip</button></figcaption>
     </figure>
     <div class="method-feature">
       <figure><a href="assets/home-team-method.png" target="_blank" rel="noopener" aria-label="Open full-size team-composition method diagram"><img src="assets/home-team-method.png" width="850" height="538" alt="Evolutionary method: parent genomes encode neural-network weights and sub-team proportions; selection and reproduction generate offspring, followed by survivor selection for the next generation." loading="lazy"></a><figcaption>SWARM 2024 · Figure 2, proposed flow of heterogeneous swarm design. <a href="publications.html#C4">Source paper</a></figcaption></figure>
@@ -153,7 +165,7 @@
 <section class="sec" aria-labelledby="h-bio"><div class="wrap"><div class="sec-head"><p class="eyebrow">About</p><div><h2 id="h-bio">Researcher in Kyoto</h2><p class="lead">I am a Specially-Appointed Researcher at NISAR Lab, Kyoto University of Advanced Science. I received my PhD from the University of Toyama in 2025 and visited IRIDIA at Université libre de Bruxelles during my doctorate.</p><p style="margin-top:16px"><a href="cv.html">Background, teaching and mentoring →</a> · <a href="research.html#vision">Research vision →</a></p></div></div></div></section><section class="affil-sec" aria-label="Academic affiliations and funding"><div class="wrap"><p class="eyebrow">Academic affiliations and funding</p><ul class="affiliation-grid"><li><a class="mq-item" href="https://www.kuas.ac.jp/en/" target="_blank" rel="noopener" title="Kyoto University of Advanced Science: open website"><span class="mq-logo" data-logo="kuas"><span class="mq-text">KUAS</span></span><span class="mq-cap"><b>Kyoto University of Advanced Science</b><span>Specially-Appointed Researcher · 2025–</span></span></a></li>
 <li><a class="mq-item" href="https://nisarlab.org/" target="_blank" rel="noopener" title="NISAR Lab, KUAS: open website"><span class="mq-logo" data-logo="nisarlab"><span class="mq-text">NISAR Lab</span></span><span class="mq-cap"><b>NISAR Lab, KUAS</b><span>Medical robotics & human-machine systems</span></span></a></li>
 <li><a class="mq-item" href="https://www.u-toyama.ac.jp/en/" target="_blank" rel="noopener" title="University of Toyama: open website"><span class="mq-logo" data-logo="toyama"><span class="mq-text">U. Toyama</span></span><span class="mq-cap"><b>University of Toyama</b><span>Ph.D. Engineering · 2022–2025</span></span></a></li>
-<li><a class="mq-item" href="https://promotion-research.ctg.u-toyama.ac.jp/spring-student/razzaq_r5" target="_blank" rel="noopener" title="Asad Razzaq: SPRING fellow profile"><span class="mq-logo" data-logo="jst"><span class="mq-text">JST</span></span><span class="mq-cap"><b>Japan Science and Technology Agency</b><span>JST SPRING doctoral fellowship · 2023–2025</span></span></a></li>
+<li><a class="mq-item" href="https://promotion-research.ctg.u-toyama.ac.jp/spring-student/razzaq_r5" target="_blank" rel="noopener" title="Asad Razzaq: SPRING fellow profile"><span class="mq-logo" data-logo="spring"><span class="mq-text">SPRING</span></span><span class="mq-cap"><b>JST SPRING Fellow</b><span>University of Toyama · 2023–2025</span></span></a></li>
 <li><a class="mq-item" href="https://iridia.ulb.ac.be/" target="_blank" rel="noopener" title="IRIDIA, Université libre de Bruxelles: open website"><span class="mq-logo" data-logo="iridia"><span class="mq-text">IRIDIA · ULB</span></span><span class="mq-cap"><b>IRIDIA, Université libre de Bruxelles</b><span>Visiting Ph.D. student · 2025</span></span></a></li>
 <li><a class="mq-item" href="https://gcuf.edu.pk/" target="_blank" rel="noopener" title="GC University Faisalabad: open website"><span class="mq-logo" data-logo="gcuf"><span class="mq-text">GCUF</span></span><span class="mq-cap"><b>GC University Faisalabad</b><span>B.S. & M.S. Computer Science · 2013–2020</span></span></a></li></ul><p class="affiliation-more"><a href="cv.html">View my full academic and professional background →</a></p></div></section><section class="sec" aria-labelledby="h-awards">
   <div class="wrap">
@@ -253,6 +265,11 @@ END OF HIDDEN GALLERY SECTION -->
 <script src="assets/site.js?v=20261106" defer></script>
 <script src="assets/engine.js?v=20261106" defer></script>
 <script src="assets/swarm.js?v=20261106" defer></script>
+<dialog id="jrm-full-viewer" class="research-media-dialog" aria-labelledby="jrm-full-title">
+  <header><h2 id="jrm-full-title">Cooperative transport · JRM 2023</h2><div class="actions"><button class="btn" type="button" id="jrm-zoom" aria-pressed="false">Actual size</button><button class="btn" type="button" id="jrm-close-full">Close animation</button></div></header>
+  <div class="research-media-scroll" id="jrm-full-scroll"><img id="jrm-full-image" width="1340" height="428" alt="Animated comparison of homogeneous and heterogeneous robot teams during cooperative transport."></div>
+  <p>12-second loop. Use Actual size to inspect the panels; scroll to see the whole image. Press Escape or Close animation to return.</p>
+</dialog>
 <script>
 (() => {
   const image = document.getElementById('jrm-animation');
@@ -266,6 +283,32 @@ END OF HIDDEN GALLERY SECTION -->
     button.setAttribute('aria-pressed', String(playing));
   };
   button.addEventListener('click', () => setPlaying(!playing));
+  const fullLink = document.getElementById('jrm-open-full');
+  const viewer = document.getElementById('jrm-full-viewer');
+  const fullImage = document.getElementById('jrm-full-image');
+  const scroll = document.getElementById('jrm-full-scroll');
+  const zoom = document.getElementById('jrm-zoom');
+  fullLink.addEventListener('click', event => {
+    if (typeof viewer.showModal !== 'function') return;
+    event.preventDefault();
+    setPlaying(false);
+    fullImage.src = image.dataset.animation;
+    viewer.showModal();
+  });
+  document.getElementById('jrm-close-full').addEventListener('click', () => viewer.close());
+  zoom.addEventListener('click', () => {
+    const actual = scroll.classList.toggle('actual-size');
+    zoom.setAttribute('aria-pressed', String(actual));
+    zoom.textContent = actual ? 'Fit to screen' : 'Actual size';
+  });
+  viewer.addEventListener('close', () => {
+    fullImage.removeAttribute('src');
+    scroll.classList.remove('actual-size');
+    zoom.setAttribute('aria-pressed', 'false');
+    zoom.textContent = 'Actual size';
+    fullLink.focus();
+  });
+
   document.addEventListener('visibilitychange', () => { if (document.hidden && playing) setPlaying(false); });
   image.addEventListener('error', () => { if (playing) { setPlaying(false); button.textContent = 'Clip unavailable — try again'; } });
 })();
