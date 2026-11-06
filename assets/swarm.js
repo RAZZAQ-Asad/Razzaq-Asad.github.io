@@ -345,7 +345,7 @@
       $("compare").disabled = true;
       $("compare-result").textContent = "Testing six missions in a background worker…";
       try {
-        compareWorker = new Worker("assets/engine.js");
+        compareWorker = new Worker("assets/engine.js?v=20261106");
         compareWorker.onmessage = (event) => {
           const lines = event.data.results.map((entry, i) => {
             const scores = entry.runs.map((run) => run.f * 50), mean = scores.reduce((a,b) => a+b,0) / scores.length;
@@ -392,7 +392,7 @@
       $("evo-start").disabled = true; $("evo-stop").disabled = false; $("evo-start").textContent = "Evolving…";
       $("e-gen").textContent = "0 / " + GENS; $("e-best").textContent = "–"; $("e-geno").textContent = "–"; drawChart();
       try {
-        evo.worker = new Worker("assets/engine.js");
+        evo.worker = new Worker("assets/engine.js?v=20261106");
         evo.worker.onmessage = (e) => onReport(e.data);
         evo.worker.onerror = (e) => { if (e.preventDefault) e.preventDefault(); if (evo.worker) { evo.worker.terminate(); evo.worker = null; } evo.local = newEvo(st.key); };
         evo.worker.postMessage({ cmd: "start", key: st.key });
