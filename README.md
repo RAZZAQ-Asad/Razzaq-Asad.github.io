@@ -121,3 +121,10 @@ Or ask Claude to "bring the blog back": the build script has a single switch (`B
 - Still requires author-supplied material: research/teaching statement PDFs, permitted manuscripts, code repositories, research videos, and verified quantitative study results. No placeholder claims or fabricated metrics were added.
 
 Run simulator regression checks with `node tests/engine.cjs`. Optional statement links become visible when `researchStatement` / `teachingStatement` in `assets/config.js` point to your PDFs.
+
+## Homepage research media
+
+- `home-jrm-animation.webp`: 72-frame, 12-second animation extracted from slide 9 of the author-supplied final research presentation. Four panels compare homogeneous and heterogeneous cooperative transport. Converted from the original GIF; playback is opt-in.
+- `home-jrm-poster.webp` and `home-jrm-result.webp`: original first-frame comparison and final heterogeneous result panel.
+- `home-team-method.png`: Figure 2 of the SWARM 2024 proceedings paper (PDF page 3 / printed page 251), rendered and cropped without redrawing.
+- Homepage SPRING credential and card open the personal fellow profile. Researchmap was verified through the official researcher search (R000116769); Loop uses the profile linked from ORCID (2528588).

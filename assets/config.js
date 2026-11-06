@@ -14,6 +14,8 @@ window.SITE = {
   defenseSlides: "",  // "assets/defense-slides.pdf"  (PowerPoint -> Save as PDF)
 
   links: {
+    researchmap: "https://researchmap.jp/asadrazzaq",
+    loop: "https://loop.frontiersin.org/people/2528588/overview",
     scholar: "https://scholar.google.com/citations?user=ZE91v18AAAAJ",
     researchgate: "https://www.researchgate.net/profile/Asad-Razzaq",
     orcid: "https://orcid.org/0009-0004-9389-3481",
