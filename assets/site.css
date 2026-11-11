@@ -91,7 +91,7 @@ a.tag:hover { color: var(--accent); border-color: var(--accent); }
 .arrow::after { content: " →"; }
 
 /* ---------- sections ---------- */
-section { scroll-margin-top: 76px; }
+section, #h-research { scroll-margin-top: 76px; }
 .sec { padding-block: 80px; border-top: 1px solid var(--line); }
 .sec.tint { background: color-mix(in srgb, var(--surface) 55%, var(--bg)); }
 .sec-head { display: grid; grid-template-columns: 220px 1fr; gap: 32px; margin-bottom: 40px; }
