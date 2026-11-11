@@ -60,6 +60,27 @@
 .research-media-scroll img { display: block; width: 100%; max-width: none; height: auto; }
 .research-media-scroll.actual-size img { width: 1340px; }
 .research-media-dialog > p { margin-top: 12px; font-size: .95rem; }
+
+.featured-study { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(22px, 5vw, 58px); align-items: start; padding: clamp(20px, 4vw, 42px); border: 1px solid var(--line); border-top: 3px solid var(--accent); border-radius: 8px; background: var(--surface); }
+.featured-copy h3 { font-size: clamp(1.7rem, 3vw, 2.65rem); margin-block: 10px 22px; }
+.study-findings { display: grid; gap: 14px; margin: 0 0 24px; }
+.study-findings dt { font-family: var(--f-display); font-weight: 700; }
+.study-findings dd { margin: 3px 0 0; }
+.featured-figures { display: grid; gap: 20px; }
+.featured-figures figure { margin: 0; min-width: 0; }
+.featured-figures figure > a { display: block; background: #fff; border: 1px solid var(--line); }
+.featured-figures img { display: block; width: 100%; height: auto; }
+.featured-figures figcaption { margin-top: 7px; font-size: .9rem; color: var(--muted); }
+.fitness-plot { aspect-ratio: 869 / 730; overflow: hidden; }
+.fitness-plot img { transform: translateY(-37.5%); }
+.related-studies { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 36px; }
+.clip-panels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px 22px; padding-left: 22px; margin: 0 0 15px; font-size: .92rem; }
+.current-links { margin-top: 16px; }
+#h-current { scroll-margin-top: 76px; }
+@media (max-width: 700px) {
+  .featured-study, .related-studies { grid-template-columns: 1fr; }
+  .clip-panels { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 <body>
@@ -93,7 +114,7 @@
         <li>Visiting researcher at IRIDIA with Prof. Marco Dorigo</li>
       </ul>
       <div class="actions">
-        <a class="btn primary" href="research.html">Explore research</a>
+        <a class="btn primary" href="#h-research">Selected Research</a>
         <a class="btn" href="assets/Asad_Razzaq_CV.pdf" download>Download CV</a>
         <a class="btn" href="#contact">Contact</a>
       </div>
@@ -110,20 +131,70 @@
     </div>
   </div>
 </header>
-<section class="sec" aria-labelledby="h-research"><div class="wrap"><div class="sec-head"><p class="eyebrow">Selected work</p><div class="head-row"><div><h2 id="h-research">Research in focus</h2><p class="lead">Evolutionary design of heterogeneous robot teams, from cooperative transport to versatile controllers. Figures below come from the published studies.</p></div><a class="arrow" href="publications.html">All publications</a></div></div><div class="selected-projects"><article class="selected-project"><a href="research.html#composition" tabindex="-1" aria-hidden="true"><img src="assets/home-alr-method.webp" alt="" width="865" height="529" loading="lazy"></a><div class="project-copy"><p class="eyebrow">ALR · 2026</p><h3><a href="research.html#composition">Designing the team and its controller together</a></h3><p>How should a swarm be composed when robots have different perceptual abilities?</p><p>My doctoral work jointly evolved group organization and neural controllers for heterogeneous teams.</p><p class="thumbnail-source">Method: ALR 2026, Figure 1. <a href="assets/home-alr-method.webp" target="_blank" rel="noopener">Enlarge method figure</a></p><p><b>Finding.</b> Joint design improved simulated transport performance over the conventional comparison in this study; the result is task-specific.</p><div class="actions"><a class="btn small" href="publications.html#J1">Publication details</a><a class="btn small" href="https://doi.org/10.1007/s10015-025-01083-5" target="_blank" rel="noopener">Read paper</a></div></div></article><article class="selected-project"><a href="research.html#transport" tabindex="-1" aria-hidden="true"><img src="assets/home-jrm-setup.webp" alt="" width="765" height="751" loading="lazy"></a><div class="project-copy"><p class="eyebrow">JRM · 2023</p><h3><a href="research.html#transport">Cooperative transport with different robot abilities</a></h3><p>Can robots with identical bodies cooperate better when they use different controllers?</p><p>In this first-author simulation study, teams with two evolved neural controllers outperformed teams with one shared controller on the cooperative transport task. The original research clip below shows early and converged behaviour for one-controller and two-controller teams.</p><div class="actions"><a class="btn small" href="publications.html#J2">Publication details</a><a class="btn small" href="https://doi.org/10.20965/jrm.2023.p1007" target="_blank" rel="noopener">Read paper</a></div></div></article><article class="selected-project"><a href="research.html#versatile" tabindex="-1" aria-hidden="true"><img src="assets/home-ants-method.webp" alt="" width="794" height="517" loading="lazy"></a><div class="project-copy"><p class="eyebrow">ANTS · 2026 · Extended abstract</p><h3><a href="research.html#versatile">One compact controller, several tasks</a></h3><p>Can specialist swarm controllers be combined into a versatile controller?</p><p>This co-authored work studies knowledge distillation from task-specific teachers into a student controller. The method transfers specialist policies; it does not establish general-purpose intelligence.</p><p class="thumbnail-source">Method diagram from the author manuscript. <a href="assets/home-ants-method.webp" target="_blank" rel="noopener">Enlarge method figure</a></p><div class="actions"><a class="btn small" href="publications.html#C1">Publication details</a></div></div></article></div></div></section>
-
-
+<section class="sec" aria-labelledby="h-research">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Selected research</p>
+      <div class="head-row"><h2 id="h-research">Research in focus</h2><a class="arrow" href="publications.html">All publications</a></div>
+    </div>
+    <article class="featured-study" aria-labelledby="featured-alr">
+      <div class="featured-copy">
+        <p class="eyebrow">Artificial Life and Robotics · 2026</p>
+        <h3 id="featured-alr">Evolving the controllers and the team together</h3>
+        <dl class="study-findings">
+          <div><dt>What we changed</dt><dd>We evolved neural controller weights and the number of robots assigned to each controller in the same search.</dd></div>
+          <div><dt>What we compared</dt><dd>In a ten-robot simulated transport task, we compared joint design with a fixed five-and-five team split.</dd></div>
+          <div><dt>What we found</dt><dd>In Field B, the proposed method ended with higher average fitness, while the best fitness of both methods reached a similar level.</dd></div>
+        </dl>
+        <div class="actions"><a class="btn primary" href="research.html#composition">Explore the study</a><a class="btn" href="https://doi.org/10.1007/s10015-025-01083-5">Read the paper</a></div>
+      </div>
+      <div class="featured-figures">
+        <figure><a href="assets/home-alr-method.webp"><img src="assets/home-alr-method.webp" width="865" height="529" loading="lazy" alt="Evolutionary search encodes neural controllers and sub-team proportions together"></a><figcaption>Method · ALR Figure 1</figcaption></figure>
+        <figure><a class="fitness-plot" href="https://media.springernature.com/full/springer-static/image/art%3A10.1007%2Fs10015-025-01083-5/MediaObjects/10015_2025_1083_Fig4_HTML.png"><img src="https://media.springernature.com/full/springer-static/image/art%3A10.1007%2Fs10015-025-01083-5/MediaObjects/10015_2025_1083_Fig4_HTML.png" width="869" height="2597" loading="lazy" alt="Field B fitness over generations. The proposed method finishes with higher average fitness and similar best fitness to the conventional method."></a><figcaption>Result · Field B, ALR Figure 4(b). <a href="https://media.springernature.com/full/springer-static/image/art%3A10.1007%2Fs10015-025-01083-5/MediaObjects/10015_2025_1083_Fig4_HTML.png">Open original figure</a></figcaption></figure>
+      </div>
+    </article>
+    <div class="selected-projects related-studies"><article class="selected-project"><a href="research.html#transport" tabindex="-1" aria-hidden="true"><img src="assets/home-jrm-setup.webp" alt="" width="765" height="751" loading="lazy"></a><div class="project-copy"><p class="eyebrow">JRM · 2023</p><h3><a href="research.html#transport">Cooperative transport with different robot abilities</a></h3><p>Can robots with identical bodies cooperate better when they use different controllers?</p><p>In this first-author simulation study, teams with two evolved neural controllers outperformed teams with one shared controller on the cooperative transport task. The original research clip below shows early and converged behaviour for one-controller and two-controller teams.</p><div class="actions"><a class="btn small" href="publications.html#J2">Publication details</a><a class="btn small" href="https://doi.org/10.20965/jrm.2023.p1007" target="_blank" rel="noopener">Read paper</a></div></div></article>
+<article class="selected-project"><a href="research.html#versatile" tabindex="-1" aria-hidden="true"><img src="assets/home-ants-method.webp" alt="" width="794" height="517" loading="lazy"></a><div class="project-copy"><p class="eyebrow">ANTS · 2026 · Extended abstract</p><h3><a href="research.html#versatile">One compact controller, several tasks</a></h3><p>Can specialist swarm controllers be combined into a versatile controller?</p><p>This co-authored work studies knowledge distillation from task-specific teachers into a student controller. The method transfers specialist policies; it does not establish general-purpose intelligence.</p><p class="thumbnail-source">Method diagram from the author manuscript. <a href="assets/home-ants-method.webp" target="_blank" rel="noopener">Enlarge method figure</a></p><div class="actions"><a class="btn small" href="publications.html#C1">Publication details</a></div></div></article></div>
+  </div>
+</section>
 
 <section class="sec home-evidence" aria-labelledby="h-evidence">
   <div class="wrap">
     <div class="sec-head"><p class="eyebrow">From the papers</p><div><h2 id="h-evidence">Research videos and methods</h2><p class="lead">Original research media, with the experiment and method kept in context.</p></div></div>
     <figure class="paper-animation">
       <img id="jrm-animation" src="assets/home-jrm-poster.webp" data-animation="assets/home-jrm-animation.webp" data-poster="assets/home-jrm-poster.webp" width="1340" height="428" alt="Four simulation panels compare homogeneous and heterogeneous robot teams early in evolution and after convergence. Robots transport red and yellow targets toward their matching goal zones." loading="lazy">
-      <figcaption><div><h3>Cooperative transport, before and after evolution</h3><p>JRM 2023 · A 12-second animation extracted from my research presentation. The panels compare one-controller and two-controller teams at early and converged stages.</p><a href="publications.html#J2">Paper details →</a> · <a href="assets/home-jrm-animation.webp" id="jrm-open-full" aria-haspopup="dialog" aria-controls="jrm-full-viewer">Open full-size animation</a></div><button class="btn" type="button" id="jrm-play" aria-controls="jrm-animation" aria-pressed="false">Play research clip</button></figcaption>
+      <figcaption><div><h3>Cooperative transport, before and after evolution</h3><p>JRM 2023 · A 12-second animation extracted from my research presentation. The panels compare one-controller and two-controller teams at early and converged stages.</p><ol class="clip-panels" aria-label="Video panels, left to right"><li><b>Early</b> · One controller</li><li><b>Early</b> · Two controllers</li><li><b>Converged</b> · One controller</li><li><b>Converged</b> · Two controllers, integrated selection</li></ol><a href="publications.html#J2">Paper details →</a> · <a href="assets/home-jrm-animation.webp" id="jrm-open-full" aria-haspopup="dialog" aria-controls="jrm-full-viewer">Open full-size animation</a></div><button class="btn" type="button" id="jrm-play" aria-controls="jrm-animation" aria-pressed="false">Play research clip</button></figcaption>
     </figure>
     <div class="method-feature">
       <figure><a href="assets/home-team-method.png" target="_blank" rel="noopener" aria-label="Open full-size team-composition method diagram"><img src="assets/home-team-method.png" width="850" height="538" alt="Evolutionary method: parent genomes encode neural-network weights and sub-team proportions; selection and reproduction generate offspring, followed by survivor selection for the next generation." loading="lazy"></a><figcaption>SWARM 2024 · Figure 2, proposed flow of heterogeneous swarm design. <a href="publications.html#C4">Source paper</a></figcaption></figure>
       <div><p class="eyebrow">Method</p><h3>Evolve the controllers and the team composition together</h3><p>Each candidate encodes neural-controller weights and the proportions of robots assigned to each sub-team. Selection and reproduction create new candidates, and survivor selection carries promising designs into the next generation.</p><p>The diagram comes from the original paper, rather than the simplified browser demo.</p><a class="arrow" href="research.html#composition">Explore the research</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint" aria-labelledby="h-current">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Current appointment</p>
+      <div>
+        <h2 id="h-current">Current work at KUAS</h2>
+        <p class="lead">As a Specially-Appointed Researcher at NISAR Lab, I work on AI for human–robot interaction and multi-agent systems. One focus is how social robots can navigate around people in shared spaces.</p>
+        <p class="current-links"><a href="https://nisarlab.org/people">NISAR Lab team</a> · <a href="research.html#vision">Research statement</a> · <a href="cv.html#awards">Awards and funding</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint" aria-labelledby="h-play">
+  <div class="wrap teaser">
+    <div class="txt reveal">
+      <p class="eyebrow">Interactive</p>
+      <h2 id="h-play">Design a team, compare with evolution</h2>
+      <p>A robot team enters a building it has never seen. Scouts map it with LiDAR and find three heavy packages; workers push them to the dock in crews; everything travels over a radio mesh and every robot has a battery. With a fixed budget, design the team, click any robot to see its sensors, then let a genetic algorithm design its own team. An educational illustration of the team-design question behind my PhD; the demo uses rule-based controllers, not the neural controllers from my papers.</p>
+      <div class="actions"><a class="btn primary" href="research.html#lab">Open the Swarm Lab</a></div>
+    </div>
+    <div class="reveal">
+      <div class="canvas-frame"><canvas id="teaser" width="900" height="540" aria-label="Robot team mapping a warehouse and moving three packages to the loading dock"></canvas></div>
     </div>
   </div>
 </section>
@@ -140,42 +211,6 @@
 <li class="reveal"><time datetime="2025-09">Sept 2025</time><p>Papers at <b>SWARM 2025</b> in Germany and <b>SICE FES 2025</b> in Thailand.</p></li>
 <li class="reveal"><time datetime="2025-03">Mar 2025</time><p>Visiting PhD student at <b><a href="https://iridia.ulb.ac.be/" target="_blank" rel="noopener">IRIDIA</a></b>, <a href="https://www.ulb.be/en" target="_blank" rel="noopener">Université libre de Bruxelles</a>, one of the founding labs of swarm intelligence.</p></li>
 <li class="reveal"><time datetime="2024">2024</time><p>Outstanding Student Award from the <a href="https://www.sice.or.jp/" target="_blank" rel="noopener">SICE</a> Hokuriku Branch.</p></li></ol></details>
-  </div>
-</section>
-
-
-
-<section class="sec tint" aria-labelledby="h-play">
-  <div class="wrap teaser">
-    <div class="txt reveal">
-      <p class="eyebrow">Interactive</p>
-      <h2 id="h-play">Design a team, compare with evolution</h2>
-      <p>A robot team enters a building it has never seen. Scouts map it with LiDAR and find three heavy packages; workers push them to the dock in crews; everything travels over a radio mesh and every robot has a battery. With a fixed budget, design the team, click any robot to see its sensors, then let a genetic algorithm design its own team. An educational illustration of the team-design question behind my PhD; the demo uses rule-based controllers, not the neural controllers from my papers.</p>
-      <div class="actions"><a class="btn primary" href="research.html#lab">Open the Swarm Lab</a></div>
-    </div>
-    <div class="reveal">
-      <div class="canvas-frame"><canvas id="teaser" width="900" height="540" aria-label="Robot team mapping a warehouse and moving three packages to the loading dock"></canvas></div>
-    </div>
-  </div>
-</section>
-
-<section class="sec" aria-labelledby="h-bio"><div class="wrap"><div class="sec-head"><p class="eyebrow">About</p><div><h2 id="h-bio">Researcher in Kyoto</h2><p class="lead">I am a Specially-Appointed Researcher at NISAR Lab, Kyoto University of Advanced Science. I received my PhD from the University of Toyama in 2025 and visited IRIDIA at Université libre de Bruxelles during my doctorate.</p><p style="margin-top:16px"><a href="cv.html">Background and teaching interests →</a> · <a href="research.html#vision">Research vision →</a></p></div></div></div></section><section class="affil-sec" aria-label="Academic affiliations and funding"><div class="wrap"><p class="eyebrow">Academic affiliations and funding</p><ul class="affiliation-grid"><li><a class="mq-item" href="https://www.kuas.ac.jp/en/" target="_blank" rel="noopener" title="Kyoto University of Advanced Science: open website"><span class="mq-logo" data-logo="kuas"><span class="mq-text">KUAS</span></span><span class="mq-cap"><b>Kyoto University of Advanced Science</b><span>Specially-Appointed Researcher · 2025–</span></span></a></li>
-<li><a class="mq-item" href="https://nisarlab.org/" target="_blank" rel="noopener" title="NISAR Lab, KUAS: open website"><span class="mq-logo" data-logo="nisarlab"><span class="mq-text">NISAR Lab</span></span><span class="mq-cap"><b>NISAR Lab, KUAS</b><span>Medical robotics & human-machine systems</span></span></a></li>
-<li><a class="mq-item" href="https://www.u-toyama.ac.jp/en/" target="_blank" rel="noopener" title="University of Toyama: open website"><span class="mq-logo" data-logo="toyama"><span class="mq-text">U. Toyama</span></span><span class="mq-cap"><b>University of Toyama</b><span>Ph.D. Engineering · 2022–2025</span></span></a></li>
-<li><a class="mq-item" href="https://promotion-research.ctg.u-toyama.ac.jp/spring-student/razzaq_r5" target="_blank" rel="noopener" title="Asad Razzaq: SPRING fellow profile"><span class="mq-logo" data-logo="spring"><span class="mq-text">SPRING</span></span><span class="mq-cap"><b>JST SPRING Fellow</b><span>University of Toyama · 2023–2025</span></span></a></li>
-<li><a class="mq-item" href="https://iridia.ulb.ac.be/" target="_blank" rel="noopener" title="IRIDIA, Université libre de Bruxelles: open website"><span class="mq-logo" data-logo="iridia"><span class="mq-text">IRIDIA · ULB</span></span><span class="mq-cap"><b>IRIDIA, Université libre de Bruxelles</b><span>Visiting Ph.D. student · 2025</span></span></a></li>
-<li><a class="mq-item" href="https://gcuf.edu.pk/" target="_blank" rel="noopener" title="GC University Faisalabad: open website"><span class="mq-logo" data-logo="gcuf"><span class="mq-text">GCUF</span></span><span class="mq-cap"><b>GC University Faisalabad</b><span>B.S. & M.S. Computer Science · 2013–2020</span></span></a></li></ul><p class="affiliation-more"><a href="cv.html">View my full academic and professional background →</a></p></div></section><section class="sec" aria-labelledby="h-awards">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">Recognition</p>
-      <div class="head-row"><h2 id="h-awards">Awards and funding</h2><a class="arrow" href="cv.html#awards">Full CV</a></div>
-    </div>
-    <ul class="awards">
-      <li class="award reveal top"><span class="yr">2025</span><h3>PhD Vice Valedictorian</h3><p><a href="https://www.u-toyama.ac.jp/en/" target="_blank" rel="noopener">University of Toyama</a>. Doctoral graduation recognition, 2025.</p></li>
-      <li class="award reveal top"><span class="yr">2023–2025</span><h3>JST SPRING Doctoral Fellowship</h3><p><a href="https://promotion-research.ctg.u-toyama.ac.jp/ss/spring/" target="_blank" rel="noopener">Toyama University Next Generation Researchers Challenging Research Program</a>, funded by <a href="https://www.jst.go.jp/jisedai/spring/en/index.html" target="_blank" rel="noopener">JST SPRING</a> (Grant JPMJSP2145). <a href="https://promotion-research.ctg.u-toyama.ac.jp/spring-student/razzaq_r5" target="_blank" rel="noopener">My SPRING fellow profile</a>.</p></li>
-
-
-    </ul>
   </div>
 </section>
 
@@ -218,17 +253,7 @@ END OF HIDDEN GALLERY SECTION -->
         <p>Open to faculty positions, postdoctoral roles and research collaborations in swarm robotics, multi-robot learning, and AI for human-robot and medical systems.</p>
         <div class="email"><a data-email href="mailto:asad.razzaq@kuas.ac.jp">asad.razzaq@kuas.ac.jp</a><button class="btn small" type="button" data-copy-email>Copy</button></div>
       </div>
-      <div class="links">
-        <a class="btn small" data-link="scholar" href="https://scholar.google.com/citations?user=ZE91v18AAAAJ" target="_blank" rel="noopener">Google Scholar</a>
-        <a class="btn small" data-link="researchgate" href="https://www.researchgate.net/profile/Asad-Razzaq" target="_blank" rel="noopener">ResearchGate</a>
-        <a class="btn small" data-link="orcid" href="https://orcid.org/0009-0004-9389-3481" target="_blank" rel="noopener">ORCID</a>
-        <a class="btn small" data-link="researchmap" href="https://researchmap.jp/asadrazzaq" target="_blank" rel="noopener">Researchmap</a>
-        <a class="btn small" data-link="loop" href="https://loop.frontiersin.org/people/2528588/overview" target="_blank" rel="noopener">Loop</a>
-        <a class="btn small" data-link="linkedin" href="https://www.linkedin.com/in/asadrazzaqphd/" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="btn small" data-link="semanticscholar" href="https://www.semanticscholar.org/author/2238456971" target="_blank" rel="noopener">Semantic Scholar</a>
-        <a class="btn small" data-link="spring" href="https://promotion-research.ctg.u-toyama.ac.jp/spring-student/razzaq_r5" target="_blank" rel="noopener">SPRING profile</a>
-        <a class="btn small" data-link="instagram" target="_blank" rel="noopener" hidden>Instagram</a>
-      </div>
+      <p><a href="publications.html">Publications and researcher profiles</a></p>
     </div>
   </div>
 </section>
