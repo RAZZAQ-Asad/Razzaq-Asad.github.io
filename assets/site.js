@@ -51,7 +51,11 @@
     const v = (S.logos || {})[box.dataset.logo];
     const p = v && (v.src || v);
     if (!p || typeof p !== "string") return;
-    const img = new Image(); img.src = p; img.alt = ""; img.loading = "lazy";
+    const existing = box.querySelector("img");
+    if (existing && existing.getAttribute("src") === p) {
+      box.classList.add("has-logo"); if (v.dark) box.classList.add("dark"); return;
+    }
+    const img = new Image(); img.src = p; img.alt = ""; img.loading = "lazy"; img.width = 300; img.height = 150;
     box.innerHTML = ""; box.appendChild(img);
     box.classList.add("has-logo"); if (v.dark) box.classList.add("dark");
   });

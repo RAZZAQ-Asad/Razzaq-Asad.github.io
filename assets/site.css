@@ -17,9 +17,9 @@
   --obj: #C2452D;
   --goal: #D9A21B;
   --shadow: 0 1px 2px rgb(21 33 42 / .06), 0 8px 24px rgb(21 33 42 / .08);
-  --f-display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
-  --f-body: "Source Serif 4", Georgia, "Times New Roman", serif;
-  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --f-display: "Avenir Next", "Segoe UI", Arial, sans-serif;
+  --f-body: Georgia, "Times New Roman", serif;
+  --f-mono: ui-monospace, Menlo, Consolas, monospace;
   --s5: 2.25rem; --s6: clamp(2.6rem, 6vw, 4.4rem);
   --wrap: 1140px;
   color-scheme: light;
