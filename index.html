@@ -71,8 +71,7 @@
 .featured-figures figure > a { display: block; background: #fff; border: 1px solid var(--line); }
 .featured-figures img { display: block; width: 100%; height: auto; }
 .featured-figures figcaption { margin-top: 7px; font-size: .9rem; color: var(--muted); }
-.fitness-plot { aspect-ratio: 869 / 730; overflow: hidden; }
-.fitness-plot img { transform: translateY(-37.5%); }
+.fitness-plot { aspect-ratio: 869 / 729; }
 .related-studies { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 36px; }
 .clip-panels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px 22px; padding-left: 22px; margin: 0 0 15px; font-size: .92rem; }
 .current-links { margin-top: 16px; }
@@ -80,6 +79,26 @@
 @media (max-width: 700px) {
   .featured-study, .related-studies { grid-template-columns: 1fr; }
   .clip-panels { grid-template-columns: 1fr; }
+}
+
+.hero { background: var(--surface); }
+.hero::before { display: none; }
+.hero .wrap { padding-block: clamp(30px, 6vw, 74px); }
+.hero-text { gap: 18px; }
+.hero h1 { letter-spacing: -.035em; }
+.hero .lede { max-width: 54ch; }
+.hero .eyebrow { border-inline-start: 3px solid var(--accent); padding-inline-start: 12px; }
+.hero-visual .portrait { max-width: 300px; }
+.hero-visual .portrait img { border-radius: 12px; }
+.hero-visual .portrait figcaption { top: auto; bottom: 12px; right: 12px; box-shadow: none; }
+.featured-study { border-radius: 12px; }
+.related-studies .selected-project { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: var(--surface); }
+.related-studies .selected-project img { margin: 0; border: 0; border-bottom: 1px solid var(--line); }
+.related-studies .project-copy { padding: 18px 22px 22px; }
+@media (max-width: 760px) {
+  .hero .wrap { gap: 24px; }
+  .hero-visual .portrait { max-width: 220px; }
+  .related-studies .project-copy { padding: 16px; }
 }
 </style>
 </head>
@@ -121,7 +140,7 @@
     </div>
     <div class="hero-visual">
       <figure class="portrait" data-photo-wrap>
-        <img data-photo="photo" src="assets/asad-studio.jpg" alt="Asad Razzaq, portrait" width="960" height="1200">
+        <img src="assets/asad-home-360.jpg" srcset="assets/asad-home-360.jpg 360w, assets/asad-home-720.jpg 720w" sizes="(max-width: 540px) 182px, (max-width: 760px) 220px, 300px" alt="Asad Razzaq, portrait" width="360" height="450" fetchpriority="high">
         <figcaption><b>Kyoto, Japan</b>since 2025</figcaption>
       </figure>
       <figure class="mini-arena">
@@ -150,7 +169,7 @@
       </div>
       <div class="featured-figures">
         <figure><a href="assets/home-alr-method.webp"><img src="assets/home-alr-method.webp" width="865" height="529" loading="lazy" alt="Evolutionary search encodes neural controllers and sub-team proportions together"></a><figcaption>Method · ALR Figure 1</figcaption></figure>
-        <figure><a class="fitness-plot" href="https://media.springernature.com/full/springer-static/image/art%3A10.1007%2Fs10015-025-01083-5/MediaObjects/10015_2025_1083_Fig4_HTML.png"><img src="https://media.springernature.com/full/springer-static/image/art%3A10.1007%2Fs10015-025-01083-5/MediaObjects/10015_2025_1083_Fig4_HTML.png" width="869" height="2597" loading="lazy" alt="Field B fitness over generations. The proposed method finishes with higher average fitness and similar best fitness to the conventional method."></a><figcaption>Result · Field B, ALR Figure 4(b). <a href="https://media.springernature.com/full/springer-static/image/art%3A10.1007%2Fs10015-025-01083-5/MediaObjects/10015_2025_1083_Fig4_HTML.png">Open original figure</a></figcaption></figure>
+        <figure><a class="fitness-plot" href="https://media.springernature.com/full/springer-static/image/art%3A10.1007%2Fs10015-025-01083-5/MediaObjects/10015_2025_1083_Fig4_HTML.png"><img src="assets/alr-field-b-fitness.jpg" width="869" height="729" loading="lazy" decoding="async" alt="Field B fitness over generations. The proposed method finishes with higher average fitness and similar best fitness to the conventional method."></a><figcaption>Result · Field B, ALR Figure 4(b). <a href="https://media.springernature.com/full/springer-static/image/art%3A10.1007%2Fs10015-025-01083-5/MediaObjects/10015_2025_1083_Fig4_HTML.png">Open original figure</a></figcaption></figure>
       </div>
     </article>
     <div class="selected-projects related-studies"><article class="selected-project"><a href="research.html#transport" tabindex="-1" aria-hidden="true"><img src="assets/home-jrm-setup.webp" alt="" width="765" height="751" loading="lazy"></a><div class="project-copy"><p class="eyebrow">JRM · 2023</p><h3><a href="research.html#transport">Cooperative transport with different robot abilities</a></h3><p>Can robots with identical bodies cooperate better when they use different controllers?</p><p>In this first-author simulation study, teams with two evolved neural controllers outperformed teams with one shared controller on the cooperative transport task. The original research clip below shows early and converged behaviour for one-controller and two-controller teams.</p><div class="actions"><a class="btn small" href="publications.html#J2">Publication details</a><a class="btn small" href="https://doi.org/10.20965/jrm.2023.p1007" target="_blank" rel="noopener">Read paper</a></div></div></article>
@@ -285,8 +304,31 @@ END OF HIDDEN GALLERY SECTION -->
 
 <script src="assets/config.js?v=20261106-profiles" defer></script>
 <script src="assets/site.js?v=20261110-review" defer></script>
-<script src="assets/engine.js?v=20261106" defer></script>
-<script src="assets/swarm.js?v=20261106" defer></script>
+<script>
+(() => {
+  const teaser = document.getElementById('teaser');
+  const load = () => {
+    const engine = document.createElement('script');
+    engine.src = 'assets/engine.js?v=20261106';
+    engine.addEventListener('load', () => {
+      const swarm = document.createElement('script');
+      swarm.src = 'assets/swarm.js?v=20261106';
+      document.body.appendChild(swarm);
+    }, { once: true });
+    document.body.appendChild(engine);
+  };
+  if (!('IntersectionObserver' in window)) {
+    load();
+    return;
+  }
+  const observer = new IntersectionObserver(entries => {
+    if (!entries.some(entry => entry.isIntersecting)) return;
+    observer.disconnect();
+    load();
+  }, { rootMargin: '250px' });
+  observer.observe(teaser);
+})();
+</script>
 <dialog id="jrm-full-viewer" class="research-media-dialog" aria-labelledby="jrm-full-title">
   <header><h2 id="jrm-full-title">Cooperative transport · JRM 2023</h2><div class="actions"><button class="btn" type="button" id="jrm-zoom" aria-pressed="false">Actual size</button><button class="btn" type="button" id="jrm-close-full">Close animation</button></div></header>
   <div class="research-media-scroll" id="jrm-full-scroll"><img id="jrm-full-image" width="1340" height="428" alt="Animated comparison of homogeneous and heterogeneous robot teams during cooperative transport."></div>
