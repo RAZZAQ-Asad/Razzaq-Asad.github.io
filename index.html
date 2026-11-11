@@ -643,7 +643,10 @@ summary { cursor: pointer; font-family: var(--f-display); font-weight: 600; padd
 .featured-figures figure > a { display: block; background: #fff; border: 1px solid var(--line); }
 .featured-figures img { display: block; width: 100%; height: auto; }
 .featured-figures figcaption { margin-top: 7px; font-size: .9rem; color: var(--muted); }
-.fitness-plot { aspect-ratio: 869 / 729; }
+#h-evidence { scroll-margin-top: 76px; }
+.featured-study .paper-animation figcaption { display: grid; gap: 14px; }
+.featured-study .paper-animation h4 { margin: 0; font-family: var(--f-display); font-size: 1.1rem; }
+.featured-study .paper-animation button { justify-self: start; }
 .related-studies { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 36px; }
 .clip-panels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px 22px; padding-left: 22px; margin: 0 0 15px; font-size: .92rem; }
 .current-links { margin-top: 16px; }
@@ -728,34 +731,39 @@ summary { cursor: pointer; font-family: var(--f-display); font-weight: 600; padd
       <p class="eyebrow">Selected research</p>
       <div class="head-row"><h2 id="h-research">Research in focus</h2><a class="arrow" href="publications.html">All publications</a></div>
     </div>
-    <article class="featured-study" aria-labelledby="featured-alr">
+    <article class="featured-study" aria-labelledby="featured-jrm">
       <div class="featured-copy">
-        <p class="eyebrow">Artificial Life and Robotics · 2026</p>
-        <h3 id="featured-alr">Evolving the controllers and the team together</h3>
+        <p class="eyebrow">Journal of Robotics and Mechatronics · 2023</p>
+        <h3 id="featured-jrm">Cooperative transport with heterogeneous robot swarms</h3>
         <dl class="study-findings">
-          <div><dt>What we changed</dt><dd>We evolved neural controller weights and the number of robots assigned to each controller in the same search.</dd></div>
-          <div><dt>What we compared</dt><dd>In a ten-robot simulated transport task, we compared joint design with a fixed five-and-five team split.</dd></div>
-          <div><dt>What we found</dt><dd>In Field B, the proposed method ended with higher average fitness, while the best fitness of both methods reached a similar level.</dd></div>
+          <div><dt>What we changed</dt><dd>We evolved different neural controllers for sub-teams of robots with identical bodies.</dd></div>
+          <div><dt>What we compared</dt><dd>We compared teams with one shared controller and teams with two controllers in a simulated cooperative transport task.</dd></div>
+          <div><dt>What we found</dt><dd>Teams with two controllers performed better in this task. The two controllers produced a wider range of behaviours across the swarm.</dd></div>
         </dl>
-        <div class="actions"><a class="btn primary" href="research.html#composition">Explore the study</a><a class="btn" href="https://doi.org/10.1007/s10015-025-01083-5">Read the paper</a></div>
+        <div class="actions"><a class="btn primary" href="research.html#transport">Explore the study</a><a class="btn" href="https://doi.org/10.20965/jrm.2023.p1007">Read the paper</a></div>
       </div>
-      <div class="featured-figures">
-        <figure><a href="assets/home-alr-method.webp"><img src="assets/home-alr-method.webp" width="865" height="529" loading="lazy" alt="Evolutionary search encodes neural controllers and sub-team proportions together"></a><figcaption>Method · ALR Figure 1</figcaption></figure>
-        <figure><a class="fitness-plot" href="https://media.springernature.com/full/springer-static/image/art%3A10.1007%2Fs10015-025-01083-5/MediaObjects/10015_2025_1083_Fig4_HTML.png"><img src="assets/alr-field-b-fitness.jpg" width="869" height="729" loading="lazy" decoding="async" alt="Field B fitness over generations. The proposed method finishes with higher average fitness and similar best fitness to the conventional method."></a><figcaption>Result · Field B, ALR Figure 4(b). <a href="https://media.springernature.com/full/springer-static/image/art%3A10.1007%2Fs10015-025-01083-5/MediaObjects/10015_2025_1083_Fig4_HTML.png">Open original figure</a></figcaption></figure>
+      <figure class="paper-animation" id="h-evidence">
+      <img id="jrm-animation" src="assets/home-jrm-poster.webp" data-animation="assets/home-jrm-animation.webp" data-poster="assets/home-jrm-poster.webp" width="1340" height="428" alt="Four simulation panels compare homogeneous and heterogeneous robot teams early in evolution and after convergence. Robots transport red and yellow targets toward their matching goal zones." loading="lazy">
+      <figcaption><div><h4>Cooperative transport simulation</h4><p>Four panels, left to right.</p><ol class="clip-panels" aria-label="Video panels, left to right"><li><b>Early</b> · One controller</li><li><b>Early</b> · Two controllers</li><li><b>Converged</b> · One controller</li><li><b>Converged</b> · Two controllers, integrated selection</li></ol><a href="assets/home-jrm-animation.webp" id="jrm-open-full" aria-haspopup="dialog" aria-controls="jrm-full-viewer">Open full-size animation</a></div><button class="btn" type="button" id="jrm-play" aria-controls="jrm-animation" aria-pressed="false">Play research clip</button></figcaption>
+    </figure>
+    </article>
+    <div class="selected-projects related-studies"><article class="selected-project">
+      <a href="research.html#composition" tabindex="-1" aria-hidden="true"><img src="assets/home-alr-method.webp" alt="" width="865" height="529" loading="lazy"></a>
+      <div class="project-copy">
+        <p class="eyebrow">ALR · 2026</p>
+        <h3><a href="research.html#composition">Evolving the controllers and the team together</a></h3>
+        <p>We evolved controller weights and team composition together. In the Field B simulation, the proposed method ended with higher average fitness than the fixed-composition comparison.</p>
+        <div class="actions"><a class="btn small" href="assets/alr-field-b-fitness.jpg">View result plot</a><a class="btn small" href="https://doi.org/10.1007/s10015-025-01083-5">Read paper</a></div>
       </div>
     </article>
-    <div class="selected-projects related-studies"><article class="selected-project"><a href="research.html#transport" tabindex="-1" aria-hidden="true"><img src="assets/home-jrm-setup.webp" alt="" width="765" height="751" loading="lazy"></a><div class="project-copy"><p class="eyebrow">JRM · 2023</p><h3><a href="research.html#transport">Cooperative transport with different robot abilities</a></h3><p>Can robots with identical bodies cooperate better when they use different controllers?</p><p>In this first-author simulation study, teams with two evolved neural controllers outperformed teams with one shared controller on the cooperative transport task. The original research clip below shows early and converged behaviour for one-controller and two-controller teams.</p><div class="actions"><a class="btn small" href="publications.html#J2">Publication details</a><a class="btn small" href="https://doi.org/10.20965/jrm.2023.p1007" target="_blank" rel="noopener">Read paper</a></div></div></article>
 <article class="selected-project"><a href="research.html#versatile" tabindex="-1" aria-hidden="true"><img src="assets/home-ants-method.webp" alt="" width="794" height="517" loading="lazy"></a><div class="project-copy"><p class="eyebrow">ANTS · 2026 · Extended abstract</p><h3><a href="research.html#versatile">One compact controller, several tasks</a></h3><p>Can specialist swarm controllers be combined into a versatile controller?</p><p>This co-authored work studies knowledge distillation from task-specific teachers into a student controller. The method transfers specialist policies; it does not establish general-purpose intelligence.</p><p class="thumbnail-source">Method diagram from the author manuscript. <a href="assets/home-ants-method.webp" target="_blank" rel="noopener">Enlarge method figure</a></p><div class="actions"><a class="btn small" href="publications.html#C1">Publication details</a></div></div></article></div>
   </div>
 </section>
 
-<section class="sec home-evidence" aria-labelledby="h-evidence">
+<section class="sec home-evidence" aria-labelledby="h-methods">
   <div class="wrap">
-    <div class="sec-head"><p class="eyebrow">From the papers</p><div><h2 id="h-evidence">Research videos and methods</h2><p class="lead">Original research media, with the experiment and method kept in context.</p></div></div>
-    <figure class="paper-animation">
-      <img id="jrm-animation" src="assets/home-jrm-poster.webp" data-animation="assets/home-jrm-animation.webp" data-poster="assets/home-jrm-poster.webp" width="1340" height="428" alt="Four simulation panels compare homogeneous and heterogeneous robot teams early in evolution and after convergence. Robots transport red and yellow targets toward their matching goal zones." loading="lazy">
-      <figcaption><div><h3>Cooperative transport, before and after evolution</h3><p>JRM 2023 · A 12-second animation extracted from my research presentation. The panels compare one-controller and two-controller teams at early and converged stages.</p><ol class="clip-panels" aria-label="Video panels, left to right"><li><b>Early</b> · One controller</li><li><b>Early</b> · Two controllers</li><li><b>Converged</b> · One controller</li><li><b>Converged</b> · Two controllers, integrated selection</li></ol><a href="publications.html#J2">Paper details →</a> · <a href="assets/home-jrm-animation.webp" id="jrm-open-full" aria-haspopup="dialog" aria-controls="jrm-full-viewer">Open full-size animation</a></div><button class="btn" type="button" id="jrm-play" aria-controls="jrm-animation" aria-pressed="false">Play research clip</button></figcaption>
-    </figure>
+    <div class="sec-head"><p class="eyebrow">From the papers</p><div><h2 id="h-methods">How the team design evolves</h2></div></div>
+    
     <div class="method-feature">
       <figure><a href="assets/home-team-method.png" target="_blank" rel="noopener" aria-label="Open full-size team-composition method diagram"><img src="assets/home-team-method.png" width="850" height="538" alt="Evolutionary method: parent genomes encode neural-network weights and sub-team proportions; selection and reproduction generate offspring, followed by survivor selection for the next generation." loading="lazy"></a><figcaption>SWARM 2024 · Figure 2, proposed flow of heterogeneous swarm design. <a href="publications.html#C4">Source paper</a></figcaption></figure>
       <div><p class="eyebrow">Method</p><h3>Evolve the controllers and the team composition together</h3><p>Each candidate encodes neural-controller weights and the proportions of robots assigned to each sub-team. Selection and reproduction create new candidates, and survivor selection carries promising designs into the next generation.</p><p>The diagram comes from the original paper, rather than the simplified browser demo.</p><a class="arrow" href="research.html#composition">Explore the research</a></div>
