@@ -675,6 +675,17 @@ summary { cursor: pointer; font-family: var(--f-display); font-weight: 600; padd
   .hero-visual .portrait { max-width: 220px; }
   .related-studies .project-copy { padding: 16px; }
 }
+
+/* Keep the sourced overview readable at its natural aspect ratio. */
+.featured-study { grid-template-columns: 1fr; gap: 24px; }
+.featured-study .study-findings { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.featured-study .paper-animation { min-width: 0; }
+.spring-overview-link { display: block; background: #fff; }
+.spring-overview-link img { display: block; width: 100%; height: auto; }
+.featured-study .clip-panels { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 700px) {
+  .featured-study .study-findings, .featured-study .clip-panels { grid-template-columns: 1fr; gap: 12px; }
+}
 </style>
 </head>
 <body>
@@ -743,8 +754,8 @@ summary { cursor: pointer; font-family: var(--f-display); font-weight: 600; padd
         <div class="actions"><a class="btn primary" href="research.html#transport">Explore the study</a><a class="btn" href="https://doi.org/10.20965/jrm.2023.p1007">Read the paper</a></div>
       </div>
       <figure class="paper-animation" id="h-evidence">
-      <img id="jrm-animation" src="assets/home-jrm-poster.webp" data-animation="assets/home-jrm-animation.webp" data-poster="assets/home-jrm-poster.webp" width="1340" height="428" alt="Four simulation panels compare homogeneous and heterogeneous robot teams early in evolution and after convergence. Robots transport red and yellow targets toward their matching goal zones." loading="lazy">
-      <figcaption><div><h4>Cooperative transport simulation</h4><p>Four panels, left to right.</p><ol class="clip-panels" aria-label="Video panels, left to right"><li><b>Early</b> · One controller</li><li><b>Early</b> · Two controllers</li><li><b>Converged</b> · One controller</li><li><b>Converged</b> · Two controllers, integrated selection</li></ol><a href="assets/home-jrm-animation.webp" id="jrm-open-full" aria-haspopup="dialog" aria-controls="jrm-full-viewer">Open full-size animation</a></div><button class="btn" type="button" id="jrm-play" aria-controls="jrm-animation" aria-pressed="false">Play research clip</button></figcaption>
+      <a class="spring-overview-link" href="assets/toyama-spring-research.jpg" target="_blank" rel="noopener" aria-label="Open full-size research overview from my Toyama SPRING profile"><img id="jrm-animation" src="assets/toyama-spring-research.jpg" data-animation="assets/home-jrm-animation.webp" width="1024" height="455" alt="Toyama SPRING research overview showing swarm robotics, evolutionary neural controllers, and a collective exploration comparison" loading="lazy" decoding="async"></a>
+      <figcaption><div><h4>Evolutionary swarm robotics</h4><p>Research overview from <a href="https://promotion-research.ctg.u-toyama.ac.jp/spring-student/razzaq_r5" target="_blank" rel="noopener">my University of Toyama SPRING profile</a>. The figure illustrates collective exploration. The JRM cooperative transport animation is available below.</p><p><a href="assets/toyama-spring-research.jpg" target="_blank" rel="noopener">Enlarge research overview</a></p><ol class="clip-panels" aria-label="Comparison animation panels, left to right"><li><b>Early</b> · One controller</li><li><b>Early</b> · Two controllers</li><li><b>Converged</b> · One controller</li><li><b>Converged</b> · Two controllers, integrated selection</li></ol><a href="assets/home-jrm-animation.webp" id="jrm-open-full" aria-haspopup="dialog" aria-controls="jrm-full-viewer">Open full-size animation</a></div><button class="btn" type="button" id="jrm-play" aria-controls="jrm-full-viewer" aria-haspopup="dialog">Play research clip</button></figcaption>
     </figure>
     </article>
     <div class="selected-projects related-studies"><article class="selected-project">
@@ -917,28 +928,25 @@ END OF HIDDEN GALLERY SECTION -->
 <script>
 (() => {
   const image = document.getElementById('jrm-animation');
-  const button = document.getElementById('jrm-play');
-  if (!image || !button) return;
-  let playing = false;
-  const setPlaying = (value) => {
-    playing = value;
-    image.src = playing ? image.dataset.animation : image.dataset.poster;
-    button.textContent = playing ? 'Stop research clip' : 'Play research clip';
-    button.setAttribute('aria-pressed', String(playing));
-  };
-  button.addEventListener('click', () => setPlaying(!playing));
+  const play = document.getElementById('jrm-play');
   const fullLink = document.getElementById('jrm-open-full');
   const viewer = document.getElementById('jrm-full-viewer');
   const fullImage = document.getElementById('jrm-full-image');
   const scroll = document.getElementById('jrm-full-scroll');
   const zoom = document.getElementById('jrm-zoom');
-  fullLink.addEventListener('click', event => {
-    if (typeof viewer.showModal !== 'function') return;
+  let opener = fullLink;
+  const openAnimation = (event) => {
+    if (typeof viewer.showModal !== 'function') {
+      if (event.currentTarget === play) window.location.assign(fullLink.href);
+      return;
+    }
     event.preventDefault();
-    setPlaying(false);
+    opener = event.currentTarget;
     fullImage.src = image.dataset.animation;
     viewer.showModal();
-  });
+  };
+  play.addEventListener('click', openAnimation);
+  fullLink.addEventListener('click', openAnimation);
   document.getElementById('jrm-close-full').addEventListener('click', () => viewer.close());
   zoom.addEventListener('click', () => {
     const actual = scroll.classList.toggle('actual-size');
@@ -950,11 +958,8 @@ END OF HIDDEN GALLERY SECTION -->
     scroll.classList.remove('actual-size');
     zoom.setAttribute('aria-pressed', 'false');
     zoom.textContent = 'Actual size';
-    fullLink.focus();
+    opener.focus();
   });
-
-  document.addEventListener('visibilitychange', () => { if (document.hidden && playing) setPlaying(false); });
-  image.addEventListener('error', () => { if (playing) { setPlaying(false); button.textContent = 'Clip unavailable — try again'; } });
 })();
 </script>
 </body>
