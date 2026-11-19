@@ -35,6 +35,13 @@
 <link rel="stylesheet" href="assets/site.css?v=20261111-anchor">
 <script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
 
+<style>
+.jrm-figures { max-width: none; grid-template-columns: 1fr; gap: 32px; }
+.jrm-figures .jrm-trajectory { max-width: 520px; }
+.jrm-figures figure > a { display: block; }
+.jrm-figures img, .jrm-figures figure.wide img { height: auto; aspect-ratio: auto; object-fit: contain; background: #fff; }
+.jrm-figures figure.wide { grid-column: 1 / -1; }
+</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -105,15 +112,19 @@
 <section class="sec" id="figures" aria-labelledby="h-figs">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">From my simulations</p>
-      <div><h2 id="h-figs">What the robots actually did</h2>
-        <p class="lead">Simulation trajectories, task setups and a teacher–student method diagram from the studies. These illustrate the experimental settings; the linked publications provide the evaluation and its limits.</p></div>
+      <p class="eyebrow">JRM 2023 · Cooperative transport</p>
+      <div><h2 id="h-figs">Cooperative transport in action</h2>
+        <p class="lead">Original transport trajectories from the JRM study and a comparison from my research presentation. Robots with identical bodies use different evolved neural controllers.</p></div>
     </div>
-    <div class="figs indent">
-      <figure class="reveal"><img src="assets/fig-jrm2023-transport.jpg" alt="Robot trajectories in a cooperative transport experiment with two goal zones" loading="lazy" width="708" height="712"><figcaption><b>Cooperative transport</b> by robots with different abilities. Paths of robots and objects heading to the goal zones. <a href="publications.html#J2">JRM 2023</a></figcaption></figure>
-      <figure class="reveal"><img src="assets/fig-alr2026-composition.jpg" alt="Trajectories of a heterogeneous swarm moving an object to the goal" loading="lazy" width="800" height="801"><figcaption><b>Controller distribution and team composition</b> in the simulated transport study. <a href="publications.html#J1">ALR 2026</a></figcaption></figure>
-      <figure class="reveal"><img src="assets/fig-ants2026-simulation.jpg" alt="Simulation snapshot with robots, objects, an obstacle and the goal zone" loading="lazy" width="800" height="802"><figcaption><b>Composite tasks</b>: transport, obstacle avoidance and aggregation with one student controller. <a href="publications.html#C1">ANTS 2026 · Extended abstract</a></figcaption></figure>
-      <figure class="reveal wide"><img src="assets/fig-ants2026-distillation.jpg" alt="Diagram: several teacher networks, one per task, distilled into one student network" loading="lazy" width="1045" height="651"><figcaption><b>Knowledge distillation</b>: one teacher network per task trains a single compact student network. <a href="publications.html#C1">ANTS 2026 · Extended abstract</a></figcaption></figure>
+    <div class="figs indent jrm-figures">
+      <figure class="reveal jrm-trajectory">
+        <a href="assets/fig-jrm2023-transport.jpg" target="_blank" rel="noopener" aria-label="Enlarge JRM cooperative transport trajectories"><img src="assets/fig-jrm2023-transport.jpg" alt="Robot and object trajectories in the JRM cooperative transport experiment, with red and yellow objects moving toward their matching goal zones" loading="lazy" width="708" height="712"></a>
+        <figcaption><b>Cooperative transport trajectories.</b> Paths of robots and transported objects toward the two goal zones. <a href="publications.html#J2">JRM 2023 paper</a></figcaption>
+      </figure>
+      <figure class="reveal wide jrm-comparison">
+        <a href="assets/home-jrm-animation.webp" target="_blank" rel="noopener" aria-label="Open the JRM comparison animation"><img src="assets/home-jrm-poster.webp" alt="Four-panel JRM comparison: early one-controller and two-controller teams, followed by converged one-controller and two-controller teams" loading="lazy" width="1340" height="428"></a>
+        <figcaption><b>Before and after evolution.</b> Original presentation media for the JRM study. Left to right: early one controller, early two controllers, converged one controller, converged two controllers with integrated selection. <a href="assets/home-jrm-animation.webp" target="_blank" rel="noopener">Play full-size comparison</a></figcaption>
+      </figure>
     </div>
   </div>
 </section>
