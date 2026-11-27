@@ -16,8 +16,8 @@
 .swarm-pushers {color:var(--worker)}
 .swarm-scout {color:var(--scout)}
 .swarm-transport {transform:translate(var(--swarm-static),74px);animation:swarm-deliver 26s linear infinite both}
-.swarm-scout-a {transform:translate(650px,32px);animation:swarm-scout-top 26s linear infinite both}
-.swarm-scout-b {transform:translate(410px,115px);animation:swarm-scout-bottom 26s linear infinite both}
+.swarm-scout-a {transform:translate(var(--swarm-a-mid),32px);animation:swarm-scout-top 26s linear infinite both}
+.swarm-scout-b {transform:translate(var(--swarm-b-start),115px);animation:swarm-scout-bottom 26s linear infinite both}
 .swarm-payload {fill:var(--warm);stroke:var(--worker);stroke-width:1.5}
 .swarm-payload-detail {fill:none;stroke:var(--worker);stroke-width:1;opacity:.55}
 .swarm-arrival {opacity:0;animation:swarm-arrive 26s linear infinite both}
