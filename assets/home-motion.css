@@ -1,0 +1,67 @@
+/* Homepage-only illustration. Six identical robot bodies, two controller colours. */
+.swarm-ribbon-wrap {margin-block:0 28px}
+.swarm-ribbon {margin:0;min-width:0;--swarm-start:210px;--swarm-end:867px;--swarm-static:520px;--swarm-a-left:320px;--swarm-a-mid:650px;--swarm-a-right:790px;--swarm-b-start:470px;--swarm-b-right:750px;--swarm-b-left:270px;--swarm-goal-shift:0px}
+.swarm-goal-position {transform:translateX(var(--swarm-goal-shift))}
+.swarm-ribbon svg {display:block;width:100%;height:auto;min-height:92px;max-height:144px;overflow:hidden;color:var(--line)}
+.swarm-floor {fill:var(--surface);stroke:var(--line)}
+.swarm-grid {opacity:.35}
+.swarm-route {fill:none;stroke:var(--line);stroke-width:1;stroke-dasharray:2 8}
+.swarm-route-marks {fill:none;stroke:var(--muted);stroke-width:1;opacity:.4}
+.swarm-goal {fill:var(--accent);fill-opacity:.045;stroke:var(--accent);stroke-width:1;stroke-dasharray:4 5}
+.swarm-goal-label {fill:var(--muted);font:11px var(--f-mono);letter-spacing:2px}
+.swarm-trail {fill:none;stroke:var(--accent);stroke-width:1;stroke-dasharray:2 7;opacity:.22}
+.swarm-wheel {fill:var(--ink)}
+.swarm-body {stroke:var(--surface);stroke-width:1}
+.swarm-shell {fill:var(--surface);stroke:none}
+.swarm-pushers {color:var(--worker)}
+.swarm-scout {color:var(--scout)}
+.swarm-transport {transform:translate(var(--swarm-static),74px);animation:swarm-deliver 26s linear infinite both}
+.swarm-scout-a {transform:translate(650px,32px);animation:swarm-scout-top 26s linear infinite both}
+.swarm-scout-b {transform:translate(410px,115px);animation:swarm-scout-bottom 26s linear infinite both}
+.swarm-payload {fill:var(--warm);stroke:var(--worker);stroke-width:1.5}
+.swarm-payload-detail {fill:none;stroke:var(--worker);stroke-width:1;opacity:.55}
+.swarm-arrival {opacity:0;animation:swarm-arrive 26s linear infinite both}
+.swarm-arrival circle {fill:var(--surface);stroke:var(--accent)}
+.swarm-arrival path {fill:none;stroke:var(--accent);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.swarm-ribbon .swarm-transport,.swarm-ribbon .swarm-scout,.swarm-ribbon .swarm-arrival {animation-play-state:paused}
+.swarm-ribbon[data-motion="running"] .swarm-transport,.swarm-ribbon[data-motion="running"] .swarm-scout,.swarm-ribbon[data-motion="running"] .swarm-arrival {animation-play-state:running}
+.swarm-ribbon:not([data-motion]) .swarm-transport,.swarm-ribbon:not([data-motion]) .swarm-scout,.swarm-ribbon:not([data-motion]) .swarm-arrival {animation:none}
+.swarm-ribbon figcaption {display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:8px;color:var(--muted);font: .85rem/1.5 var(--f-display)}
+.swarm-ribbon-note {margin-left:12px;font-size:.8rem}
+.swarm-motion-toggle {flex:none;min-height:44px;padding:8px 12px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink);font:inherit;cursor:pointer}
+.swarm-motion-toggle:hover {border-color:var(--accent)}
+@keyframes swarm-deliver {
+  0%,4% {transform:translate(var(--swarm-start),74px);opacity:1}
+  77%,87% {transform:translate(var(--swarm-end),74px);opacity:1}
+  94% {transform:translate(var(--swarm-end),74px);opacity:0}
+  95% {transform:translate(var(--swarm-start),74px);opacity:0}
+  100% {transform:translate(var(--swarm-start),74px);opacity:1}
+}
+@keyframes swarm-scout-top {
+  0%,100% {transform:translate(var(--swarm-a-left),32px) rotate(0deg)}
+  35% {transform:translate(var(--swarm-a-mid),28px) rotate(0deg)}
+  48% {transform:translate(var(--swarm-a-right),34px) rotate(0deg)}
+  53% {transform:translate(var(--swarm-a-right),34px) rotate(180deg)}
+  89% {transform:translate(var(--swarm-a-left),32px) rotate(180deg)}
+  95% {transform:translate(var(--swarm-a-left),32px) rotate(360deg)}
+}
+@keyframes swarm-scout-bottom {
+  0%,100% {transform:translate(var(--swarm-b-start),116px) rotate(0deg)}
+  32% {transform:translate(var(--swarm-b-right),112px) rotate(0deg)}
+  38% {transform:translate(var(--swarm-b-right),112px) rotate(180deg)}
+  73% {transform:translate(var(--swarm-b-left),116px) rotate(180deg)}
+  80% {transform:translate(var(--swarm-b-left),116px) rotate(360deg)}
+}
+@keyframes swarm-arrive {0%,76%,94%,100% {opacity:0} 80%,88% {opacity:1}}
+@media(max-width:600px) {
+  .swarm-ribbon {--swarm-start:110px;--swarm-end:425px;--swarm-static:260px;--swarm-a-left:160px;--swarm-a-mid:320px;--swarm-a-right:385px;--swarm-b-start:230px;--swarm-b-right:375px;--swarm-b-left:135px;--swarm-goal-shift:-442px}
+  .swarm-ribbon svg {min-height:96px}
+  .swarm-ribbon-note {display:block;margin:2px 0 0}
+  .swarm-ribbon figcaption {font-size:.8rem}
+  .swarm-goal-label {font-size:13px}
+}
+@media(prefers-reduced-motion:reduce) {
+  .swarm-ribbon .swarm-transport,.swarm-ribbon .swarm-scout,.swarm-ribbon .swarm-arrival {animation:none!important}
+  .swarm-ribbon .swarm-arrival {opacity:0}
+}
+@media print {.swarm-ribbon-wrap {display:none}}
