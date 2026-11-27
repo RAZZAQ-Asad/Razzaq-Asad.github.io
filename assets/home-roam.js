@@ -8,7 +8,7 @@
   const reduce = matchMedia("(prefers-reduced-motion: reduce)");
   const pauseIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 5v14M15 5v14"/></svg>';
   const playIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m8 5 11 7-11 7Z"/></svg>';
-  let width=0, height=0, obstacles=[], robots=[], colors={}, paused=false, raf=0, previous=0, clock=0, dirty=true, lastLayout=0;
+  let width=0, height=0, obstacles=[], robots=[], colors={}, paused=false, raf=0, previous=0, clock=0, dirty=true, lastScrollY=scrollY, lastScrollX=scrollX;
   const random=(a,b)=>a+Math.random()*(b-a);
   function palette() {
     const s=getComputedStyle(document.documentElement);
@@ -19,7 +19,7 @@
     const ratio=Math.min(devicePixelRatio||1,2);
     canvas.width=Math.round(width*ratio); canvas.height=Math.round(height*ratio);
     ctx.setTransform(ratio,0,0,ratio,0,0);
-    robots=[]; dirty=true; palette();
+    robots=[]; dirty=true; lastScrollY=scrollY; lastScrollX=scrollX; palette();
   }
   function collectObstacles() {
     const boxes=[];
@@ -110,7 +110,7 @@
     if(paused||reduce.matches||document.hidden)return;
     if(previous&&now-previous<32){raf=requestAnimationFrame(frame);return;}
     const dt=Math.min((now-(previous||now))/1000,.05);previous=now;clock+=dt;
-    if(dirty&&now-lastLayout>90){collectObstacles();lastLayout=now;}
+    if(dirty)collectObstacles();
     const target=width<650?2:4;
     while(robots.length<target){const r=place();if(!r)break;robots.push(r);}
     if(robots.length>target)robots.length=target;
@@ -132,7 +132,15 @@
   }
   button.addEventListener("click",()=>{paused=!paused;sync();});
   addEventListener("resize",resize);
-  addEventListener("scroll",()=>{dirty=true;},{passive:true});
+  addEventListener("scroll",()=>{
+    const dx=scrollX-lastScrollX,dy=scrollY-lastScrollY;
+    lastScrollX=scrollX;lastScrollY=scrollY;
+    // Keep robots attached to the surrounding content while the page scrolls.
+    robots.forEach(r=>{r.x-=dx;r.y-=dy;r.trail=r.trail.map(([x,y])=>[x-dx,y-dy]);});
+    dirty=true;
+    // Never display a frame based on pre-scroll text and image positions.
+    ctx.clearRect(0,0,width,height);
+  },{passive:true});
   addEventListener("load",()=>{dirty=true;});
   document.addEventListener("visibilitychange",sync);
   reduce.addEventListener("change",sync);
