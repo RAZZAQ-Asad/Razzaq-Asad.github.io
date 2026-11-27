@@ -703,9 +703,10 @@ summary { cursor: pointer; font-family: var(--f-display); font-weight: 600; padd
 .compact-updates { padding-block: 24px; }
 @media (max-width: 700px) { .featured-study { grid-template-columns: 1fr; gap: 24px; } }
 </style>
-<link rel="stylesheet" href="assets/home-motion.css?v=20261127b">
+<link rel="stylesheet" href="assets/home-roam.css?v=20261127">
 </head>
 <body>
+<canvas id="swarm-roam" aria-hidden="true"></canvas>
 <a class="skip" href="#main">Skip to content</a>
 <nav class="nav" aria-label="Main">
   <div class="wrap">
@@ -720,6 +721,7 @@ summary { cursor: pointer; font-family: var(--f-display); font-weight: 600; padd
       <li><a href="cv.html">CV & Awards</a></li>
     </ul>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <button class="roam-toggle" id="roam-toggle" type="button" aria-label="Pause background robots" title="Pause background robots" hidden></button>
     <button class="theme-btn" type="button" aria-label="Switch theme"></button>
   </div>
 </nav>
@@ -750,42 +752,7 @@ summary { cursor: pointer; font-family: var(--f-display); font-weight: 600; padd
     </div>
   </div>
 </header>
-<div class="wrap swarm-ribbon-wrap"><figure class="swarm-ribbon" id="swarm-ribbon">
-  <svg id="swarm-motion-scene" viewBox="0 0 1120 144" aria-hidden="true" focusable="false">
-    <defs>
-      <pattern id="swarm-grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="currentColor" stroke-width=".5"/></pattern>
-      <g id="swarm-robot">
-        <rect x="-6" y="-11" width="12" height="4" rx="1.5" class="swarm-wheel"/>
-        <rect x="-6" y="7" width="12" height="4" rx="1.5" class="swarm-wheel"/>
-        <circle r="9" fill="currentColor" class="swarm-body"/>
-        <circle r="5" class="swarm-shell"/>
-        <path d="M3-3 7 0 3 3Z" fill="currentColor"/>
-        <circle cx="-3" r="1.2" fill="currentColor"/>
-      </g>
-    </defs>
-    <rect x=".5" y=".5" width="100%" height="143" rx="12" class="swarm-floor"/>
-    <rect x="1" y="1" width="100%" height="142" rx="12" fill="url(#swarm-grid)" class="swarm-grid"/>
-    <path d="M80 74H977" class="swarm-route"/>
-    <path d="m125 70 5 4-5 4m335-8 5 4-5 4m335-8 5 4-5 4" class="swarm-route-marks"/>
-    <g class="swarm-goal-position"><rect x="845" y="20" width="102" height="108" rx="12" class="swarm-goal"/>
-    <text x="969" y="78" class="swarm-goal-label">GOAL</text></g>
-    <path d="M100 40C250 12 390 24 510 34M210 117C360 132 620 119 762 109" class="swarm-trail"/>
-    <g class="swarm-scout swarm-scout-a"><use href="#swarm-robot"/></g>
-    <g class="swarm-scout swarm-scout-b"><use href="#swarm-robot"/></g>
-    <g class="swarm-transport">
-      <g class="swarm-pushers">
-        <use href="#swarm-robot" transform="translate(-11 -27)"/>
-        <use href="#swarm-robot" transform="translate(-11 -9)"/>
-        <use href="#swarm-robot" transform="translate(-11 9)"/>
-        <use href="#swarm-robot" transform="translate(-11 27)"/>
-      </g>
-      <rect x="1" y="-37" width="54" height="74" rx="6" class="swarm-payload"/>
-      <path d="M11-27H45V27H11ZM28-27V27M11 0H45" class="swarm-payload-detail"/>
-    </g>
-    <g class="swarm-goal-position"><g class="swarm-arrival"><circle cx="896" cy="74" r="15"/><path d="m889 74 5 5 9-10"/></g></g>
-  </svg>
-  <figcaption><span>Cooperation in motion <span class="swarm-ribbon-note">Illustrative animation</span></span><button type="button" class="swarm-motion-toggle" aria-controls="swarm-motion-scene" hidden>Pause animation</button></figcaption>
-</figure></div>
+
 <section class="sec" aria-labelledby="h-research">
   <div class="wrap">
     <div class="sec-head">
@@ -954,6 +921,6 @@ END OF HIDDEN GALLERY SECTION -->
   });
 })();
 </script>
-<script src="assets/home-motion.js?v=20261127" defer></script>
+<script src="assets/home-roam.js?v=20261127" defer></script>
 </body>
 </html>
